@@ -5,14 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { FuncionarioModule } from './funcionario/funcionario.module';
+import { ClienteModule } from './cliente/cliente.module';
+import { AutenticacaoModule } from './autenticacao/autenticacao.module';
+
+import { RouterModule } from '@angular/router';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FuncionarioModule,
+    ClienteModule,
+    AutenticacaoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

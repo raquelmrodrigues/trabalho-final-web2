@@ -1,0 +1,18 @@
+.btn-cadastro {
+    color: white !important;
+    background-color: #857DC4 !important;
+    border: #91C2D8 !important;
+}
+
+a {
+    color:#91C2D8 !important;
+}
+
+.sub-titulo {
+    color: #857DC4;
+}
+
+input {
+    /* ironicamente isso aqui é melhor do que colocar pb-3 em todos os campos do form */
+    margin-bottom: 5% !important;
+}
