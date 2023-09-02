@@ -1,5 +1,5 @@
 <div  class="conteiner-fluid">
-  <nav *ngIf="componenteAtivo !== 'login' && componenteAtivo !== 'cadastro' && componenteAtivo !== 'inicialFuncionario' && componenteAtivo !== 'confirmacaoRecolhimento'" class="navbar navbar-expand-lg bg-body-tertiary p-0">
+  <nav *ngIf="componenteAtivo !== 'login' && componenteAtivo !== 'cadastro' && componenteAtivo !== 'inicialFuncionario' && componenteAtivo !== 'confirmacaoRecolhimento' && componenteAtivo !== 'listarPedidos'" class="navbar navbar-expand-lg bg-body-tertiary p-0">
 
     <div class="container-fluid ms-5 p-0">
       <a class="navbar-brand m-0 p-0"><img height="64" width="64" src="../assets/maquina.png"></a>
@@ -28,23 +28,23 @@
 
     </div>
   </nav>
-  <nav *ngIf="componenteAtivo == 'inicialFuncionario' || componenteAtivo == 'confirmacaoRecolhimento' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
+  <nav *ngIf="componenteAtivo == 'inicialFuncionario' || componenteAtivo == 'confirmacaoRecolhimento' || componenteAtivo == 'listarPedidos' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
 
     <div class="container-fluid ms-5 p-0"> 
       <a class="navbar-brand m-0 p-0"><img height="64" width="64" src="../assets/maquina.png"></a>
 
       <ul class="navbar-nav nav-underline">
         <li class="nav-item mx-5">
-        <a href="cliente.html" class="nav-link active">Inicio</a>
+          <a routerLink="/funcionario/inicialFuncionario" class="nav-link" [class.active]="componenteAtivo === 'inicialFuncionario'">Inicio</a>
+
         </li>
         <li class="nav-item mx-5">
-        <a href="pedidoscliente.html" class="nav-link">Pedidos online</a>
+          <a routerLink="/funcionario/listarPedidos" class="nav-link" [class.active]="componenteAtivo === 'listarPedidos'">Meus pedidos</a>
+
         </li>
         <li class="nav-item mx-5">
-        <a href="listaPedidos.html" class="nav-link">Meus pedidos</a>
-        </li>
-        <li class="nav-item mx-5">
-        <a href="consultarpedido.html" class="nav-link">Consultar pedido</a>
+          <a class="nav-link" [class.active]="componenteAtivo === 'confirmacaoRecolhimento'">Recolher Pedido</a>
+
         </li>
       </ul>
 

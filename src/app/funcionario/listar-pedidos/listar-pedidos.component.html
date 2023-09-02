@@ -1,0 +1,60 @@
+<h1 class="titulo text-center">Pedidos - Funcionários</h1>
+<div class="container-fluid">
+  <table class="table table-bordered table-hover mx-auto" style="width: 70vw;">
+    <tbody>
+      <tr class="text-center">
+        <th class="a">Número</th>
+        <th class="a">Data</th>
+        <th class="a">Status</th>
+        <th class="a">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="filtroDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Filtro <i class="fas fa-filter"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="filtroDropdown">
+              <li><a class="dropdown-item" href="#">Pedidos de Hoje</a></li>
+              <li><a class="dropdown-item" href="#">Período de Data</a></li>
+              <li><a class="dropdown-item" href="#">Todos os Pedidos</a></li>
+            </ul>
+          </div>
+        </th>
+      </tr>
+      <ng-container *ngFor="let pedido of pedidos">
+        <tr class="text-center align-middle">
+          <td>#{{ pedido.id }}</td>
+          <!--<td>{{pedido.date | json}}</td>-->
+          <td>{{ pedido.dia }}/{{ pedido.mes }}/{{ pedido.ano }}</td>
+          <td class="status" [style.background-color]="pedido.status?.color">
+            {{ pedido.status?.Status }}
+          </td>
+          <td>
+            <a
+              *ngIf="pedido.status?.Status == 'Aberto'"
+              class="btn btn-xs btn-warning">
+              <i class="fa-solid fa-truck" style="color: #151514;"></i> Recolher</a>
+            <a
+              *ngIf="pedido.status?.Status == 'Recolhido'"
+              class="btn btn-xs btn-secondary"
+              ><i class="fa-solid fa-bath"></i> Lavagem</a
+            >
+            <a
+              *ngIf="pedido.status?.Status == 'Pago'"
+              class="btn btn-xs btn-success"
+              ><i class="fa-solid fa-check"></i> Finalizar</a
+            >
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <p *ngIf="pedidos.length == 0" class="text-center">
+    Nenhum Pedido Encontrado
+  </p>
+</div>
+

@@ -4,6 +4,7 @@ import { LoginComponent } from './autenticacao/login/login.component';
 import { CadastroComponent } from './autenticacao/cadastro/cadastro.component';
 import { InicialFuncionarioComponent } from './funcionario/inicial-funcionario/inicial-funcionario.component';
 import { ConfirmarRecolhimentoComponent } from './funcionario/confirmar-recolhimento/confirmar-recolhimento.component';
+import { ListarPedidosComponent } from './funcionario/listar-pedidos/listar-pedidos.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
   path: 'funcionario/confirmacaoRecolhimento',
   component: ConfirmarRecolhimentoComponent
+  },
+  {
+  path: 'funcionario/listarPedidos',
+  component: ListarPedidosComponent  
   }];
 
 @NgModule({
