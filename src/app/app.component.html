@@ -1,4 +1,8 @@
+<!-- Aqui vai as navbar, pra cadastrar algo novo nelas usa o routerLink com o path que tu especificou no app-routing.module 
+  e pra fazer elas sumirem ou aparecerem em uma tela especifica usa os if dentro delas com o nome da classe da tela. -->
+
 <div  class="conteiner-fluid">
+  <!-- Nav bar de cliente -->
   <nav *ngIf="componenteAtivo !== 'login' && componenteAtivo !== 'cadastro' && componenteAtivo !== 'inicialFuncionario' && componenteAtivo !== 'confirmacaoRecolhimento' && componenteAtivo !== 'listarPedidos'" class="navbar navbar-expand-lg bg-body-tertiary p-0">
 
     <div class="container-fluid ms-5 p-0">
@@ -6,28 +10,29 @@
 
       <ul class="navbar-nav nav-underline">
         <li class="nav-item mx-5">
-        <a href="cliente.html" class="nav-link">Inicio</a>
+          <a routerLink="/cliente/inicialCliente" class="nav-link" [class.active]="componenteAtivo === 'inicialCliente'">Inicio</a>
         </li>
         <li class="nav-item mx-5">
-        <a routerLink="/cliente/pedidosCliente" class="nav-link">Pedidos online</a>
+          <a routerLink="/cliente/pedidosCliente" class="nav-link" [class.active]="componenteAtivo === 'pedidosCliente'">Pedidos Online</a>
         </li>
         <li class="nav-item mx-5">
-        <a routerLink="/cliente/listarPedidosCliente" class="nav-link">Meus pedidos</a>
+          <a routerLink="/cliente/listarPedidosCliente" class="nav-link" [class.active]="componenteAtivo === 'listarPedidosCliente'">Meus Pedidos</a>
         </li>
         <li class="nav-item mx-5">
-        <a routerLink="/cliente/consultarPedido" class="nav-link active">Consultar pedido</a>
+          <a routerLink="/cliente/consultarPedido" class="nav-link" [class.active]="componenteAtivo === 'consultarPedido'">Consultar Pedido</a>
         </li>
       </ul>
 
       <form class="d-flex justify-content-end" role="search" style="background: #CF8DA7; border-top-left-radius: 20px; border-bottom-left-radius: 20px">
         <img class="ms-3 p-2" height="64" width="64" src="../assets/amaciante.png">
         <div class="input-group p-3 me-3 text-center">
-    <a class="fs-4 text-light" href="./login.html">Login</a>
+    <a class="fs-4 text-light" routerLink="/autenticacao/login">Login</a>
         </div>
       </form>
 
     </div>
   </nav>
+  <!-- Nav bar de funcionario -->
   <nav *ngIf="componenteAtivo == 'inicialFuncionario' || componenteAtivo == 'confirmacaoRecolhimento' || componenteAtivo == 'listarPedidos' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
 
     <div class="container-fluid ms-5 p-0"> 
@@ -57,5 +62,6 @@
 
     </div>
   </nav>
+  <!-- dentro do app.component.html da pra por qlqer coisa que seja meio "global" na aplicação, as nav bar são um exemplo disso -->
   <router-outlet></router-outlet>
   </div>
