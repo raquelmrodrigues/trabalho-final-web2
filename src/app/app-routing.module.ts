@@ -5,6 +5,11 @@ import { CadastroComponent } from './autenticacao/cadastro/cadastro.component';
 import { InicialFuncionarioComponent } from './funcionario/inicial-funcionario/inicial-funcionario.component';
 import { ConfirmarRecolhimentoComponent } from './funcionario/confirmar-recolhimento/confirmar-recolhimento.component';
 import { ListarPedidosComponent } from './funcionario/listar-pedidos/listar-pedidos.component';
+import { InicialClienteComponent } from './cliente/inicial-cliente/inicial-cliente.component';
+import { ConsultarPedidoComponent } from './cliente/consultar-pedido/consultar-pedido.component';
+import { ListarPedidosClienteComponent } from './cliente/listar-pedidos-cliente/listar-pedidos-cliente.component';
+import { OrcamentoClienteComponent } from './cliente/orcamento-cliente/orcamento-cliente.component';
+import { PedidosClienteComponent } from './cliente/pedidos-cliente/pedidos-cliente.component';
 
 
 const routes: Routes = [
@@ -36,7 +41,28 @@ const routes: Routes = [
   {
   path: 'funcionario/listarPedidos',
   component: ListarPedidosComponent  
-  }];
+  },
+  {
+    path: 'cliente/inicialCliente',
+    component: InicialClienteComponent
+  },
+  {
+    path: 'cliente/consultarPedido',
+    component: ConsultarPedidoComponent
+  },
+  {
+    path: 'cliente/listarPedidosCliente',
+    component: ListarPedidosClienteComponent
+  },
+  {
+    path: 'cliente/orcamentoCliente',
+    component: OrcamentoClienteComponent
+  },
+  {
+    path: 'cliente/pedidosCliente',
+    component: PedidosClienteComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
