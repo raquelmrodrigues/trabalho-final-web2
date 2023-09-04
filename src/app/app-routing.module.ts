@@ -10,6 +10,7 @@ import { ConsultarPedidoComponent } from './cliente/consultar-pedido/consultar-p
 import { ListarPedidosClienteComponent } from './cliente/listar-pedidos-cliente/listar-pedidos-cliente.component';
 import { OrcamentoClienteComponent } from './cliente/orcamento-cliente/orcamento-cliente.component';
 import { PedidosClienteComponent } from './cliente/pedidos-cliente/pedidos-cliente.component';
+import { FinalizarPedidoComponent } from './funcionario/finalizar-pedido/finalizar-pedido.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
   path: 'funcionario/confirmacaoRecolhimento',
   component: ConfirmarRecolhimentoComponent
+  },
+  {
+  path: 'funcionario/finalizarPedido',
+  component: FinalizarPedidoComponent
   },
   {
   path: 'funcionario/listarPedidos',
