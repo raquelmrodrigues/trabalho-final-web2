@@ -1,4 +1,4 @@
-# TODO
+## TODO
 
 - Arrumar as navbars das telas de funcionario (algumas tão com os links do cliente)
 - Fazer muito na tela de criar pedido do cliente (botão de mais)
@@ -8,6 +8,11 @@
 - Remover o item "Recolher pedido" da navbar do funcionário
 - Remover a tela de finalizar pedido (eduardo)
 - Implementar modal nos botões de status (Finalizar, lavagem e recolher)
+
+# Pra 11/09
+
+- Adicionar a tela dos relatórios n(juntar pra fazer essas porra td os 4 raquel, du, anita, chicory)
+- Adicionar a tela do CRUD de funcionários (giu e thaly)
 
 # Especificação e requisitos
 
