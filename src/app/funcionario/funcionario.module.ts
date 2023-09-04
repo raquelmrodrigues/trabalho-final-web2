@@ -4,13 +4,16 @@ import { RouterModule } from '@angular/router';
 import { InicialFuncionarioComponent } from './inicial-funcionario/inicial-funcionario.component';
 import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
 import { ListarPedidosComponent } from './listar-pedidos/listar-pedidos.component';
+import { FinalizarPedidoComponent } from './finalizar-pedido/finalizar-pedido.component';
 
 
 @NgModule({
   declarations: [
     InicialFuncionarioComponent,
     ConfirmarRecolhimentoComponent,
-    ListarPedidosComponent
+    FinalizarPedidoComponent,
+    ListarPedidosComponent,
+    FinalizarPedidoComponent
   ],
   imports: [
     CommonModule,
