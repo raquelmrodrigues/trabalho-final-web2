@@ -1,3 +1,24 @@
+#Especificação e requisitos
+
+| Requisito | Descrição                     | Rota                                |
+|-----------|-------------------------------|-------------------------------------|
+| RF001     | Autocadastro                  | autenticacao/cadastro               |
+| RF002     | Login                         | autenticacao/login                  |
+| RF003     | Pagina inicial de Cliente     | cliente/inicialCliente              |
+| RF004     | Pedido on-line                | cliente/pedidosCliente              |
+| RF005     | Aprovar orçamento do pedido   | cliente/orcamentoCliente            |
+| RF006     | Rejeitar orçamento do pedido  | cliente/orcamentoCliente            |
+| RF007     | Listagem de pedidos           | cliente/listarPedidosCliente        |
+| RF008     | Cancelamento de pedidos       | cliente/consultarPedido             |
+| RF009     | Consulta de pedido            | cliente/consultarPedido             |
+| RF010     | Pagar pedido                  | cliente/pedidosCliente              |
+| RF011     | Pagina inicial de Funcionario | funcionario/incialFuncionario       |
+| RF012     | Confirmacao de recolhimento   | funcionario/confirmacaoRecolhimento |
+| RF013     | Visualizacao de pedidos       | funcionario/listarPedidos           |
+| RF014     | Confirmacao de lavagem        | -                                   |
+| RF015     | Finalizacao de Pedido         | funcionario/finalizarPedido         |
+| RF016     | Manutencao de Pecas de Roupas | outro repo                          |
+
 # TrabalhoWeb2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
