@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './autenticacao/login/login.component';
 import { CadastroComponent } from './autenticacao/cadastro/cadastro.component';
@@ -11,6 +11,7 @@ import { ListarPedidosClienteComponent } from './cliente/listar-pedidos-cliente/
 import { OrcamentoClienteComponent } from './cliente/orcamento-cliente/orcamento-cliente.component';
 import { PedidosClienteComponent } from './cliente/pedidos-cliente/pedidos-cliente.component';
 import { FinalizarPedidoComponent } from './funcionario/finalizar-pedido/finalizar-pedido.component';
+import { SelecionarRelatorioComponent } from './relatorio/selecionar-relatorio/selecionar-relatorio.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'cliente/pedidosCliente',
     component: PedidosClienteComponent
+  },
+  {
+  path: 'relatorio/selecionarRelatorio',
+    component: SelecionarRelatorioComponent
   }
 ];
 
