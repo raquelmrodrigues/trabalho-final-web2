@@ -1,12 +1,12 @@
 ## TODO
 
 - Arrumar as navbars das telas de funcionario (algumas tão com os links do cliente)
-- Fazer muito na tela de criar pedido do cliente (botão de mais)
+- ~Fazer muito na tela de criar pedido do cliente (botão de mais)~
 - Padronizar a tabela horrorosa na tela de lista de pedidos do cliente e o link que tá no icone de + pra jogar na tela de consulta, mais o filtro
 - Dar merge no CRUD das roupas e arrumar as telas do mesmo
 - Implementar os botões e filtros na listagem de pedidos do funcionário
 - Remover o item "Recolher pedido" da navbar do funcionário
-- Remover a tela de finalizar pedido (eduardo)
+- ~Remover a tela de finalizar pedido (eduardo)~ 
 - Implementar modal nos botões de status (Finalizar, lavagem e recolher)
 
 # Pra 11/09
