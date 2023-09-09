@@ -5,7 +5,6 @@ import { InicialFuncionarioComponent } from './inicial-funcionario/inicial-funci
 import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
 import { ListarPedidosComponent } from './listar-pedidos/listar-pedidos.component';
 import { CrudFuncionarioService } from './services/crud-funcionario.service';
-import { PedidosService } from './services/pedidos.service';
 import { ListarFuncionarioComponent } from './listar-funcionario/listar-funcionario.component';
 import { FormsModule } from '@angular/forms';
 import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funcionario.component';
