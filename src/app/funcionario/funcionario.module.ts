@@ -5,10 +5,12 @@ import { InicialFuncionarioComponent } from './inicial-funcionario/inicial-funci
 import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
 import { ListarPedidosComponent } from './listar-pedidos/listar-pedidos.component';
 import { CrudFuncionarioService } from './services/crud-funcionario.service';
-import { PedidosService } from './services/pedidos.service';
 import { ListarFuncionarioComponent } from './listar-funcionario/listar-funcionario.component';
 import { FormsModule } from '@angular/forms';
 import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funcionario.component';
+import { ListarManutencaoComponent } from './listar-manutencao/listar-manutencao.component';
+import { InserirManutencaoComponent } from './inserir-manutencao/inserir-manutencao.component';
+import { EditarManutencaoComponent } from './editar-manutencao/editar-manutencao.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funci
     ConfirmarRecolhimentoComponent,
     ListarPedidosComponent,
     ListarFuncionarioComponent,
-    InserirFuncionarioComponent
+    InserirFuncionarioComponent,
+    ListarManutencaoComponent,
+    InserirManutencaoComponent,
+    EditarManutencaoComponent
   ],
   imports: [
     CommonModule,
