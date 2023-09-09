@@ -28,7 +28,7 @@
       <ng-container *ngFor="let pedido of pedidos">
         <tr class="text-center align-middle">
           <td>#{{ pedido.id }}</td>
-          <!--<td>{{pedido.date | json}}</td>-->
+          <td>{{pedido.date | date}}</td>
           <td>{{ pedido.dia }}/{{ pedido.mes }}/{{ pedido.ano }}</td>
           <td class="status" [style.background-color]="pedido.status?.color">
             {{ pedido.status?.Status }}
