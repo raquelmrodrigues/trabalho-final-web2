@@ -10,6 +10,8 @@ import { ClienteModule } from './cliente/cliente.module';
 import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 
 import { RouterModule } from '@angular/router';
+import { RelatorioModule } from './relatorio/relatorio.module';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { RouterModule } from '@angular/router';
     NgbModule,
     FuncionarioModule,
     ClienteModule,
-    AutenticacaoModule
+    AutenticacaoModule,
+    RelatorioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
