@@ -1,0 +1,32 @@
+<h1 class="titulo p-4">Funcionários</h1>
+<table class="table table-striped table-bordered table-hover ms-5" >
+    <tbody>
+        <tr>
+            <th class="a">Nome</th>
+            <th class="a">Email</th>
+            <th class="a">Data de Nascimento</th>
+            <th class="text-center">
+                <a [routerLink]="['/funcionario/novoFuncionario']"
+                href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Novo
+                </a>
+            </th>
+        </tr>
+        <tr *ngFor="let funcionario of funcionarios">
+            <td>{{funcionario.nome}} </td>
+            <td>{{funcionario.email}}</td>
+            <td>{{funcionario.dataDeNasc | date}}</td>
+            <td class="text-center" style="width: 460px">
+                <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                    <i class="fa fa-edit" aria-hidden="true"></i> Editar
+                </a>
+                <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger">
+                    <i class="fa fa-times" aria-hidden="true"></i> Remover
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p *ngIf="funcionarios.length==0">Nenhum funcionario cadastrado.</p>

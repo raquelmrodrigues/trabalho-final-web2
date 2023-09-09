@@ -4,17 +4,28 @@ import { RouterModule } from '@angular/router';
 import { InicialFuncionarioComponent } from './inicial-funcionario/inicial-funcionario.component';
 import { ConfirmarRecolhimentoComponent } from './confirmar-recolhimento/confirmar-recolhimento.component';
 import { ListarPedidosComponent } from './listar-pedidos/listar-pedidos.component';
-
+import { CrudFuncionarioService } from './services/crud-funcionario.service';
+import { PedidosService } from './services/pedidos.service';
+import { ListarFuncionarioComponent } from './listar-funcionario/listar-funcionario.component';
+import { FormsModule } from '@angular/forms';
+import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funcionario.component';
 
 @NgModule({
   declarations: [
     InicialFuncionarioComponent,
     ConfirmarRecolhimentoComponent,
     ListarPedidosComponent,
+    ListarFuncionarioComponent,
+    InserirFuncionarioComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
-  ]
+    RouterModule,
+    FormsModule,
+  ],
+ providers: [
+  CrudFuncionarioService,
+ ]
+
 })
 export class FuncionarioModule { }
