@@ -2,8 +2,9 @@ body {
 	font-family: Helvetica, sans-serif;
 }
 
-.titulo-tela {
-  color: #857DC4;
+.titulo-tela{
+  color: #CF8DA7; 
+  font-weight: bold;
 }
 
 .pedido{
@@ -12,6 +13,6 @@ body {
 
 .btn-recolhe {
   color: white !important;
-  background-color: #CF8DA7 !important;
+  background-color: #857DC4 !important;
   border: #91C2D8 !important;
 }
