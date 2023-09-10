@@ -13,6 +13,5 @@ a {
 }
 
 input {
-    /* ironicamente isso aqui é melhor do que colocar pb-3 em todos os campos do form */
     margin-bottom: 5% !important;
 }
