@@ -37,9 +37,9 @@
   </nav>
   <!-- Nav bar de funcionario -->
 
-  <nav *ngIf="componenteAtivo == 'inicialFuncionario' || componenteAtivo == 'confirmacaoRecolhimento' || componenteAtivo == 'listarPedidos' 
-        || componenteAtivo == 'listarFuncionario' || componenteAtivo == 'novoFuncionario' || componenteAtivo == 'inserirManutencao' || componenteAtivo == 'editarManutencao' 
-        || componenteAtivo == 'listarManutencao'" class="navbar navbar-expand-lg bg-body-tertiary p-0">
+  <nav *ngIf="componenteAtivo !== 'login' && componenteAtivo !== 'cadastro' && componenteAtivo !== 'inicialCliente'
+        && componenteAtivo !== 'consultarPedido' && componenteAtivo !== 'listarPedidosCliente' && componenteAtivo !== 'orcamentoCliente' 
+        && componenteAtivo !== 'pedidosCliente'" class="navbar navbar-expand-lg bg-body-tertiary p-0">
 
 
     <div class="container-fluid ms-5 p-0"> 
@@ -60,6 +60,10 @@
         </li>
         <li class="nav-item mx-5">
           <a routerLink="/funcionario/listarFuncionario" class="nav-link" [class.active]="componenteAtivo === 'listarFuncionario'">Manter Funcionários</a>
+
+        </li>
+        <li class="nav-item mx-5">
+          <a routerLink="/relatorio/selecionarRelatorio" class="nav-link" [class.active]="componenteAtivo === 'selecionarRelatorio'">Relatórios</a>
 
         </li>
       </ul>
