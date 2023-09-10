@@ -22,9 +22,28 @@
                         <i class="fa fa-edit" aria-hidden="true"></i> Editar
                     </a>
                     <a href="#" title="Remover" alt="Remover" class="btn-remover btn"
-                    (click)="remover($event, funcionario)">
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalRemover">
                         <i class="fa fa-times" aria-hidden="true"></i> Remover
                     </a>
+                    <div class="modal fade" id="modalRemover">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5">Confirmar remoção</h1>
+                                <button type="button" class="btn-close"></button>
+                                </div>
+                                <div class="modal-body">
+                                Confirme a remoção do funcionário <b>{{funcionario.nome}}</b>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                (click)="remover($event, funcionario)">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
