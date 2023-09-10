@@ -14,17 +14,20 @@
   </head>
 
   <body>
-    <div class="cont">
+    <div class="cont frame">
       <h1>Selecione o tipo de Relatorio:</h1>
-      <button type="submit" class="btn btn-baixo col-2" (click)="generatePDF()">
-        Gerar PDF Clientes
+      <button type="submit" class="btn btn-baixo col-2 btn-3" (click)="gerarRelatorio('clientes')">
+        <span>Gerar PDF Clientes</span>
       </button>
-      <button type="submit" class="btn btn-baixo col-2" (click)="generatePDF()">
-        Gerar PDF Pedidos
+      <button type="submit" class="btn btn-baixo col-2 btn-3" (click)="gerarRelatorio('receitas')">
+        <span>Gerar PDF Receitas</span>
       </button>
-      <button type="submit" class="btn btn-baixo col-2" (click)="generatePDF()">
-        Gerar PDF Receitas
+      <button type="submit" class="btn btn-baixo col-2 btn-3" (click)="gerarRelatorio('clientesFieis')">
+        <span>Gerar PDF Clientes Fieis</span>
       </button>
+      <button routerLink="/cliente/inicialCliente" class="btn btn-baixo col-2 btn-3">
+      <span>Voltar</span>
+    </button>
     </div>
   </body>
 </html>
