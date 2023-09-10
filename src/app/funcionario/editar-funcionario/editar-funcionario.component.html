@@ -1,0 +1,52 @@
+<h1 class="titulo m-3 ps-5">Editar Funcionário</h1>
+<div class="well">
+    <form #formFuncionario="ngForm">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="funcionario.nome" #nome="ngModel"
+                minlength="2" required>
+            <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+                <div [hidden]="!nome.errors['required']">Digite o nome do funcionário</div>
+                <div [hidden]="!nome.errors['minlength']">O nome deve conter ao menos 2 caracteres.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" [(ngModel)]="funcionario.email"
+                #email="ngModel" required>
+            <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+                <div [hidden]="!email.errors['required']"> Digite o email do funcionário</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dataDeNasc">Data de nascimento:</label>
+            <input type="text" class="form-control" id="dataDeNasc" name="dataDeNasc"
+                [(ngModel)]="funcionario.dataDeNasc" #dataDeNasc="ngModel" required>
+            <div *ngIf="dataDeNasc.errors && (dataDeNasc.dirty || dataDeNasc.touched)" class="alert alert-danger">
+                <div [hidden]="!dataDeNasc.errors['required']"> Insira uma data de nascimento válida</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Data de nascimento:</label>
+            <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="funcionario.senha"
+                #senha="ngModel" required>
+            <div *ngIf="senha.errors && (senha.dirty || dataDeNasc.touched)" class="alert alert-danger">
+                <div [hidden]="!senha.errors['required']"> Insira uma senha válida</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="button" class="atualiza btn m-3" (click)="atualizar()"
+                [disabled]="!formFuncionario.form.valid">
+                <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+            </button>
+            <a class="voltar btn" [routerLink]="['/funcionario/listarFuncionario']" >
+                <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+            </a>
+        </div>
+
+    </form>
+</div>

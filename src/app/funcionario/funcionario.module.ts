@@ -9,6 +9,7 @@ import { PedidosService } from './services/pedidos.service';
 import { ListarFuncionarioComponent } from './listar-funcionario/listar-funcionario.component';
 import { FormsModule } from '@angular/forms';
 import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funcionario.component';
+import { EditarFuncionarioComponent } from './editar-funcionario/editar-funcionario.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funci
     ConfirmarRecolhimentoComponent,
     ListarPedidosComponent,
     ListarFuncionarioComponent,
-    InserirFuncionarioComponent
+    InserirFuncionarioComponent,
+    EditarFuncionarioComponent
   ],
   imports: [
     CommonModule,

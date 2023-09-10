@@ -16,16 +16,19 @@ constructor(private crudfuncionario : CrudFuncionarioService){}
 
 ngOnInit():void{
  this.funcionarios = this.listarTodos();
+ console.log(this.funcionarios);
 }
 
 listarTodos(): Funcionario[] {
-  //return this.crudfuncionario.listarTodos();
- return [
-  new Funcionario (1, "lllllll@lll.com", "LNome", new Date(), "LSenha"),
-  new Funcionario (1, "mmmmmmm@mmm.com", "MNome", new Date(), "MSenha"),
-  new Funcionario (1, "nnnnnnn@nnn.com", "NNome", new Date(), "NSenha"),
-  new Funcionario (1, "ooooooo@ooo.com", "ONome", new Date(), "OSenha"),
- ]
+  return this.crudfuncionario.listarTodos();
 }
+
+remover($event: any, funcionario: Funcionario): void {
+  $event.preventDefault();
+  if (confirm(`Deseja realmente remover a pessoa ${funcionario.nome}?`)) {
+  this.crudfuncionario.remover(funcionario.id!);
+  this.funcionarios = this.listarTodos();
+  }
+  }
 
 }

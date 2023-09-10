@@ -12,6 +12,7 @@ import { OrcamentoClienteComponent } from './cliente/orcamento-cliente/orcamento
 import { PedidosClienteComponent } from './cliente/pedidos-cliente/pedidos-cliente.component';
 import { ListarFuncionarioComponent } from './funcionario/listar-funcionario/listar-funcionario.component';
 import { InserirFuncionarioComponent } from './funcionario/inserir-funcionario/inserir-funcionario.component';
+import { EditarFuncionarioComponent } from './funcionario/editar-funcionario/editar-funcionario.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'funcionario/listarFuncionario',
     component: ListarFuncionarioComponent
+  },
+  {
+    path: 'funcionario/editarFuncionario/:id',
+    component: EditarFuncionarioComponent
   },
   {
     path: 'cliente/inicialCliente',
