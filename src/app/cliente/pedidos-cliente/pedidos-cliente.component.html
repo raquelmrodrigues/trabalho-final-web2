@@ -8,24 +8,105 @@
   <body>
 
     <div class="text-center" id="produtos">
-        <h2 class="mb-3">Novo Pedido</h2>
+        <h2 class="my-3">Novo Pedido</h2>
 
         <div class="row pedido justify-content-evenly">
-          <div class="list-group w-50 my-3">
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Camiseta manga curta</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Sobretudo</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Calça moletom</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Calça Jeans</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Regata</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Camiseta manga comprida</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Moletom com touca</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Bermuda jeans</a>
-            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Toalha de rosto</a>
-            </div>
+          <table class="table table-bordered table-sm w-50">
+            <thead>
+              <th class="w-75">Roupa</th>
+              <th class="w-25">Quantidade</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Camiseta manga curta</td>
+                <td class="row p-0 m-0 d-flex justify-content-center d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Sobretudo</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Calça moletom</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Calça jeans</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Regata</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Edredom</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Camiseta manga comprida</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Moletom hoodie</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Toalha de rosto</td>
+                <td class="row p-0 m-0 d-flex justify-content-center">
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">-</button>
+                  <p class="col-4 m-0">1</p>
+                  <button style="width: 10%" class="col-1 btn btn-outline-secondary btn-sm">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
     </div>
 
-    <div class="row mx-5 px-5 justify-content-center">      
+    <div class="row mx-5 px-5 justify-content-center">     
+
+      <div class="px-5 mx-5 btn-group w-50">
+        <select class="form-control">
+          <option selected>Adicionar uma peça...</option>
+          <option>Calça jeans</option>
+          <option>Fronha</option>
+          <option>Camiseta manga curta</option>
+          <option>Vestido</option>
+          <option>Bermuda</option>
+        </select>
+        <button class="btn btn-giu">+</button>
+      </div>
 
       <form class="row mx-5 w-50">
         <div class="form-group col-6">
@@ -38,10 +119,10 @@
         </div>
         <div class="row justify-content-center mt-3">
           <div class="col-md-3">
-              <button type="button" class="btn btn-cadastro col-12">Confirmar</button>
+              <button type="button" class="btn btn-giu col-12">Confirmar</button>
           </div>
           <div class="col-md-3 offset-md-2">
-              <button type="button" class="btn btn-cadastro w-100">Cancelar</button>
+              <button type="button" class="btn btn-giu w-100">Cancelar</button>
           </div>
         </div>
       </form>
