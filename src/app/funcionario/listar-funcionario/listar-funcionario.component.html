@@ -15,7 +15,7 @@
         <tr *ngFor="let funcionario of funcionarios">
             <td>{{funcionario.nome}} </td>
             <td>{{funcionario.email}}</td>
-            <td>{{funcionario.dataDeNasc}}</td>
+            <td>{{funcionario.dataDeNasc | date: 'dd/MM/yyyy'}}</td>
             <td class="text-center" style="width: 460px">
                 <a [routerLink]="['/funcionario/editarFuncionario', funcionario.id]" href="#" title="Editar" alt="Editar" class="editar btn btn-xs m-1">
                     <i class="fa fa-edit" aria-hidden="true"></i> Editar
