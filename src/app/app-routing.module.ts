@@ -10,14 +10,15 @@ import { ConsultarPedidoComponent } from './cliente/consultar-pedido/consultar-p
 import { ListarPedidosClienteComponent } from './cliente/listar-pedidos-cliente/listar-pedidos-cliente.component';
 import { OrcamentoClienteComponent } from './cliente/orcamento-cliente/orcamento-cliente.component';
 import { PedidosClienteComponent } from './cliente/pedidos-cliente/pedidos-cliente.component';
+import { SelecionarRelatorioComponent } from './relatorio/selecionar-relatorio/selecionar-relatorio.component';
 
+import { EditarFuncionarioComponent } from './funcionario/editar-funcionario/editar-funcionario.component';
 import { ListarFuncionarioComponent } from './funcionario/listar-funcionario/listar-funcionario.component';
 import { InserirFuncionarioComponent } from './funcionario/inserir-funcionario/inserir-funcionario.component';
-import { SelecionarRelatorioComponent } from './relatorio/selecionar-relatorio/selecionar-relatorio.component';
+
 import { ListarManutencaoComponent } from './funcionario/listar-manutencao/listar-manutencao.component';
 import { EditarManutencaoComponent } from './funcionario/editar-manutencao/editar-manutencao.component';
 import { InserirManutencaoComponent } from './funcionario/inserir-manutencao/inserir-manutencao.component';
-
 
 const routes: Routes = [
   {
@@ -58,6 +59,11 @@ const routes: Routes = [
     component: ListarFuncionarioComponent
   },
   {
+
+    path: 'funcionario/editarFuncionario/:id',
+    component: EditarFuncionarioComponent
+  },
+  {
     path: 'funcionario/listarManutencao',
     component: ListarManutencaoComponent
   },
@@ -72,9 +78,11 @@ const routes: Routes = [
   {
     path: 'funcionario/inserirManutencao',
     component: InserirManutencaoComponent
+
   },
   {
     path: 'cliente/inicialCliente',
+   
     component: InicialClienteComponent
   },
   {
