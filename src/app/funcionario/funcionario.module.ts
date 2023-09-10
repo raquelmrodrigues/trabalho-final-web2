@@ -8,9 +8,7 @@ import { CrudFuncionarioService } from './services/crud-funcionario.service';
 import { ListarFuncionarioComponent } from './listar-funcionario/listar-funcionario.component';
 import { FormsModule } from '@angular/forms';
 import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funcionario.component';
-
 import { EditarFuncionarioComponent } from './editar-funcionario/editar-funcionario.component';
-
 import { ListarManutencaoComponent } from './listar-manutencao/listar-manutencao.component';
 import { InserirManutencaoComponent } from './inserir-manutencao/inserir-manutencao.component';
 import { EditarManutencaoComponent } from './editar-manutencao/editar-manutencao.component';
@@ -25,13 +23,11 @@ import { DataComponent } from './data/data.component';
     ListarPedidosComponent,
     ListarFuncionarioComponent,
     InserirFuncionarioComponent,
-
-    EditarFuncionarioComponent,
-
     ListarManutencaoComponent,
     InserirManutencaoComponent,
-
-    EditarManutencaoComponent
+    EditarManutencaoComponent,
+    DataComponent,
+    EditarFuncionarioComponent
 
   ],
   imports: [

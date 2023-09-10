@@ -82,7 +82,6 @@ const routes: Routes = [
   },
   {
     path: 'cliente/inicialCliente',
-   
     component: InicialClienteComponent
   },
   {
