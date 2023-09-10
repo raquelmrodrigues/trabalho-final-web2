@@ -20,13 +20,13 @@ ngOnInit():void{
 }
 
 listarTodos(): Funcionario[] {
-  return this.crudfuncionario.listarTodos();
+  return this.crudfuncionario.listarFuncionario();
 }
 
 remover($event: any, funcionario: Funcionario): void {
   $event.preventDefault();
   if (confirm(`Deseja realmente remover a pessoa ${funcionario.nome}?`)) {
-  this.crudfuncionario.remover(funcionario.id!);
+  this.crudfuncionario.removerFuncionario(funcionario.id!);
   this.funcionarios = this.listarTodos();
   }
   }

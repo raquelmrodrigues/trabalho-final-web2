@@ -22,7 +22,7 @@ export class EditarFuncionarioComponent implements OnInit {
 
   ngOnInit(): void {
     let id = +this.route.snapshot.params['id'];
-    const res = this.funcionarioService.buscarPorId(id);
+    const res = this.funcionarioService.buscarPorIdFuncionario(id);
     if (res !== undefined)
       this.funcionario = res;
     else
@@ -31,7 +31,7 @@ export class EditarFuncionarioComponent implements OnInit {
 
   atualizar(): void {
     if (this.formFuncionario.form.valid) {
-      this.funcionarioService.atualizar(this.funcionario);
+      this.funcionarioService.atualizarFuncionario(this.funcionario);
       this.router.navigate(['/funcionarios/listarFuncionarios']);
     }
   }

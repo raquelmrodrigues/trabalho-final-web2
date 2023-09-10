@@ -24,7 +24,7 @@ import { EditarManutencaoComponent } from './editar-manutencao/editar-manutencao
     ListarFuncionarioComponent,
     InserirFuncionarioComponent,
 
-    EditarFuncionarioComponent
+    EditarFuncionarioComponent,
 
     ListarManutencaoComponent,
     InserirManutencaoComponent,

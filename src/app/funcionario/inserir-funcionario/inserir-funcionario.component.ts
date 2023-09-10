@@ -24,7 +24,7 @@ export class InserirFuncionarioComponent {
 
   inserir(): void {
     if (this.formFuncionario.form.valid) {
-      this.funcionarioService.inserir(this.funcionario);
+      this.funcionarioService.inserirFuncionario(this.funcionario);
       this.router.navigate(["/pessoas"]);
     }
   }
