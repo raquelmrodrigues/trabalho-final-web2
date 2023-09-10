@@ -11,6 +11,8 @@ import { InserirFuncionarioComponent } from './inserir-funcionario/inserir-funci
 import { ListarManutencaoComponent } from './listar-manutencao/listar-manutencao.component';
 import { InserirManutencaoComponent } from './inserir-manutencao/inserir-manutencao.component';
 import { EditarManutencaoComponent } from './editar-manutencao/editar-manutencao.component';
+import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { DataComponent } from './data/data.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { EditarManutencaoComponent } from './editar-manutencao/editar-manutencao
     InserirFuncionarioComponent,
     ListarManutencaoComponent,
     InserirManutencaoComponent,
-    EditarManutencaoComponent
+    EditarManutencaoComponent,
+    DataComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    NgbDatepickerModule
   ],
  providers: [
   CrudFuncionarioService,
