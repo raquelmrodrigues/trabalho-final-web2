@@ -1,16 +1,23 @@
-.titulo{
+body {
+	font-family: Helvetica, sans-serif;
+}
+
+.titulo-tela{
     color: #CF8DA7; 
     font-weight: bold;
 }
 
-.novo{
+.btn-novo{
    background-color: #CF8DA7;
+   color: white !important;
 }
 
-.editar{
-background-color: #857DC4 ;
+.btn-editar{
+    background-color: #857DC4 ;
+    color: white !important;
 }
 
-.remover{
-background-color: #91C2D8;
+.btn-remover{
+    background-color: #91C2D8;
+    color: white !important;
 }

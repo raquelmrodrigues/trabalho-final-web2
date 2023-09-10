@@ -3,17 +3,23 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { RouterModule } from '@angular/router';
+import { NgxMaskDirective } from 'ngx-mask';
+import { CpfMaskDirective } from './cpf-mask.directive';
+import { TelefoneMaskDirective } from './telefone-mask.directive';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    CpfMaskDirective,
+    TelefoneMaskDirective
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    NgxMaskDirective
   ]
 })
 export class AutenticacaoModule { }

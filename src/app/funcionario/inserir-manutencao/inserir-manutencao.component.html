@@ -1,5 +1,5 @@
 <body>
-    <h1 class="text-center titulo-tela my-5 mx-0">Nova Roupa</h1>
+    <h1 class="text-center titulo-tela my-5 mx-0">Inserir Peça de Roupa</h1>
     <div class="well d-flex justify-content-center">
         <form #formManutencao="ngForm" class="w-50">
             <div class="form-group mb-3">
@@ -33,12 +33,12 @@
                 </div>
             </div>
             <div class="form-group mb-3 d-flex justify-content-center row">
-                <button type="button" class="btn btn-primary col-3 me-1"
+                <button type="button" class="btn btn-remover col-3 me-1"
                     (click)="inserir()"
                     [disabled]="!formManutencao.form.valid">
                     <i class="fa fa-save" aria-hidden="true"></i> Salvar
                 </button>
-                <a class="btn btn-secondary col-3"
+                <a class="btn btn-editar col-3"
                     [routerLink]="['/funcionario/listarManutencao']">
                     <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
                 </a>

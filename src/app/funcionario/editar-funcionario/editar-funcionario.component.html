@@ -1,7 +1,7 @@
-<h1 class="titulo m-3 ps-5">Editar Funcionário</h1>
-<div class="well">
-    <form #formFuncionario="ngForm">
-        <div class="form-group">
+<h1 class="text-center titulo-tela my-5">Editar Funcionário</h1>
+<div class="well d-flex justify-content-center">
+    <form #formFuncionario="ngForm" class="w-50">
+        <div class="form-group mb-3">
             <label for="nome">Nome:</label>
             <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="funcionario.nome" #nome="ngModel"
                 minlength="2" required>
@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="email">Email:</label>
             <input type="text" class="form-control" id="email" name="email" [(ngModel)]="funcionario.email"
                 #email="ngModel" required>
@@ -20,16 +20,16 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="dataDeNasc">Data de nascimento:</label>
-            <input  (click)="openDateRangePickerModal()" [value]="this.selectedDateRange | date: 'dd/MM/yyyy'" type="text" class="form-control" id="dataDeNasc" name="dataDeNasc"
+            <input  type="date" class="form-control" id="dataDeNasc" name="dataDeNasc"
                 [(ngModel)]="funcionario.dataDeNasc" #dataDeNasc="ngModel" required>
             <div *ngIf="dataDeNasc.errors && (dataDeNasc.dirty || dataDeNasc.touched)" class="alert alert-danger">
                 <div [hidden]="!dataDeNasc.errors['required']"> Insira uma data de nascimento válida</div>
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="senha">Senha:</label>
             <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="funcionario.senha"
                 #senha="ngModel" required>
@@ -38,12 +38,12 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <button type="button" class="atualiza btn m-3" (click)="atualizar()"
+        <div class="form-group mb-3 d-flex justify-content-center row">
+            <button type="button" class="btn-salvar btn col-3 me-1" (click)="atualizar()"
                 [disabled]="!formFuncionario.form.valid">
                 <i class="fa fa-save" aria-hidden="true"></i> Atualizar
             </button>
-            <a class="voltar btn" [routerLink]="['/funcionario/listarFuncionario']" >
+            <a class="btn-voltar btn col-3" [routerLink]="['/funcionario/listarFuncionario']" >
                 <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
             </a>
         </div>
