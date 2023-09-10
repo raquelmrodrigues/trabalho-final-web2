@@ -3,6 +3,11 @@
     text-decoration: none;
 }
 
+.titulo {
+  color: #CF8DA7;
+  font-weight: bold;
+}
+
 .cont {
     width: 150px;
     height: 300px;
@@ -14,27 +19,23 @@
 body {
     text-align: center;
  }
-
  .btn-baixo{
     color: white;
     width: 200px;
     margin-left: 10px;
 }
-
 .frame {
     width: 50%;
     margin: 40px auto;
     text-align: center;
   }
-
 .btn-3 {
     background: linear-gradient(0deg, #857DC4 0%, #CF8DA7 100%);
-    width: 130px;
+    width: 200px;
     height: 40px;
     line-height: 42px;
     padding: 0;
     border: none;
-    
   }
   .btn-3 span {
     position: relative;
@@ -77,7 +78,7 @@ body {
     content: "";
     left: 0;
     bottom: 0;
-     background: #857DC4;
+    background: #857DC4;
     transition: all 0.4s ease;
   }
   .btn-3 span:before {

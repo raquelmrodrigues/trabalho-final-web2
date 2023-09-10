@@ -3,7 +3,11 @@ import { NgForm } from '@angular/forms';
 import { CrudFuncionarioService } from '../services/crud-funcionario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Funcionario } from 'src/app/shared/models/funcionario.model';
+<<<<<<< HEAD
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+=======
+
+>>>>>>> a348bbe71050df651e87df76533a27aae23e099f
 @Component({
   selector: 'app-editar-funcionario',
   templateUrl: './editar-funcionario.component.html',
@@ -28,7 +32,10 @@ export class EditarFuncionarioComponent implements OnInit {
     else
       throw new Error("Funcionário não encontrado: id = " + id);
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> a348bbe71050df651e87df76533a27aae23e099f
 
   atualizar(): void {
     if (this.formFuncionario.form.valid) {
