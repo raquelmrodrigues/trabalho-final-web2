@@ -3,8 +3,12 @@
 
 <div  class="conteiner-fluid">
   <!-- Nav bar de cliente -->
+
+  <nav *ngIf="componenteAtivo !== 'login' && componenteAtivo !== 'cadastro' && componenteAtivo !== 'inicialFuncionario' && componenteAtivo !== 'confirmacaoRecolhimento' && componenteAtivo !== 'listarPedidos' && componenteAtivo !== 'listarFuncionario' && componenteAtivo!== 'novoFuncionario' && componenteAtivo!=='editarFuncionario/:id' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
+
   <nav *ngIf="componenteAtivo == 'consultarPedido' || componenteAtivo == 'inicialCliente' || componenteAtivo == 'listarPedidosCliente' 
        || componenteAtivo == 'orcamentoCliente' || componenteAtivo == 'pedidosCliente'" class="navbar navbar-expand-lg bg-body-tertiary p-0">
+
 
     <div class="container-fluid ms-5 p-0">
       <a class="navbar-brand m-0 p-0"><img height="64" width="64" src="../assets/maquina.png"></a>
@@ -34,9 +38,13 @@
     </div>
   </nav>
   <!-- Nav bar de funcionario -->
+
+  <nav *ngIf="componenteAtivo == 'inicialFuncionario' || componenteAtivo == 'confirmacaoRecolhimento' || componenteAtivo == 'listarPedidos' || componenteAtivo == 'listarFuncionario' || componenteAtivo == 'novoFuncionario' || componenteAtivo == 'editarFuncionario/:id' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
+
   <nav *ngIf="componenteAtivo == 'inicialFuncionario' || componenteAtivo == 'confirmacaoRecolhimento' || componenteAtivo == 'listarPedidos' 
         || componenteAtivo == 'listarFuncionario' || componenteAtivo == 'novoFuncionario' || componenteAtivo == 'inserirManutencao' || componenteAtivo == 'editarManutencao' 
         || componenteAtivo == 'listarManutencao'" class="navbar navbar-expand-lg bg-body-tertiary p-0">
+
 
     <div class="container-fluid ms-5 p-0"> 
       <a class="navbar-brand m-0 p-0"><img height="64" width="64" src="../assets/maquina.png"></a>
