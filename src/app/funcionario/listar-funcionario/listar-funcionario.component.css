@@ -2,3 +2,15 @@
     color: #CF8DA7; 
     font-weight: bold;
 }
+
+.novo{
+   background-color: #CF8DA7;
+}
+
+.editar{
+background-color: #857DC4 ;
+}
+
+.remover{
+background-color: #91C2D8;
+}
