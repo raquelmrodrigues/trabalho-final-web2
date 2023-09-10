@@ -23,13 +23,13 @@ export class TelefoneMaskDirective {
     if (value.length <= 2) {
       return `+${value}`;
     } else if (value.length <= 4) {
-      return `+${value.slice(0, 2)}-${value.slice(2)}`;
+      return `+${value.slice(0, 2)} (${value.slice(2)}`;
     } else if (value.length <= 6) {
-      return `+${value.slice(0, 2)}-${value.slice(2, 4)}-${value.slice(4)}`;
+      return `+${value.slice(0, 2)} (${value.slice(2, 4)}) ${value.slice(4)}`;
     } else if (value.length <= 10) {
-      return `+${value.slice(0, 2)}-${value.slice(2, 4)}-${value.slice(4, 5)}-${value.slice(5)}`;
+      return `+${value.slice(0, 2)} (${value.slice(2, 4)}) ${value.slice(4, 5)}-${value.slice(5)}`;
     } else {
-      return `+${value.slice(0, 2)}-${value.slice(2, 4)}-${value.slice(4, 5)}-${value.slice(5, 9)}-${value.slice(9)}`;
+      return `+${value.slice(0, 2)} (${value.slice(2, 4)}) ${value.slice(4, 5)}-${value.slice(5, 9)}-${value.slice(9)}`;
     }
   }
 }

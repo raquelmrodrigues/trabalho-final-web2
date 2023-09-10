@@ -19,5 +19,8 @@ body {
     .form-check-input{
         padding-top: 20%;
     }
-
+    .titulo-tela{
+        color:#857DC4; 
+        font-weight: bold;
+      }
 

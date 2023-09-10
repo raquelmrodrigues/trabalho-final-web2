@@ -12,11 +12,6 @@ import { Router } from '@angular/router';
 export class InserirFuncionarioComponent {
   @ViewChild('formFuncionario') formFuncionario!: NgForm;
   funcionario!: Funcionario;
-<<<<<<< HEAD
-  selectedDateRange: Date | null = null;
-  
-=======
->>>>>>> a348bbe71050df651e87df76533a27aae23e099f
 
   constructor(
     private funcionarioService: CrudFuncionarioService,
@@ -26,10 +21,6 @@ export class InserirFuncionarioComponent {
   ngOnInit(): void {
     this.funcionario = new Funcionario();
   }
-<<<<<<< HEAD
-  
-=======
->>>>>>> a348bbe71050df651e87df76533a27aae23e099f
   inserir(): void {
     if (this.formFuncionario.form.valid) {
       this.funcionarioService.inserirFuncionario(this.funcionario);
