@@ -22,7 +22,7 @@
 
         <div class="form-group">
             <label for="dataDeNasc">Data de nascimento:</label>
-            <input (click)="openDateRangePickerModal()" type="text" class="form-control" id="dataDeNasc" name="dataDeNasc" [value]="this.selectedDateRange | date: 'dd/MM/yyyy'"
+            <input type="date" class="form-control" id="dataDeNasc" name="dataDeNasc" 
             [(ngModel)] = "funcionario.dataDeNasc" #dataDeNasc="ngModel" required>
         </div>
 
