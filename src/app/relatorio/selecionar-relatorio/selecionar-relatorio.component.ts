@@ -8,14 +8,14 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./selecionar-relatorio.component.css']
 })
 
-export class SelecionarRelatorioComponent {
+export class SelecionarRelatorioComponent implements OnInit {
   ngOnInit(): void {
   }
 
   generatePDF() {
-    const pdf = new jsPDF(); // Crie um novo objeto jsPDF
-    pdf.text('Hello world!', 10, 10); // Exemplo de como adicionar texto ao PDF
-    pdf.save('meu-arquivo-pdf.pdf'); // Nome do arquivo PDF gerado
+    const pdf = new jsPDF();
+    pdf.text('Conteudo do Relatório Escolhido:', 10, 10);
+    pdf.save('relatorio-pdf.pdf');
   }
 }
 

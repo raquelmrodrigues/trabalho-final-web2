@@ -6,3 +6,11 @@
 body {
     text-align: center
  }
+
+ .btn-baixo{
+    color: white !important;
+    background-color: #857DC4 !important;
+    border: #91C2D8 !important;
+    width: 180px;
+    margin-left: 10px;
+}

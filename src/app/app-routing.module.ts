@@ -17,6 +17,11 @@ import { SelecionarRelatorioComponent } from './relatorio/selecionar-relatorio/s
 import { ListarManutencaoComponent } from './funcionario/listar-manutencao/listar-manutencao.component';
 import { EditarManutencaoComponent } from './funcionario/editar-manutencao/editar-manutencao.component';
 import { InserirManutencaoComponent } from './funcionario/inserir-manutencao/inserir-manutencao.component';
+import { RelatorioClientesComponent } from './relatorio/relatorio-clientes/relatorio-clientes.component';
+import { RelatorioPedidosComponent } from './relatorio/relatorio-pedidos/relatorio-pedidos.component';
+import { RelatorioReceitasComponent } from './relatorio/relatorio-receitas/relatorio-receitas.component';
+
+
 
 
 const routes: Routes = [
@@ -96,6 +101,18 @@ const routes: Routes = [
   {
   path: 'relatorio/selecionarRelatorio',
     component: SelecionarRelatorioComponent
+  },
+  {
+    path: 'relatorio/relatorioClientes',
+      component: RelatorioClientesComponent
+  },
+  {
+    path: 'relatorio/relatorioPedidos',
+      component: RelatorioPedidosComponent
+  },
+  {
+    path: 'relatorio/relatorioReceitas',
+      component: RelatorioReceitasComponent
   }
 ];
 
