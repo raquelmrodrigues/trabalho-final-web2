@@ -24,7 +24,7 @@ peca: any;
   inserir(): void {
     if (this.formManutencao.form.valid) {
     this.manutencaoService.inserirItem(this.manutencao);
-    this.router.navigate( ["/manutencao/listar"] );
+    this.router.navigate( ["/funcionario/listarManutencao"] );
     }
     }
 
