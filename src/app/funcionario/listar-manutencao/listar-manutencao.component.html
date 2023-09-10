@@ -8,7 +8,7 @@
                  <th>Prazo de Entrega</th>
                  <th class="text-center">
                       <a [routerLink]="['/funcionario/inserirManutencao']" 
-                        href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
+                        href="#" title="Novo" alt="Novo" class="btn btn-novo">
                         <i class="fa fa-plus" aria-hidden="true"></i> Novo
                     </a>
                 </th>
@@ -19,10 +19,10 @@
                 <td>{{manutencao.valorUn}} </td>
                 <td>{{manutencao.dtEntrega}}</td>
                 <td class="text-center" style="width: 300px">
-                    <a [routerLink]="['/funcionario/editarManutencao', manutencao.id]" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                    <a [routerLink]="['/funcionario/editarManutencao', manutencao.id]" href="#" title="Editar" alt="Editar" class="btn btn-editar me-1">
                         <i class="fa fa-edit" aria-hidden="true"></i> Editar
                     </a>
-                    <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger"
+                    <a href="#" title="Remover" alt="Remover" class="btn btn-remover"
                     data-bs-toggle="modal"
                     data-bs-target="#modalRemover">
                         <i class="fa fa-times" aria-hidden="true"></i> Remover
