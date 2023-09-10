@@ -22,7 +22,7 @@
 
         <div class="form-group mb-3">
             <label for="dataDeNasc">Data de nascimento:</label>
-            <input  (click)="openDateRangePickerModal()" [value]="this.selectedDateRange | date: 'dd/MM/yyyy'" type="text" class="form-control" id="dataDeNasc" name="dataDeNasc"
+            <input type="date" class="form-control" id="dataDeNasc" name="dataDeNasc"
                 [(ngModel)]="funcionario.dataDeNasc" #dataDeNasc="ngModel" required>
             <div *ngIf="dataDeNasc.errors && (dataDeNasc.dirty || dataDeNasc.touched)" class="alert alert-danger">
                 <div [hidden]="!dataDeNasc.errors['required']"> Insira uma data de nascimento válida</div>
