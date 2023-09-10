@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PedidosService } from '../services/pedidos.service';
 import { StatusPedido } from 'src/app/shared/models/status-pedido';
 import { Pedido } from 'src/app/shared/models/pedido';
 
@@ -12,7 +11,6 @@ export class ListarPedidosComponent implements OnInit {
   pedidos: Pedido[] = [];
 
   constructor(
-    private pedidoService: PedidosService
   ) {}
 
   ngOnInit(): void {

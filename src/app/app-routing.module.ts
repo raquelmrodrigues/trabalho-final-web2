@@ -16,6 +16,11 @@ import { EditarFuncionarioComponent } from './funcionario/editar-funcionario/edi
 import { ListarFuncionarioComponent } from './funcionario/listar-funcionario/listar-funcionario.component';
 import { InserirFuncionarioComponent } from './funcionario/inserir-funcionario/inserir-funcionario.component';
 
+import { SelecionarRelatorioComponent } from './relatorio/selecionar-relatorio/selecionar-relatorio.component';
+import { ListarManutencaoComponent } from './funcionario/listar-manutencao/listar-manutencao.component';
+import { EditarManutencaoComponent } from './funcionario/editar-manutencao/editar-manutencao.component';
+import { InserirManutencaoComponent } from './funcionario/inserir-manutencao/inserir-manutencao.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -55,8 +60,25 @@ const routes: Routes = [
     component: ListarFuncionarioComponent
   },
   {
+
     path: 'funcionario/editarFuncionario/:id',
     component: EditarFuncionarioComponent
+
+    path: 'funcionario/listarManutencao',
+    component: ListarManutencaoComponent
+  },
+  {
+    path: 'funcionario/editarManutencao',
+    component: EditarManutencaoComponent
+  },
+  {
+    path: 'funcionario/editarManutencao/:id',
+    component: EditarManutencaoComponent
+  },
+  {
+    path: 'funcionario/inserirManutencao',
+    component: InserirManutencaoComponent
+
   },
   {
     path: 'cliente/inicialCliente',
