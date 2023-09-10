@@ -1,8 +1,8 @@
 <body>
-    <h1>Editar Peças de Roupa</h1>
-    <div class="well">
-        <form #formManutencao="ngForm">
-            <div class="form-group">
+    <h1 class="text-center titulo-tela my-5 mx-0">Editar Peças de Roupa</h1>
+    <div class="well d-flex justify-content-center">
+        <form #formManutencao="ngForm" class="w-50">
+            <div class="form-group mb-3">
                 <label for="peca">Nome da peça:</label>
                 <input type="text" class="form-control" id="peca" name="peca"
                     [(ngModel)]="manutencao.peca"
@@ -12,34 +12,34 @@
                 <div [hidden]="!peca.errors?.['required']">Digite o nome da peça de roupa.</div>
                 </div>
             </div>      
-                    <div class="form-group">
-                    <label for="valorUn">Preço:</label>
-                    <input type="text" class="form-control" id="valorUn" name="valorUn"
-                        [(ngModel)]="manutencao.valorUn"
-                        #valorUn="ngModel"
-                        minlength="3" required>
-                        <div *ngIf="valorUn.errors && (valorUn.dirty || valorUn.touched)" class="alert alert-danger">
-                        <div [hidden]="!valorUn.errors?.['required']"> Digite o valor unitário da peça. </div>
-                        <div [hidden]="!valorUn.errors?.['minlength']">O valor unitário deve conter valores válidos. </div>
-                        </div>
-                    </div>               
-                    <div class="form-group">
-                     <label for="dtEntrega">Prazo de entrega:</label>
-                     <input type="text" class="form-control" id="dtEntrega" name="dtEntrega"
-                        [(ngModel)]="manutencao.dtEntrega"
-                        #dtEntrega="ngModel"
-                        minlength="1" required>
-                        <div *ngIf="dtEntrega.errors && (dtEntrega.dirty || dtEntrega.touched)" class="alert alert-danger">
-                        <div [hidden]="!dtEntrega.errors?.['required']"> Digite o tempo para o prazo de entrega.</div>             
-                        </div>
-                    </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-primary"
+            <div class="form-group mb-3">
+                <label for="valorUn">Preço:</label>
+                <input type="text" class="form-control" id="valorUn" name="valorUn"
+                [(ngModel)]="manutencao.valorUn"
+                #valorUn="ngModel"
+                minlength="3" required>
+                <div *ngIf="valorUn.errors && (valorUn.dirty || valorUn.touched)" class="alert alert-danger">
+                <div [hidden]="!valorUn.errors?.['required']"> Digite o valor unitário da peça. </div>
+                <div [hidden]="!valorUn.errors?.['minlength']">O valor unitário deve conter valores válidos. </div>
+                </div>
+            </div>               
+            <div class="form-group mb-3">
+                <label for="dtEntrega">Prazo de entrega:</label>
+                <input type="text" class="form-control" id="dtEntrega" name="dtEntrega"
+                [(ngModel)]="manutencao.dtEntrega"
+                #dtEntrega="ngModel"
+                minlength="1" required>
+                <div *ngIf="dtEntrega.errors && (dtEntrega.dirty || dtEntrega.touched)" class="alert alert-danger">
+                <div [hidden]="!dtEntrega.errors?.['required']"> Digite o tempo para o prazo de entrega.</div>             
+                </div>
+            </div>
+            <div class="form-group mb-3 d-flex justify-content-center row">
+                <button type="button" class="btn btn-primary col-3 me-1"
                     (click)="atualizar()"
                     [disabled]="!formManutencao.form.valid">
                     <i class="fa fa-save" aria-hidden="true"></i> Atualizar
                 </button>
-                <a class="btn btn-secondary"
+                <a class="btn btn-secondary col-3"
                     [routerLink]="['/funcionario/listarManutencao']">
                     <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
                 </a>
