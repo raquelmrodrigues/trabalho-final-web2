@@ -27,9 +27,13 @@
                   Filtro <i class="fas fa-filter"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="filtroDropdown">
-                  <li><a class="dropdown-item" (click)="filterPedidos('Pedidos de Hoje')">Pedidos de Hoje</a></li>
-                  <li><a class="dropdown-item" (click)="openDateRangePickerModal()">Período de Data</a></li>
                   <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Todos os Pedidos</a></li>
+                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Em Aberto</a></li> 
+                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Cancelado</a></li>  
+                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Recolhido</a></li> 
+                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Aguardando Pagamento</a></li>
+                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Pago</a></li>  
+                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Finalizado</a></li> 
                 </ul>
               </div>
             </th>

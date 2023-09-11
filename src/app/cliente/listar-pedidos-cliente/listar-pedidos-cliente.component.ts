@@ -26,22 +26,7 @@ export class ListarPedidosClienteComponent implements OnInit{
       return dateA - dateB;
     });
   }
-  openDateRangePickerModal() {
-    this.dateRangeModal = this.modalService.open(DataComponent);
-    this.dateRangeModal.componentInstance.dateRangeSelected.subscribe(
-      (dates: Date[]) => {
-        this.selectedDateRange = dates;
-        this.filterPeriodo(this.selectedDateRange);
-      }
-    );
 
-    this.dateRangeModal.hidden.subscribe(() => {
-      if (this.dateRangeModal) {
-        this.dateRangeModal.close();
-        this.dateRangeModal = null;
-      }
-    });
-  }
   filterPeriodo(dateRange: Date[]) {
     if (dateRange.length === 2) {
       this.pedidos = this.pedidos.filter((pedido) => {
@@ -76,24 +61,9 @@ export class ListarPedidosClienteComponent implements OnInit{
       });
     }
   }
-  AlterarStatus(novoStatus: StatusPedido, numeroPedido: number) {
-    const pedidos = this.listarPedidos();
-    const pedido = pedidos.find((p) => p.id === numeroPedido);
-    if (pedido) {
-      console.log(pedido.status);
-      pedido.status = novoStatus;
-      console.log(pedido.status);
 
-      if (novoStatus === StatusPedido.FINALIZADO) {
-        alert(`Pedido ${numeroPedido} foi finalizado.`);
-      } else if (novoStatus === StatusPedido.RECOLHIDO) {
-        alert(`Pedido ${numeroPedido} está sendo recolhido.`);
-      }
-      else if (novoStatus === StatusPedido.AGUARDANDO) {
-        alert(`Pedido ${numeroPedido} está aguardando o pagamento.`);
-      }
-    }
-  }
+
+
 
   listarPedidos(): Pedido[] {
     return [
