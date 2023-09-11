@@ -28,12 +28,13 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="filtroDropdown">
                   <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Todos os Pedidos</a></li>
-                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Em Aberto</a></li> 
-                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Cancelado</a></li>  
-                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Recolhido</a></li> 
-                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Aguardando Pagamento</a></li>
-                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Pago</a></li>  
-                  <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Finalizado</a></li> 
+                  <li><a class="dropdown-item" (click)="filtroStatus('Aberto')">Em Aberto</a></li>
+                  <li><a class="dropdown-item" (click)="filtroStatus('Rejeitado')">Rejeitado</a></li>
+                  <li><a class="dropdown-item" (click)="filtroStatus('Cancelado')">Cancelado</a></li>
+                  <li><a class="dropdown-item" (click)="filtroStatus('Recolhido')">Recolhido</a></li>
+                  <li><a class="dropdown-item" (click)="filtroStatus('Aguardando Pagamento')">Aguardando Pagamento</a></li>
+                  <li><a class="dropdown-item" (click)="filtroStatus('Pago')">Pago</a></li>
+                  <li><a class="dropdown-item" (click)="filtroStatus('Finalizado')">Finalizado</a></li>
                 </ul>
               </div>
             </th>

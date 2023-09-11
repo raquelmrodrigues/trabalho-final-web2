@@ -38,6 +38,69 @@ export class ListarPedidosClienteComponent implements OnInit{
       });
     }
   }
+  filtroStatus(status: string) {
+    switch(status){
+      case 'Aberto': {
+        const pedidos = this.listarPedidos();
+        this.pedidos = pedidos.filter((pedido) => {
+          return pedido.status?.Status === status;
+        });
+        return pedidos;
+      }
+      case 'Rejeitado': {
+        const pedidos = this.listarPedidos();
+        this.pedidos = pedidos.filter((pedido) => {
+          return pedido.status?.Status === status;
+        });
+        return pedidos;
+
+      }
+      case 'Cancelado': {
+        const pedidos = this.listarPedidos();
+        this.pedidos = pedidos.filter((pedido) => {
+          return pedido.status?.Status === status;
+        });
+        return pedidos;
+
+      }
+      case 'Recolhido': {
+        const pedidos = this.listarPedidos();
+        this.pedidos = pedidos.filter((pedido) => {
+          return pedido.status?.Status === status;
+        });
+        return pedidos;
+
+      }
+      case 'Aguardando Pagamento': {
+        const pedidos = this.listarPedidos();
+        this.pedidos = pedidos.filter((pedido) => {
+          return pedido.status?.Status === status;
+        });
+        return pedidos;
+
+      }
+      case 'Pago': {
+        const pedidos = this.listarPedidos();
+        this.pedidos = pedidos.filter((pedido) => {
+          return pedido.status?.Status === status;
+        });
+        return pedidos;
+
+      }
+      case 'Finalizado': {
+        const pedidos = this.listarPedidos();
+        this.pedidos = pedidos.filter((pedido) => {
+          return pedido.status?.Status === status;
+        });
+        return pedidos;
+
+      }
+      default: {
+        return console.log("Erro");
+      }
+    }
+  }
+
   filterPedidos(option: string) {
     this.selectedFilterOption = option;
 
