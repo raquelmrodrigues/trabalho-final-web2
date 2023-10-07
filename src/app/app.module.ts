@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 
 import { RouterModule } from '@angular/router';
 import { RelatorioModule } from './relatorio/relatorio.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,12 +23,14 @@ import { RelatorioModule } from './relatorio/relatorio.module';
   imports: [
     RouterModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule,
     FuncionarioModule,
     ClienteModule,
     AutenticacaoModule,
-    RelatorioModule
+    RelatorioModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

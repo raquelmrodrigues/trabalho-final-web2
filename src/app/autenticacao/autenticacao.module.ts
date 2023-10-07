@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgxMaskDirective } from 'ngx-mask';
 import { CpfMaskDirective } from './cpf-mask.directive';
 import { TelefoneMaskDirective } from './telefone-mask.directive';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { TelefoneMaskDirective } from './telefone-mask.directive';
   imports: [
     CommonModule,
     RouterModule,
-    NgxMaskDirective
+    NgxMaskDirective,
+    FormsModule
   ]
 })
 export class AutenticacaoModule { }

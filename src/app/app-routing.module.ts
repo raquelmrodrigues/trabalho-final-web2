@@ -19,6 +19,7 @@ import { InserirFuncionarioComponent } from './funcionario/inserir-funcionario/i
 import { ListarManutencaoComponent } from './funcionario/listar-manutencao/listar-manutencao.component';
 import { EditarManutencaoComponent } from './funcionario/editar-manutencao/editar-manutencao.component';
 import { InserirManutencaoComponent } from './funcionario/inserir-manutencao/inserir-manutencao.component';
+import { AuthGuard } from './autenticacao/auth.guard';
 
 const routes: Routes = [
   {
@@ -40,7 +41,11 @@ const routes: Routes = [
   },
   {
     path: 'funcionario/inicialFuncionario',
-    component: InicialFuncionarioComponent
+    component: InicialFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE,FUNC'
+    }
   },
   {
     path: 'funcionario/confirmacaoRecolhimento',
