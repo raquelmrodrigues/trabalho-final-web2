@@ -11,7 +11,7 @@ export class RelatorioService {
 
   generateCliente() {
     const pdf = new jsPDF();
-    pdf.text('', 10, 10);
+    pdf.text('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 10, 10);
     pdf.save('relatorio-cliente-pdf.pdf');
   }
 
