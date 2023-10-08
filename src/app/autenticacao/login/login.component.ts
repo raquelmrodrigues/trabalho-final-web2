@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterLink ,Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-login',
