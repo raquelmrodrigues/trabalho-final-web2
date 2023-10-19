@@ -11,6 +11,8 @@ import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 
 import { RouterModule } from '@angular/router';
 import { RelatorioModule } from './relatorio/relatorio.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,7 +28,9 @@ import { RelatorioModule } from './relatorio/relatorio.module';
     FuncionarioModule,
     ClienteModule,
     AutenticacaoModule,
-    RelatorioModule
+    RelatorioModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
