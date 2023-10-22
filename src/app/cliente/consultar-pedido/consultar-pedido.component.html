@@ -68,8 +68,8 @@
       </div>
 	  
 	  <div class="d-flex justify-content-evenly mt-4">
-		<button type="submit" class="btn btn-baixo col-2">Cancelar</button>
-		<button type="submit" class="btn btn-baixo col-2">Pagar pedido</button>
+		<button type="submit" class="btn btn-baixo col-2" [routerLink]="['/cliente/inicialCliente']">Cancelar</button>
+		<button type="submit" class="btn btn-baixo col-2" onclick="alert('O Pedido está sendo processado.')" [routerLink]="['/cliente/inicialCliente']">Pagar pedido</button>
 	  </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

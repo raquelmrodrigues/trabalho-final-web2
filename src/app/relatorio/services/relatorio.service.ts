@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { jsPDF } from 'jspdf';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RelatorioService {
 
+export class RelatorioService { 
   constructor() { }
 
   generateCliente() {
     const pdf = new jsPDF();
-    pdf.text('Conteudo do Relatório dos clientes:', 10, 10);
+    pdf.text('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 10, 10);
     pdf.save('relatorio-cliente-pdf.pdf');
   }
 
