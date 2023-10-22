@@ -19,6 +19,7 @@ import { InserirFuncionarioComponent } from './funcionario/inserir-funcionario/i
 import { ListarManutencaoComponent } from './funcionario/listar-manutencao/listar-manutencao.component';
 import { EditarManutencaoComponent } from './funcionario/editar-manutencao/editar-manutencao.component';
 import { InserirManutencaoComponent } from './funcionario/inserir-manutencao/inserir-manutencao.component';
+import { AuthGuard } from './autenticacao/auth.guard';
 
 import { RelatorioClienteComponent } from './relatorio/relatorio-cliente/relatorio-cliente.component';
 import { RelatorioClienteFielComponent } from './relatorio/relatorio-cliente-fiel/relatorio-cliente-fiel.component';
@@ -44,7 +45,11 @@ const routes: Routes = [
   },
   {
     path: 'funcionario/inicialFuncionario',
-    component: InicialFuncionarioComponent
+    component: InicialFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE,FUNC'
+    }
   },
   {
     path: 'funcionario/confirmacaoRecolhimento',
@@ -60,7 +65,11 @@ const routes: Routes = [
   },
   {
     path: 'funcionario/listarFuncionario',
-    component: ListarFuncionarioComponent
+    component: ListarFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE'
+    }
   },
   {
 
