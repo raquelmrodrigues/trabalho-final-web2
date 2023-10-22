@@ -32,6 +32,8 @@
           <div class="form-group" [ngClass]="aplicaCssErro(cpf)">
             <label>CPF</label>
             <input
+
+              type="text"
               name="cpf"
               ngModel
               type="text"  
@@ -73,6 +75,18 @@
               id="email"
               class="form-control"
               placeholder="exemplo@mail.com"
+
+            />
+            <label>Login</label>
+            <input type="text" class="form-control" placeholder="Login" />
+            <label>Senha</label>
+            <input type="password" class="form-control" placeholder="*****" />
+
+            <label>Endereço completo</label>
+            <input type="text" class="form-control" placeholder="FAZER UM FORMGROUP COM TUDO QUE É NECESSÁRIO EM UM ENDEREÇO EX: RUA, COMPLEMENTO, CEP, CIDADE, ESTADO ETC..." />
+            <label>Telefone</label>
+            <input
+
               required email 
               #email="ngModel"
               />
@@ -86,9 +100,15 @@
           <div class="form-group" [ngClass]="aplicaCssErro(cep)">
             <label>CEP</label>
             <input 
+
               type="text"
               ngModel 
               class="form-control"
+
+              placeholder="+55 (xx) xxxxx-xxxx"
+              appPhoneMask
+            />
+
               id="cep"
               name="cep" 
               placeholder="00000-000"
@@ -100,6 +120,7 @@
               class="alert alert-danger" role="alert">
                 CEP é Obrigatório.
               </div>
+
           </div>
           <div class="form-group">
             <label>Rua:</label>

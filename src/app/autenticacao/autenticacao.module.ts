@@ -7,7 +7,9 @@ import { NgxMaskDirective } from 'ngx-mask';
 import { CpfMaskDirective } from './cpf-mask.directive';
 import { TelefoneMaskDirective } from './telefone-mask.directive';
 import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -24,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgxMaskDirective,
     FormsModule,
     HttpClientModule
+
   ]
 })
 export class AutenticacaoModule { 
