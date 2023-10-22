@@ -61,7 +61,11 @@ const routes: Routes = [
   },
   {
     path: 'funcionario/listarFuncionario',
-    component: ListarFuncionarioComponent
+    component: ListarFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE'
+    }
   },
   {
 

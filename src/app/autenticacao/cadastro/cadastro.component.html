@@ -32,11 +32,9 @@
           <div class="form-group" [ngClass]="aplicaCssErro(cpf)">
             <label>CPF</label>
             <input
-
-              type="text"
               name="cpf"
               ngModel
-              type="text"  
+              type="text"
               class="form-control"
               placeholder="XXX.XXX.XXX-XX"
               appCpfMask
@@ -47,17 +45,17 @@
               class="alert alert-danger" role="alert">
                 CPF é Obrigatório.
               </div>
-          </div>   
+          </div>
           <div class="form-group" [ngClass]="aplicaCssErro(nome)">
             <label>Nome</label>
-            <input 
+            <input
               name="nome"
               [(ngModel)]="usuario.nome"
               type="text"
-              id="nome" 
-              class="form-control" 
+              id="nome"
+              class="form-control"
               placeholder="Nome"
-              required 
+              required
               #nome="ngModel"
               />
               <!--usando o 2way databind com o ngModel, você inicia com valores ja predefinidos, e são atualizados quando vc alterar no forms-->
@@ -65,7 +63,7 @@
               class="alert alert-danger" role="alert">
                 Nome é Obrigatório.
               </div>
-          </div>  
+          </div>
           <div class="form-group" [ngClass]="aplicaCssErro(email)">
             <label>Email</label>
             <input
@@ -75,19 +73,7 @@
               id="email"
               class="form-control"
               placeholder="exemplo@mail.com"
-
-            />
-            <label>Login</label>
-            <input type="text" class="form-control" placeholder="Login" />
-            <label>Senha</label>
-            <input type="password" class="form-control" placeholder="*****" />
-
-            <label>Endereço completo</label>
-            <input type="text" class="form-control" placeholder="FAZER UM FORMGROUP COM TUDO QUE É NECESSÁRIO EM UM ENDEREÇO EX: RUA, COMPLEMENTO, CEP, CIDADE, ESTADO ETC..." />
-            <label>Telefone</label>
-            <input
-
-              required email 
+              required email
               #email="ngModel"
               />
               <div *ngIf="!email.valid && email.touched"
@@ -96,23 +82,17 @@
               </div>
           </div>
 
-          <div ngModelGroup="endereco">      
+          <div ngModelGroup="endereco">
           <div class="form-group" [ngClass]="aplicaCssErro(cep)">
             <label>CEP</label>
-            <input 
-
+            <input
               type="text"
-              ngModel 
+              ngModel
               class="form-control"
-
-              placeholder="+55 (xx) xxxxx-xxxx"
-              appPhoneMask
-            />
-
               id="cep"
-              name="cep" 
+              name="cep"
               placeholder="00000-000"
-              required 
+              required
               #cep="ngModel"
               (blur)="consultaCEP($any($event.target).value, f)"
               />
@@ -120,50 +100,49 @@
               class="alert alert-danger" role="alert">
                 CEP é Obrigatório.
               </div>
-
           </div>
           <div class="form-group">
             <label>Rua:</label>
                 <input
-                  class="form-control" 
+                  class="form-control"
                   name="rua"
-                  ngModel 
-                  type="text" 
-                  id="rua" 
-                  placeholder="Ex: Rua XV de Novembro" 
+                  ngModel
+                  type="text"
+                  id="rua"
+                  placeholder="Ex: Rua XV de Novembro"
                   />
           </div>
           <div class="form-group">
             <label>Bairro:</label>
-              <input 
+              <input
                 name="bairro"
                 ngModel
-                class="form-control" 
-                type="text" 
-                id="bairro" 
+                class="form-control"
+                type="text"
+                id="bairro"
                 placeholder="Ex: Boqueirão" />
           </div>
           <div class="form-group">
             <label>Cidade:</label>
-            <input 
+            <input
               name="cidade"
               ngModel
-              class="form-control" 
-              type="text" 
-              id="cidade" 
-              placeholder="Ex: Curitiba" 
+              class="form-control"
+              type="text"
+              id="cidade"
+              placeholder="Ex: Curitiba"
               />
           </div>
-          
+
           <div class="form-group">
             <label>Estado:</label>
-              <input 
+              <input
                 name="uf"
                 ngModel
-                class="form-control" 
-                type="text" 
-                id="uf" 
-                placeholder="Ex: PR" 
+                class="form-control"
+                type="text"
+                id="uf"
+                placeholder="Ex: PR"
                 />
           </div>
         </div>
@@ -177,7 +156,7 @@
                 ngModel
                 class="form-control"
                 placeholder="+55 (xx) xxxxx-xxxx"
-                appPhoneMask  
+                appPhoneMask
               />
           </div>
           <div class="form-group" [ngClass]="aplicaCssErro(senha)">
@@ -189,7 +168,7 @@
                 ngModel
                 class="form-control"
                 placeholder="Ex: senha123"
-                required 
+                required
                 #senha="ngModel"
                 />
                 <div *ngIf="!senha.valid && senha.touched"
@@ -197,7 +176,7 @@
                 A senha é Obrigatória.
               </div>
           </div>
-          <div class="form-group" 
+          <div class="form-group"
           [ngClass]="aplicaCssErro(confirmacao)">
             <label>Confirmação da Senha</label>
               <input
@@ -207,7 +186,7 @@
                 ngModel
                 class="form-control"
                 placeholder="Ex: senha123"
-                required 
+                required
                 #confirmacao="ngModel"
                 />
                 <div *ngIf="!confirmacao.valid && confirmacao.touched"
@@ -215,7 +194,7 @@
                 A Confirmação da senha é Obrigatória.
               </div>
           </div>
-          <button type="submit" class="btn btn-cadastro col-12" 
+          <button type="submit" class="btn btn-cadastro col-12"
           [disabled]="!f.valid"> Cadastro
           </button>
         </form>
