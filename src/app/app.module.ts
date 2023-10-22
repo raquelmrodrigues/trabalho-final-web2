@@ -12,6 +12,7 @@ import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 
 import { RouterModule } from '@angular/router';
 import { RelatorioModule } from './relatorio/relatorio.module';
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -30,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     ClienteModule,
     AutenticacaoModule,
     RelatorioModule,
-    HttpClientModule,
+
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
