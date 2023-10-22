@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 import { RelatorioService } from '../services/relatorio.service';
 
 @Component({
@@ -14,18 +12,14 @@ export class SelecionarRelatorioComponent implements OnInit {
 
     gerarRelatorio(id:string) {
       switch(id) {
-        case "clientes" : this.relatorioService.generateCliente();
+        case "clientes" : this.relatorioService.generateClientePDF();
         break;
-        case "receitas" : this.relatorioService.generateReceitas();
+        case "receitas" : this.relatorioService.generateReceitasPDF();
         break;
-        case "clientesFieis" : this.relatorioService.generateClientesFieis();
+        case "clientesFieis" : this.relatorioService.generateClientesFieisPDF();
         break;
         default : alert("Relatório Inválido!");
       }
-      
-      
-      
-
     }
 
   ngOnInit(): void {

@@ -21,6 +21,10 @@ import { EditarManutencaoComponent } from './funcionario/editar-manutencao/edita
 import { InserirManutencaoComponent } from './funcionario/inserir-manutencao/inserir-manutencao.component';
 import { AuthGuard } from './autenticacao/auth.guard';
 
+import { RelatorioClienteComponent } from './relatorio/relatorio-cliente/relatorio-cliente.component';
+import { RelatorioClienteFielComponent } from './relatorio/relatorio-cliente-fiel/relatorio-cliente-fiel.component';
+import { RelatorioReceitaComponent } from './relatorio/relatorio-receita/relatorio-receita.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -110,9 +114,22 @@ const routes: Routes = [
     component: PedidosClienteComponent
   },
   {
-  path: 'relatorio/selecionarRelatorio',
+    path: 'relatorio/selecionarRelatorio',
     component: SelecionarRelatorioComponent
-  }
+  },
+  {
+    path: 'relatorio/relatorioCliente',
+    component: RelatorioClienteComponent
+  },
+  {
+    path: 'relatorio/relatorioReceita',
+    component: RelatorioReceitaComponent
+  },
+  {
+    path: 'relatorio/relatorioFiel',
+    component: RelatorioClienteFielComponent
+  },
+
 ];
 
 @NgModule({
