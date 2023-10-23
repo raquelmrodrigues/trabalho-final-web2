@@ -10,7 +10,7 @@ import { StatusPedido } from 'src/app/shared/models/status-pedido';
   styleUrls: ['./orcamento-cliente.component.css']
 })
 export class OrcamentoClienteComponent implements OnInit{
- itens: ItemPedido[] = [];
+  itens: ItemPedido[] = [];
   pedido: Pedido = new Pedido(7, new Date() , undefined, undefined,  0);
  
   ngOnInit(): void{

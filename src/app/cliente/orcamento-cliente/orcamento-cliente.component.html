@@ -9,7 +9,7 @@
 	  <div class="container border-1 border-dark border mt-3">
             <h2 class="titulo-tela numPedido pb-1">Pedido {{pedido.id}}</h2>
             <p class="m-0 fw-semibold">Preço total: {{pedido.valorTotal | currency : 'BRL'}}</p>
-            <p class="m-0 fw-semibold">Prazo do serviço: 12/12/2023</p>
+            <p class="m-0 fw-semibold">Prazo do serviço: {{pedido.date | date:'dd/MM/yyyy'}}</p>
             <h4 class="subTitulo mb-3">Roupas do Pedido:</h4>
             <div class="overflow-y-scroll mx-5" style="max-height: 15rem;">                		
 				<table class="table tabela table-bordered border border-5 border-tabela">					
