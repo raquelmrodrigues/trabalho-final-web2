@@ -25,10 +25,8 @@ listarTodos(): Funcionario[] {
 
 remover($event: any, funcionario: Funcionario): void {
   $event.preventDefault();
-  if (confirm(`Deseja realmente remover a pessoa ${funcionario.nome}?`)) {
   this.crudfuncionario.removerFuncionario(funcionario.id!);
   this.funcionarios = this.listarTodos();
-  }
-  }
+}
 
 }
