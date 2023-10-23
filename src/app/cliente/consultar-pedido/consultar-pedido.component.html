@@ -68,6 +68,7 @@
       </div>
 	  
 	  <div class="d-flex justify-content-evenly mt-4">
+
 		<a data-bs-toggle="modal" data-bs-target="#modalCancelar" class="btn btn-baixo col-2">Cancelar</a>
     <div class="modal fade" id="modalCancelar">
       <div class="modal-dialog">
@@ -105,6 +106,10 @@
         </div>
       </div>
     </div>
+
+
+		<button type="submit" class="btn btn-baixo col-2" [routerLink]="['/cliente/inicialCliente']">Cancelar</button>
+		<button type="submit" class="btn btn-baixo col-2" onclick="alert('O Pedido está sendo processado.')" [routerLink]="['/cliente/inicialCliente']">Pagar pedido</button>
 
 	  </div>
 

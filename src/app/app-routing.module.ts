@@ -19,6 +19,11 @@ import { InserirFuncionarioComponent } from './funcionario/inserir-funcionario/i
 import { ListarManutencaoComponent } from './funcionario/listar-manutencao/listar-manutencao.component';
 import { EditarManutencaoComponent } from './funcionario/editar-manutencao/editar-manutencao.component';
 import { InserirManutencaoComponent } from './funcionario/inserir-manutencao/inserir-manutencao.component';
+import { AuthGuard } from './autenticacao/auth.guard';
+
+import { RelatorioClienteComponent } from './relatorio/relatorio-cliente/relatorio-cliente.component';
+import { RelatorioClienteFielComponent } from './relatorio/relatorio-cliente-fiel/relatorio-cliente-fiel.component';
+import { RelatorioReceitaComponent } from './relatorio/relatorio-receita/relatorio-receita.component';
 
 const routes: Routes = [
   {
@@ -40,7 +45,11 @@ const routes: Routes = [
   },
   {
     path: 'funcionario/inicialFuncionario',
-    component: InicialFuncionarioComponent
+    component: InicialFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE,FUNC'
+    }
   },
   {
     path: 'funcionario/confirmacaoRecolhimento',
@@ -56,7 +65,11 @@ const routes: Routes = [
   },
   {
     path: 'funcionario/listarFuncionario',
-    component: ListarFuncionarioComponent
+    component: ListarFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE'
+    }
   },
   {
 
@@ -101,9 +114,22 @@ const routes: Routes = [
     component: PedidosClienteComponent
   },
   {
-  path: 'relatorio/selecionarRelatorio',
+    path: 'relatorio/selecionarRelatorio',
     component: SelecionarRelatorioComponent
-  }
+  },
+  {
+    path: 'relatorio/relatorioCliente',
+    component: RelatorioClienteComponent
+  },
+  {
+    path: 'relatorio/relatorioReceita',
+    component: RelatorioReceitaComponent
+  },
+  {
+    path: 'relatorio/relatorioFiel',
+    component: RelatorioClienteFielComponent
+  },
+
 ];
 
 @NgModule({
