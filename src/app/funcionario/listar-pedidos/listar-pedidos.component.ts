@@ -11,7 +11,35 @@ import { DataComponent } from '../data/data.component';
 })
 export class ListarPedidosComponent implements OnInit {
   statusPedido = StatusPedido;
-  pedidos: Pedido[] = [];
+  pedidos: Pedido[] = [new Pedido(123546123, new Date(), StatusPedido.PAGO),
+    new Pedido(
+      123573,
+      new Date(2022, 5, 14, 20, 33, 45),
+      StatusPedido.RECOLHIDO
+    ),
+    new Pedido(121233, new Date(2023, 2, 3, 15, 54, 32), StatusPedido.ABERTO),
+    new Pedido(
+      5431233,
+      new Date(2023, 0, 23, 10, 50, 13),
+      StatusPedido.CANCELADO
+    ),
+    new Pedido(
+      117651233,
+      new Date(2023, 11, 20, 8, 3, 32),
+      StatusPedido.REJEITADO
+    ),
+    new Pedido(
+      16573,
+      new Date(2023, 9, 29, 6, 12, 49),
+      StatusPedido.AGUARDANDO
+    ),
+    new Pedido(
+      15671233,
+      new Date(2023, 5, 22, 19, 3, 11),
+      StatusPedido.FINALIZADO
+    ),
+    new Pedido(1256733, new Date(2023, 2, 8, 9, 15, 55), StatusPedido.ABERTO)
+  ];
   selectedFilterOption: string = '';
   selectedDateRange: Date[] = [];
   private dateRangeModal: NgbModalRef | null = null;
@@ -77,21 +105,10 @@ export class ListarPedidosComponent implements OnInit {
     }
   }
   AlterarStatus(novoStatus: StatusPedido, numeroPedido: number) {
-    const pedidos = this.listarPedidos();
+    const pedidos = this.pedidos;
     const pedido = pedidos.find((p) => p.id === numeroPedido);
     if (pedido) {
-      console.log(pedido.status);
       pedido.status = novoStatus;
-      console.log(pedido.status);
-
-      if (novoStatus === StatusPedido.FINALIZADO) {
-        alert(`Pedido ${numeroPedido} foi finalizado.`);
-      } else if (novoStatus === StatusPedido.RECOLHIDO) {
-        alert(`Pedido ${numeroPedido} está sendo recolhido.`);
-      }
-      else if (novoStatus === StatusPedido.AGUARDANDO) {
-        alert(`Pedido ${numeroPedido} está aguardando o pagamento.`);
-      }
     }
   }
 
