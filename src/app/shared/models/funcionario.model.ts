@@ -5,5 +5,8 @@ export class Funcionario {
         public nome?: string,
         public dataDeNasc?: Date,
         public senha?: string,
-    ){}
+        public perfil?: string
+    ){
+
+    }
 }

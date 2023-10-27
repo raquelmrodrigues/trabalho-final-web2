@@ -74,7 +74,12 @@ const routes: Routes = [
   {
 
     path: 'funcionario/editarFuncionario/:id',
-    component: EditarFuncionarioComponent
+    component: EditarFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,GERENTE'
+    }
+
   },
   {
     path: 'funcionario/listarManutencao',

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { CrudFuncionarioService } from '../services/crud-funcionario.service';
 import { Funcionario } from 'src/app/shared/models/funcionario.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-funcionario',
@@ -12,23 +14,40 @@ export class ListarFuncionarioComponent implements OnInit {
 
 funcionarios:Funcionario[] = [];
 
-constructor(private crudfuncionario : CrudFuncionarioService){}
+constructor(private funcionarioService : CrudFuncionarioService,
+            private router: Router){}
 
-ngOnInit():void{
- this.funcionarios = this.listarTodos();
- console.log(this.funcionarios);
+ngOnInit(): void {
+  this.listarFuncionarios().subscribe(
+    funcionarios => {
+      this.funcionarios = funcionarios;
+    },
+    error => {
+      console.error('Error:', error);
+    }
+  );
 }
 
-listarTodos(): Funcionario[] {
-  return this.crudfuncionario.listarFuncionario();
+listarFuncionarios(): Observable<Funcionario[]> {
+  return this.funcionarioService.listarFuncionario();
+}
+remover(funcionario: Funcionario, i: number): void {
+  const confirmar = window.confirm(`Tem certeza de que deseja remover o funcionário ${funcionario.nome}?`);
+
+  if (confirmar) {
+    this.funcionarioService.removerFuncionario(funcionario).subscribe(() => {
+      this.listarFuncionarios().subscribe(
+        funcionarios => {
+          this.funcionarios = funcionarios;
+        },
+        error => {
+          console.error('Error:', error);
+        }
+      );
+    });
+  }
 }
 
-remover($event: any, funcionario: Funcionario): void {
-  $event.preventDefault();
-  if (confirm(`Deseja realmente remover a pessoa ${funcionario.nome}?`)) {
-  this.crudfuncionario.removerFuncionario(funcionario.id!);
-  this.funcionarios = this.listarTodos();
-  }
-  }
+
 
 }

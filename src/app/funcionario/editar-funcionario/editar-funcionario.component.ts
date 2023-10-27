@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild,  } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { CrudFuncionarioService } from '../services/crud-funcionario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Funcionario } from 'src/app/shared/models/funcionario.model';
+import { CrudFuncionarioService } from '../services/crud-funcionario.service';
+
 @Component({
   selector: 'app-editar-funcionario',
   templateUrl: './editar-funcionario.component.html',
@@ -11,27 +12,35 @@ import { Funcionario } from 'src/app/shared/models/funcionario.model';
 
 export class EditarFuncionarioComponent implements OnInit {
   @ViewChild("formFuncionario") formFuncionario!: NgForm;
-  funcionario!: Funcionario;
+  funcionario: Funcionario | undefined;
+  private id = this.route.snapshot.params['id'];
+
 
   constructor(
     private funcionarioService: CrudFuncionarioService,
     private route: ActivatedRoute,
     private router: Router,
+
   ) { }
 
   ngOnInit(): void {
-    let id = +this.route.snapshot.params['id'];
-    const res = this.funcionarioService.buscarPorIdFuncionario(id);
-    if (res !== undefined)
-      this.funcionario = res;
-    else
-      throw new Error("Funcionário não encontrado: id = " + id);
+  console.log(this.id);
+  this.funcionarioService.buscarPorIdFuncionario(this.id).subscribe((funcionario: Funcionario) => {
+  this.funcionario = funcionario;
+  })
+
   }
 
   atualizar(): void {
-    if (this.formFuncionario.form.valid) {
-      this.funcionarioService.atualizarFuncionario(this.funcionario);
-      this.router.navigate(['/funcionario/listarFuncionario']);
+    if (this.formFuncionario.form.valid && this.funcionario) {
+      this.funcionarioService.atualizarFuncionario(this.funcionario).subscribe({
+        next: (res: any) => {
+          this.router.navigate(['/funcionario/listarFuncionario']);
+        },
+        error: (error: any) => {
+          console.error("Erro ao atualizar o funcionário:", error);
+        }
+      });
     }
   }
 
