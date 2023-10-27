@@ -21,10 +21,17 @@ export class InserirFuncionarioComponent {
   ngOnInit(): void {
     this.funcionario = new Funcionario();
   }
-  inserir(): void {
-    if (this.formFuncionario.form.valid) {
-      this.funcionarioService.inserirFuncionario(this.funcionario);
-      this.router.navigate(["funcionario/listarFuncionario"]);
-    }
+  inserirFuncionario(): void {
+    this.funcionario.perfil = "FUNC"
+    this.funcionarioService.inserirFuncionario(this.funcionario)
+      .subscribe(
+        response => {
+          console.log('Funcionario inserido com sucesso', response);
+        },
+        error => {
+          console.error('Erro ao inserir funcionario:', error);
+        }
+      );
   }
+
 }

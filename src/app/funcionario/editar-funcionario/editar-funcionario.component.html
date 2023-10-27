@@ -1,5 +1,5 @@
 <h1 class="text-center titulo-tela my-5">Editar Funcionário</h1>
-<div class="well d-flex justify-content-center">
+<div  *ngIf="funcionario" class="well d-flex justify-content-center">
     <form #formFuncionario="ngForm" class="w-50">
         <div class="form-group mb-3">
             <label for="nome">Nome:</label>
@@ -39,8 +39,8 @@
         </div>
 
         <div class="form-group mb-3 d-flex justify-content-center row">
-            <button type="button" class="btn-salvar btn col-3 me-1" (click)="atualizar()"
-                [disabled]="!formFuncionario.form.valid">
+            <button type="button" class="btn-salvar btn col-3 me-1"
+                [disabled]="!formFuncionario.form.valid" (click)="atualizar()">
                 <i class="fa fa-save" aria-hidden="true"></i> Atualizar
             </button>
             <a class="btn-voltar btn col-3" [routerLink]="['/funcionario/listarFuncionario']" >
