@@ -14,6 +14,7 @@ import { InserirManutencaoComponent } from './inserir-manutencao/inserir-manuten
 import { EditarManutencaoComponent } from './editar-manutencao/editar-manutencao.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataComponent } from './data/data.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { DataComponent } from './data/data.component';
     CommonModule,
     RouterModule,
     FormsModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    HttpClientModule
   ],
  providers: [
   CrudFuncionarioService,

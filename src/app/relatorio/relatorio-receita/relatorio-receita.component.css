@@ -1,0 +1,22 @@
+.titulo-tela{
+    color:#857DC4; 
+    font-weight: bold;
+}
+
+.header-tabela{
+    background-color: #CF8DA7 !important;
+    color: white !important;
+}
+
+.table-giu {
+    --bs-table-color: #fff;
+    --bs-table-bg: #CF8DA7;
+    --bs-table-border-color: #CF8DA7;
+    --bs-table-striped-bg: #CF8DA7;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #CF8DA7;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #CF8DA7;
+    --bs-table-hover-color: #fff;
+    color: var(--bs-table-color);
+  }

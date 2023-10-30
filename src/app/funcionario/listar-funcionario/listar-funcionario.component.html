@@ -13,43 +13,25 @@
                     </a>
                 </th>
             </tr>
-            <tr *ngFor="let funcionario of funcionarios" class="text-center">
-                <td>{{funcionario.nome}} </td>
-                <td>{{funcionario.email}}</td>
-                <td>{{funcionario.dataDeNasc | date: 'dd/MM/yyyy'}}</td>
-                <td class="text-center" style="width: 460px">
-                    <a [routerLink]="['/funcionario/editarFuncionario', funcionario.id]" href="#" title="Editar" alt="Editar" class="btn-editar btn me-1">
-                        <i class="fa fa-edit" aria-hidden="true"></i> Editar
-                    </a>
-                    <a href="#" title="Remover" alt="Remover" class="btn-remover btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalRemover">
-                        <i class="fa fa-times" aria-hidden="true"></i> Remover
-                    </a>
-                    <div class="modal fade" id="modalRemover">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h1 class="modal-title fs-5">Confirmar remoção</h1>
-                                <button type="button" class="btn-close"></button>
-                                </div>
-                                <div class="modal-body">
-                                Confirme a remoção do funcionário <b>{{funcionario.nome}}</b>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                                (click)="remover($event, funcionario)">Confirmar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            <tr *ngFor="let funcionario of funcionarios; let i = index" class="text-center">
+              <td>{{funcionario.nome}} </td>
+              <td>{{funcionario.email}}</td>
+              <td>{{funcionario.dataDeNasc | date: 'dd/MM/yyyy'}}</td>
+              <td class="text-center" style="width: 460px">
+                  <a [routerLink]="['/funcionario/editarFuncionario', funcionario.id]" href="#" title="Editar" alt="Editar" class="btn-editar btn me-1">
+                      <i class="fa fa-edit" aria-hidden="true"></i> Editar
+                  </a>
+                  <a href="#" title="Remover" (click)="remover(funcionario, i)" alt="Remover" class="btn-remover btn"
+                      data-bs-toggle="modal">
+                      <i class="fa fa-times" aria-hidden="true"></i> Remover
+                  </a>
+              </td>
+          </tr>
+
         </tbody>
     </table>
 
 
-    <p *ngIf="funcionarios.length==0">Nenhum funcionario cadastrado.</p>
+    <p *ngIf="funcionarios.length==0" class="text-center">Nenhum funcionario cadastrado.</p>
 
 </body>

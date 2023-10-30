@@ -3,43 +3,42 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tela - Aprovação de Orçamento/Pedido</title>
+    <title>Tela Orçamento</title>
   </head>
   <body>
+	  <div class="container border-1 border-dark border mt-3">
+            <h2 class="titulo-tela numPedido pb-1">Pedido {{pedido.id}}</h2>
+            <p class="m-0 fw-semibold">Preço total: {{pedido.valorTotal | currency : 'BRL'}}</p>
+            <p class="m-0 fw-semibold">Prazo do serviço: {{pedido.date | date:'dd/MM/yyyy'}}</p>
+            <h4 class="subTitulo mb-3">Roupas do Pedido:</h4>
+            <div class="overflow-y-scroll mx-5" style="max-height: 15rem;">                		
+				<table class="table tabela table-bordered border border-5 border-tabela">					
+					<tbody>
+					<ng-container *ngFor="let item of itens" >	
+					<tr class="border-5 border-tabela">
+					  <th scope="row">{{item.quantidade}}</th>
+					  <td class="border-5 border-tabela">{{item.roupa?.peca}}</td>
+					  <td class="border-5 border-tabela">{{(item.roupa?.valorUn ?? 0) * (item.quantidade ?? 0) | currency : 'BRL'}}</td>
+					  
+					<!--<tr class="border-5 border-tabela">
+					  <th scope="row">6</th>
+					  <td class="border-5 border-tabela">Roupa</td>
+					  <td class="border-5 border-tabela">R$100</td>
+					</tr> -->	
+				   </ng-container>
+				  </tbody>				  
+				</table>
+				<p *ngIf="itens.length == 0" class="text-center">
+					Nenhum Pedido Encontrado
+				  </p>
+        </div>
+      </div>
+	  
+	  <div class="d-flex justify-content-evenly mt-4">
+		<button type="submit" class="btn btn-baixo col-2" onclick="alert('O seu Orçamento foi Aprovado.')" [routerLink]="['/cliente/listarPedidosCliente']">APROVAR ORÇAMENTO</button>
+		<button type="submit" class="btn btn-baixo col-2" onclick="alert('O Orçamento foi Reprovado.')" [routerLink]="['/cliente/listarPedidosCliente']">REPROVAR ORÇAMENTO</button>
+	  </div>
 
-    <div class="invoice">
-      <div class="invoice-header">
-        <h1>Aprovação de Orçamento/Pedido</h1>
-        <img src="../assets/amaciante.png" alt="Logo" id="img-logo">
-      </div>
-      <div class="invoice-details">
-        <p>Número do Pedido: 12345</p>
-        <p>Data prevista de entrega: 12 de Agosto, 2023</p>
-        <p>Cliente: Flavin do Pneu</p>
-      </div>
-      <ul class="listas"> 
-        <li> 
-          <strong>Item:</strong> 1<br> 
-          <strong>Descrição:</strong> Product A<br> 
-          <strong>Quantidade:</strong> 2<br> 
-          <strong>Preço:</strong> R$10.00<br>  
-        </li> 
-        <li> 
-          <strong>Item:</strong> 2<br> 
-          <strong>Descrição:</strong> Product B<br> 
-          <strong>Quantidade:</strong> 1<br> 
-          <strong>Preço:</strong> R$15.00<br> 
-          <strong>Total:</strong> R$15.00 
-        </li>
-      </ul>
-      <div class="invoice-total">
-        <p>Total: R$35.00</p>
-      </div>
-      <div class="approval-buttons">
-        <button class="btn btn-success">Aprovar</button>
-        <button class="btn btn-danger">Rejeitar</button>
-      </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
-</html>
+</html> 

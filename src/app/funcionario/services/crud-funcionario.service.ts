@@ -1,57 +1,54 @@
 import { Injectable } from '@angular/core';
 import { Funcionario } from 'src/app/shared/models/funcionario.model';
 import { Manutencao } from 'src/app/shared/models/manutencao.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable} from 'rxjs';
 
 const LS_CHAVE_1: string = "funcionario";
 const LS_CHAVE_2: string = "Manutencao";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudFuncionarioService {
-  constructor() { }
+  private backendURL = 'http://localhost:8081';
+  constructor(
+    private http: HttpClient
+  ) { }
   // Crud de Listagem de funcionarios.
-  listarFuncionario(): Funcionario[] {
-    const funcionarios = localStorage[LS_CHAVE_1];
-    return funcionarios ? JSON.parse(funcionarios) : [];
+  listarFuncionario(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(`${this.backendURL}/funcionarios`);
   }
 
-  inserirFuncionario(funcionario: Funcionario): void {
-    const funcionarios = this.listarFuncionario();
+  inserirFuncionario(funcionario: Funcionario): Observable<any> {
 
-    funcionario.id = new Date().getTime();
+    const url = `${this.backendURL}/funcionarios`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const funcionarioJSON = JSON.stringify(funcionario);
 
-    funcionarios.push(funcionario);
-
-    localStorage[LS_CHAVE_1] = JSON.stringify(funcionarios);
+    return this.http.post(url, funcionarioJSON, { headers });
   }
 
-  buscarPorIdFuncionario(id: number): Funcionario | undefined {
-    const funcionarios: Funcionario[] = this.listarFuncionario();
-
-    return funcionarios.find(funcionario => funcionario.id === id);
+  buscarPorIdFuncionario(id: number): Observable<Funcionario>{
+    let func = this.http.get<Funcionario>(`${this.backendURL}/funcionarios/${id}`);
+    return func;
   }
 
-  atualizarFuncionario(funcionario: Funcionario): void {
-    const funcionarios: Funcionario[] = this.listarFuncionario();
+  atualizarFuncionario(funcionario: Funcionario): Observable<any> {
+    const url = `${this.backendURL}/funcionarios/${funcionario.id}`;
+    return this.http.put(url, funcionario);
+  }
+  removerFuncionario(funcionario: Funcionario): Observable<any>{
 
-    funcionarios.forEach((obj, index, objs) => {
-      if (funcionario.id === obj.id) {
-        objs[index] = funcionario
-      }
-    })
+    const url = `${this.backendURL}/funcionarios/${funcionario.id}`
+    return this.http.delete(url)
 
-    localStorage[LS_CHAVE_1] = JSON.stringify(funcionarios);
   }
 
-  removerFuncionario(id: number): void {
-    let funcionarios: Funcionario[] = this.listarFuncionario();
 
-    funcionarios = funcionarios.filter(funcionario => funcionario.id !== id);
 
-    localStorage[LS_CHAVE_1] = JSON.stringify(funcionarios);
-  }
-  
+
 
 
 
@@ -73,7 +70,7 @@ export class CrudFuncionarioService {
 
   buscarItemPorId(id:number): Manutencao | undefined {
     const manutencaoPecas: Manutencao[] = this.listarItem();
-    
+
     return manutencaoPecas.find(manutencao => manutencao.id === id);
   }
 
