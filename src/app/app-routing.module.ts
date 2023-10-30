@@ -107,6 +107,10 @@ const routes: Routes = [
     component: ConsultarPedidoComponent
   },
   {
+    path: 'cliente/consultarPedido/:id',
+    component: ConsultarPedidoComponent
+  },
+  {
     path: 'cliente/listarPedidosCliente',
     component: ListarPedidosClienteComponent
   },

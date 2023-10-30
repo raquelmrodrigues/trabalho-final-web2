@@ -14,19 +14,26 @@ export class OrcamentoClienteComponent implements OnInit{
   pedido: Pedido = new Pedido(7, new Date() , undefined, undefined,  0);
  
   ngOnInit(): void{
-    this.pedido = this.PedidoExemplo();
-    this.itens = this.listarItens();
+    this.pedido = this.GetPedido();
+    this.itens = this.listarItens(this.pedido);
     }
 
 
-  listarItens(): ItemPedido [] {
-    return[
-    new ItemPedido(123546123, 1,new Manutencao (54, 'Calça', 15,3) ,5),
-    new ItemPedido(123546123, 2,new Manutencao (56, 'Terno', 30,4),1),
-    new ItemPedido(123546123, 3,new Manutencao (10, 'Camisa', 20,2),2),
-  ];}
+  listarItens(UmPedido: Pedido): ItemPedido [] {
+    const UmPedidoItens: ItemPedido[] = [];
 
-  PedidoExemplo(): Pedido {
-    return new Pedido(123546123, new Date(2023, 0, 23, 10, 50, 13), StatusPedido.PAGO, this.listarItens(), 145);
+    UmPedido.items?.forEach((item) => {
+      UmPedidoItens.push(item);
+    });
+  
+    return UmPedidoItens;
+  }
+
+  GetPedido(): Pedido {
+    return new Pedido(123546123, new Date(2023, 0, 23, 10, 50, 13), StatusPedido.PAGO,[
+      new ItemPedido(123546123, 1,new Manutencao (54, 'Calça', 15,3) ,5),
+      new ItemPedido(123546123, 2,new Manutencao (56, 'Terno', 30,4),1),
+      new ItemPedido(123546123, 3,new Manutencao (10, 'Camisa', 20,2),2),
+    ], 145);
   }
 }

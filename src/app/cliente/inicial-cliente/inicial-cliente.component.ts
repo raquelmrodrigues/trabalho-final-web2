@@ -13,8 +13,7 @@ import { StatusPedido } from 'src/app/shared/models/status-pedido';
 export class InicialClienteComponent implements OnInit{
   itens: ItemPedido[] = [];
   pedidos: Pedido[] = [];
-  //new Pedido(7, new Date() , undefined, [ new ItemPedido(0, 1,new Manutencao (0, '000', 0,0) ,0)],  0);
- 
+  
   ngOnInit(): void{
     this.pedidos = this.ListarPedidos();
     this.pedidos.sort((a, b) => {
@@ -29,7 +28,7 @@ export class InicialClienteComponent implements OnInit{
       let itens: string[] = [];
     
       UmPedido.items?.forEach((item) => {
-        itens.push(item.roupa?.peca || 'Peça não especificada');
+        itens.push(' ' + item.roupa?.peca || 'Peça não especificada');
       });
     
       return itens;
@@ -41,7 +40,8 @@ export class InicialClienteComponent implements OnInit{
       new Pedido(123546123, new Date(2023, 0, 23, 10, 50, 13), StatusPedido.ABERTO,[
         new ItemPedido(1, 123546123,new Manutencao (54, 'Calça', 15,3) ,5),
         new ItemPedido(3, 123546123,new Manutencao (56, 'Terno', 30,4),1), 
-        new ItemPedido(4, 123546123,new Manutencao (10, 'Camisa', 20,2),2)], 145),
+        new ItemPedido(4, 123546123,new Manutencao (10, 'Camisa', 20,2),2)
+      ], 145),
       new Pedido(987654321, new Date(2023, 1, 15, 14, 30, 0), StatusPedido.ABERTO, [
           new ItemPedido(1, 5, new Manutencao(101, 'Jaqueta', 50, 2), 2),
           new ItemPedido(2, 6, new Manutencao(102, 'Vestido', 60, 3), 1),
