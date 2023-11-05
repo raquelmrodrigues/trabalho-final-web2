@@ -1,7 +1,8 @@
 import { Login } from './../../shared/models/login.model';
 import { Usuario } from 'src/app/shared/models/usuario.model';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, map} from 'rxjs';
 
 
 const LS_CHAVE: string = "usuarioLogado";
@@ -11,6 +12,7 @@ const LS_CHAVE: string = "usuarioLogado";
 
 
 export class LoginService {
+private backendURL = 'http://localhost:8081';
 
 public get usuarioLogado(): Usuario {
   let usu = localStorage[LS_CHAVE];
@@ -23,19 +25,7 @@ logout(){
   delete localStorage[LS_CHAVE]
 }
 login(login: Login): Observable<Usuario | null> {
-  let usu = new Usuario(1, "teste-func", login.login, login.senha, "FUNC");
-  if (login.login == login.senha) {
-    if(login.login == "admin"){
-      usu = new Usuario(1, "teste-admin", login.login, login.senha, "ADMIN");
-    }
-    else if (login.login == "gerente") {
-      usu = new Usuario(1, "teste-gerente", login.login, login.senha, "GERENTE");
-    }
-    return of(usu);
-  }
-  else {
-    return of(null);
-  }
+  return this.http.get<Usuario>(`${this.backendURL}/login/${login.email}`);
 }
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }

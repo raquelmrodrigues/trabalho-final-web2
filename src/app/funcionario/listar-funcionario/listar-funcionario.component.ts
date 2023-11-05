@@ -1,8 +1,8 @@
+import { Usuario } from 'src/app/shared/models/usuario.model';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { CrudFuncionarioService } from '../services/crud-funcionario.service';
-import { Funcionario } from 'src/app/shared/models/funcionario.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ListarFuncionarioComponent implements OnInit {
 
-funcionarios:Funcionario[] = [];
+funcionarios:Usuario [] = [];
 
 constructor(private funcionarioService : CrudFuncionarioService,
             private router: Router){}
@@ -28,10 +28,10 @@ ngOnInit(): void {
   );
 }
 
-listarFuncionarios(): Observable<Funcionario[]> {
+listarFuncionarios(): Observable<Usuario []> {
   return this.funcionarioService.listarFuncionario();
 }
-remover(funcionario: Funcionario, i: number): void {
+remover(funcionario: Usuario , i: number): void {
   const confirmar = window.confirm(`Tem certeza de que deseja remover o funcionário ${funcionario.nome}?`);
 
   if (confirmar) {

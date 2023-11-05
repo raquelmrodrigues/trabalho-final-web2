@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Funcionario } from 'src/app/shared/models/funcionario.model';
+import { Usuario } from 'src/app/shared/models/usuario.model';
 import { CrudFuncionarioService } from '../services/crud-funcionario.service';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class InserirFuncionarioComponent {
   @ViewChild('formFuncionario') formFuncionario!: NgForm;
-  funcionario!: Funcionario;
+  funcionario!: Usuario ;
 
   constructor(
     private funcionarioService: CrudFuncionarioService,
@@ -19,7 +19,7 @@ export class InserirFuncionarioComponent {
   ) { }
 
   ngOnInit(): void {
-    this.funcionario = new Funcionario();
+    this.funcionario = new Usuario ();
   }
   inserirFuncionario(): void {
     this.funcionario.perfil = "FUNC"

@@ -1,10 +1,9 @@
+import { Usuario } from 'src/app/shared/models/usuario.model';
 import { Injectable } from '@angular/core';
-import { Funcionario } from 'src/app/shared/models/funcionario.model';
 import { Manutencao } from 'src/app/shared/models/manutencao.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
-const LS_CHAVE_1: string = "funcionario";
 const LS_CHAVE_2: string = "Manutencao";
 
 
@@ -16,12 +15,11 @@ export class CrudFuncionarioService {
   constructor(
     private http: HttpClient
   ) { }
-  // Crud de Listagem de funcionarios.
-  listarFuncionario(): Observable<Funcionario[]> {
-    return this.http.get<Funcionario[]>(`${this.backendURL}/funcionarios`);
+  listarFuncionario(): Observable<Usuario []> {
+    return this.http.get<Usuario []>(`${this.backendURL}/funcionarios`);
   }
 
-  inserirFuncionario(funcionario: Funcionario): Observable<any> {
+  inserirFuncionario(funcionario: Usuario ): Observable<any> {
 
     const url = `${this.backendURL}/funcionarios`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -30,16 +28,16 @@ export class CrudFuncionarioService {
     return this.http.post(url, funcionarioJSON, { headers });
   }
 
-  buscarPorIdFuncionario(id: number): Observable<Funcionario>{
-    let func = this.http.get<Funcionario>(`${this.backendURL}/funcionarios/${id}`);
+  buscarPorIdFuncionario(id: number): Observable<Usuario >{
+    let func = this.http.get<Usuario >(`${this.backendURL}/funcionarios/${id}`);
     return func;
   }
 
-  atualizarFuncionario(funcionario: Funcionario): Observable<any> {
+  atualizarFuncionario(funcionario: Usuario ): Observable<any> {
     const url = `${this.backendURL}/funcionarios/${funcionario.id}`;
     return this.http.put(url, funcionario);
   }
-  removerFuncionario(funcionario: Funcionario): Observable<any>{
+  removerFuncionario(funcionario: Usuario ): Observable<any>{
 
     const url = `${this.backendURL}/funcionarios/${funcionario.id}`
     return this.http.delete(url)

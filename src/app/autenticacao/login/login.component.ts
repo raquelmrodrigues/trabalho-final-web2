@@ -34,16 +34,28 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     if (this.formLogin.form.valid) {
       this.LoginService.login(this.login).subscribe((usu) => {
-        if (usu != null){
+        if (usu != null) {
           this.LoginService.usuarioLogado = usu;
           this.loading = false;
-          this.router.navigate(["funcionario/inicialFuncionario"]);
-        }
-        else {
+          const perfil = usu.perfil;
+          switch (perfil) {
+            case 'ADMIN':
+              this.router.navigate(["funcionario/inicialFuncionario"]);
+              break;
+            case 'CLIENTE':
+              this.router.navigate(["cliente/inicialCliente"]);
+              break;
+            default:
+              this.router.navigate(["relatorio/relatorioFiel"]);
+              break;
+          }
+        } else {
           this.message = "Login ou Senha são Inválidos.";
         }
       });
+    } else {
+      this.loading = false;
     }
-    this.loading = false;
   }
+
 }

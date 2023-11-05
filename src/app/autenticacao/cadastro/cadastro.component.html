@@ -28,12 +28,12 @@
           <a routerLink="/autenticacao/login">Voltar</a>
         </p>
         <h2 class="sub-titulo pb-3">Cadastre-se!</h2>
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="login mx-3 w-50">
+        <form #formCadastro="ngForm"  class="login mx-3 w-50">
           <div class="form-group" [ngClass]="aplicaCssErro(cpf)">
             <label>CPF</label>
             <input
               name="cpf"
-              ngModel
+              [(ngModel)]="cliente.cpf"
               type="text"
               class="form-control"
               placeholder="XXX.XXX.XXX-XX"
@@ -50,7 +50,7 @@
             <label>Nome</label>
             <input
               name="nome"
-              [(ngModel)]="usuario.nome"
+              [(ngModel)]="cliente.nome"
               type="text"
               id="nome"
               class="form-control"
@@ -68,7 +68,7 @@
             <label>Email</label>
             <input
               name="email"
-              [(ngModel)]="usuario.email"
+              [(ngModel)]="cliente.email"
               type="text"
               id="email"
               class="form-control"
@@ -82,78 +82,14 @@
               </div>
           </div>
 
-          <div ngModelGroup="endereco">
-          <div class="form-group" [ngClass]="aplicaCssErro(cep)">
-            <label>CEP</label>
-            <input
-              type="text"
-              ngModel
-              class="form-control"
-              id="cep"
-              name="cep"
-              placeholder="00000-000"
-              required
-              #cep="ngModel"
-              (blur)="consultaCEP($any($event.target).value, f)"
-              />
-              <div *ngIf="!cep.valid && cep.touched"
-              class="alert alert-danger" role="alert">
-                CEP é Obrigatório.
-              </div>
-          </div>
-          <div class="form-group">
-            <label>Rua:</label>
-                <input
-                  class="form-control"
-                  name="rua"
-                  ngModel
-                  type="text"
-                  id="rua"
-                  placeholder="Ex: Rua XV de Novembro"
-                  />
-          </div>
-          <div class="form-group">
-            <label>Bairro:</label>
-              <input
-                name="bairro"
-                ngModel
-                class="form-control"
-                type="text"
-                id="bairro"
-                placeholder="Ex: Boqueirão" />
-          </div>
-          <div class="form-group">
-            <label>Cidade:</label>
-            <input
-              name="cidade"
-              ngModel
-              class="form-control"
-              type="text"
-              id="cidade"
-              placeholder="Ex: Curitiba"
-              />
-          </div>
-
-          <div class="form-group">
-            <label>Estado:</label>
-              <input
-                name="uf"
-                ngModel
-                class="form-control"
-                type="text"
-                id="uf"
-                placeholder="Ex: PR"
-                />
-          </div>
-        </div>
-
           <div class="form-group">
             <label>Telefone</label>
               <input
                 type="text"
+                [(ngModel)]="cliente.telefone"
+                ngModel
                 id="telefone"
                 name="telefone"
-                ngModel
                 class="form-control"
                 placeholder="+55 (xx) xxxxx-xxxx"
                 appPhoneMask
@@ -165,7 +101,7 @@
                 id="senha"
                 type="password"
                 name="senha"
-                ngModel
+                [(ngModel)]="cliente.senha"
                 class="form-control"
                 placeholder="Ex: senha123"
                 required
@@ -194,8 +130,83 @@
                 A Confirmação da senha é Obrigatória.
               </div>
           </div>
+          <div class="form-group mb-3">
+            <label for="dataDeNasc">Data de nascimento:</label>
+            <input type="date" class="form-control" id="dataDeNasc" name="dataDeNasc"
+            [(ngModel)]="cliente.dataDeNasc" #dataDeNasc="ngModel" required>
+        </div>
+        <form #enderecoForm="ngForm">
+            <div class="form-group" [ngClass]="aplicaCssErro(cep)">
+              <label>CEP</label>
+              <input
+                type="text"
+                [(ngModel)]="cliente.cep"
+                ngModel
+                class="form-control"
+                id="cep"
+                name="cep"
+                placeholder="00000-000"
+                required
+                #cep="ngModel"
+                (blur)="consultaCEP($any($event.target).value, enderecoForm)"
+                />
+                <div *ngIf="!cep.valid && cep.touched"
+                class="alert alert-danger" role="alert">
+                  CEP é Obrigatório.
+                </div>
+            </div>
+            <div class="form-group">
+              <label>Rua:</label>
+                  <input
+                    class="form-control"
+                    name="rua"
+                    [(ngModel)]="cliente.rua"
+                    ngModel
+                    type="text"
+                    id="rua"
+                    placeholder="Ex: Rua XV de Novembro"
+                    />
+            </div>
+            <div class="form-group">
+              <label>Bairro:</label>
+                <input
+                  name="bairro"
+                  [(ngModel)]="cliente.bairro"
+                  ngModel
+                  class="form-control"
+                  type="text"
+                  id="bairro"
+                  placeholder="Ex: Boqueirão" />
+            </div>
+            <div class="form-group">
+              <label>Cidade:</label>
+              <input
+                name="cidade"
+                [(ngModel)]="cliente.cidade"
+                ngModel
+                class="form-control"
+                type="text"
+                id="cidade"
+                placeholder="Ex: Curitiba"
+                />
+            </div>
+
+            <div class="form-group">
+              <label>Estado:</label>
+                <input
+                  name="uf"
+                  [(ngModel)]="cliente.estado"
+                  ngModel
+                  class="form-control"
+                  type="text"
+                  id="uf"
+                  placeholder="Ex: PR"
+                  />
+            </div>
+            </form>
           <button type="submit" class="btn btn-cadastro col-12"
-          [disabled]="!f.valid"> Cadastro
+          [disabled]="!formCadastro.valid"
+          (click)="cadastrarCliente()"> Cadastro
           </button>
         </form>
         <div class="mt-2 btn-login text-center">
