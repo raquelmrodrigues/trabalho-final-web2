@@ -39,14 +39,11 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           const perfil = usu.perfil;
           switch (perfil) {
-            case 'ADMIN':
-              this.router.navigate(["funcionario/inicialFuncionario"]);
-              break;
             case 'CLIENTE':
               this.router.navigate(["cliente/inicialCliente"]);
               break;
             default:
-              this.router.navigate(["relatorio/relatorioFiel"]);
+              this.router.navigate(["funcionario/inicialFuncionario"]);
               break;
           }
         } else {
