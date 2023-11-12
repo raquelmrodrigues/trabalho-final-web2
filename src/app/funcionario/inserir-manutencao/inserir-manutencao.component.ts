@@ -21,11 +21,11 @@ peca: any;
       this.manutencao = new Manutencao();
   }
 
-  inserir(): void {
+  /*inserir(): void {
     if (this.formManutencao.form.valid) {
     this.manutencaoService.inserirItem(this.manutencao);
     this.router.navigate( ["/funcionario/listarManutencao"] );
     }
-    }
+    }*/
 
 }
