@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Funcionario } from 'src/app/shared/models/funcionario.model';
+import { Usuario } from 'src/app/shared/models/usuario.model';
 import { CrudFuncionarioService } from '../services/crud-funcionario.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { CrudFuncionarioService } from '../services/crud-funcionario.service';
 
 export class EditarFuncionarioComponent implements OnInit {
   @ViewChild("formFuncionario") formFuncionario!: NgForm;
-  funcionario: Funcionario | undefined;
+  funcionario: Usuario  | undefined;
   private id = this.route.snapshot.params['id'];
 
 
@@ -25,7 +25,7 @@ export class EditarFuncionarioComponent implements OnInit {
 
   ngOnInit(): void {
   console.log(this.id);
-  this.funcionarioService.buscarPorIdFuncionario(this.id).subscribe((funcionario: Funcionario) => {
+  this.funcionarioService.buscarPorIdFuncionario(this.id).subscribe((funcionario: Usuario ) => {
   this.funcionario = funcionario;
   })
 

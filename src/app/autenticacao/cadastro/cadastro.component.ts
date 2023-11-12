@@ -1,72 +1,75 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Usuario } from 'src/app/shared/models/usuario.model';
+import { NgForm } from '@angular/forms';
+import { CadastroService } from '../services/cadastro.service';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
+  @ViewChild('formCadastro') formCadastro!: NgForm;
+  cliente!: Usuario;
 
-    usuario: any = {
-        nome: null,
-        email: null    
+  constructor(
+    private cadastroService: CadastroService,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit(): void {
+    this.cliente = new Usuario ();
+  }
+  cadastrarCliente(): void{
+    this.cliente.perfil = "CLIENTE"
+    this.cadastroService.inserirCliente(this.cliente).subscribe(response => {
+      console.log('cliente inserido com sucesso', response);
+    },
+    error => {
+      console.log('erro!', error);
+    });
+  }
+
+  verificaValidTouched(campo: { valid: any; touched: any }) {
+    return !campo.valid && campo.touched;
+  }
+
+  aplicaCssErro(campo: any) {
+    return {
+      'has-error': this.verificaValidTouched(campo),
+    };
+  }
+
+  consultaCEP(cep: any, form: NgForm) {
+    cep = cep.replace(/\D/g, '');
+
+    if (cep !== '') {
+      let validacep = /^[0-9]{8}$/;
+
+      if (validacep.test(cep)) {
+        this.http
+  .get('https://viacep.com.br/ws/' + cep + '/json')
+  .subscribe({
+    next: (dados: any) => this.populaDadosForm(dados, form),
+    error: (error) => {
+      console.error('Error while fetching address data:', error);
     }
+  });
 
-    onSubmit(form: any) {
-        console.log(form);
-
-        //console.log(this.usuario);
       }
-    
-      constructor (private http: HttpClient) {}
-    
-      ngOnInit(): void {}
-
-      verificaValidTouched(campo: { valid: any; touched: any; }) {
-        return !campo.valid && campo.touched;
-      }
-
-      aplicaCssErro(campo: any){
-        return {
-            'has-error' : this.verificaValidTouched(campo)
-        }
-      }
-      
-      consultaCEP(cep: any, form: any) {
-        //Nova variável "cep" somente com dígitos.
-        cep = cep.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-            //Expressão regular para validar o CEP.
-            let validacep = /^[0-9]{8}$/;
-            
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
-                
-                this.http.get("//viacep.com.br/ws/"+ cep +"/json")
-                .subscribe((dados: any) => this.populaDadosForm(dados, form));
-            }
-        }
-      }
-    populaDadosForm(dados: any, form: any): void {
-        form.setValue({
-            cpf: form.value.cpf,
-            nome: form.value.nome,
-            email: form.value.email,
-            endereco: {
-                cep: dados.cep,
-                rua: dados.logradouro,
-                bairro: dados.bairro ,
-                cidade: dados.localidade,
-                uf: dados.uf
-            },
-            telefone: form.value.telefone,
-            senha: form.value.senha,
-            confirmacao: form.value.confirmacao
-        });
     }
+  }
+
+
+  populaDadosForm(dados: any, form: NgForm): void {
+    form.form.setValue({
+        cep: dados.cep,
+        rua: dados.logradouro,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        uf: dados.uf,
+    });
+  }
+
 }
-
-
