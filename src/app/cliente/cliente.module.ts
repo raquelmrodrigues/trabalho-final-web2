@@ -6,6 +6,7 @@ import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.co
 import { ListarPedidosClienteComponent } from './listar-pedidos-cliente/listar-pedidos-cliente.component';
 import { OrcamentoClienteComponent } from './orcamento-cliente/orcamento-cliente.component';
 import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.compo
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule
   ]
 })
