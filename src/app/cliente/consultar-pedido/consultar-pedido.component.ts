@@ -71,7 +71,7 @@ export class ConsultarPedidoComponent {
         pedido.numero.toString().includes(this.filtro)
       );
     } else {
-      this.pedidosFiltrados = [...this.listaPedidos];
+      
       // Se o campo de pesquisa estiver vazio, mostre todos os pedidos novamente
       // Você pode querer buscar novamente os dados do backend neste ponto
       // this.pedidos = this.servicoConsultaPedidos.obterPedidos();

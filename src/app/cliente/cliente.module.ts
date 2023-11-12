@@ -7,6 +7,7 @@ import { ListarPedidosClienteComponent } from './listar-pedidos-cliente/listar-p
 import { OrcamentoClienteComponent } from './orcamento-cliente/orcamento-cliente.component';
 import { PedidosClienteComponent } from './pedidos-cliente/pedidos-cliente.component';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @NgModule({
