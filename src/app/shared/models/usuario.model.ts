@@ -1,3 +1,4 @@
+import { Endereco } from './endereco.model';
 
 export class Usuario {
 
@@ -10,11 +11,7 @@ export class Usuario {
     public cpf?: string,
     public email?: string,
     public telefone?: string,
-    public cep?: number,
-    public rua?: string,
-    public bairro?: string,
-    public cidade?: string,
-    public estado?: string,
+    public endereco?: Endereco,
     public dataDeNasc?: Date,
 
   ){}

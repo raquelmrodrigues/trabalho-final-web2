@@ -33,29 +33,38 @@ export class LoginComponent implements OnInit {
   logar(): void {
     this.loading = true;
     if (this.formLogin.form.valid) {
-      this.LoginService.login(this.login).subscribe((usu) => {
-        if (usu != null) {
-          this.LoginService.usuarioLogado = usu;
-          this.loading = false;
-          const perfil = usu.perfil;
-          switch (perfil) {
-            case 'ADMIN':
-              this.router.navigate(["funcionario/inicialFuncionario"]);
-              break;
-            case 'CLIENTE':
-              this.router.navigate(["cliente/inicialCliente"]);
-              break;
-            default:
-              this.router.navigate(["relatorio/relatorioFiel"]);
-              break;
+      this.LoginService.login(this.login).subscribe(
+        (usu) => {
+          if (usu != null) {
+            this.LoginService.usuarioLogado = usu;
+            this.loading = false;
+            const perfil = usu.perfil;
+            switch (perfil) {
+              case 'CLIENTE':
+                this.router.navigate(["cliente/inicialCliente"]);
+                break;
+              default:
+                this.router.navigate(["funcionario/inicialFuncionario"]);
+                break;
+            }
+          } else {
+            this.message = "Login ou Senha são Inválidos.";
           }
-        } else {
-          this.message = "Login ou Senha são Inválidos.";
+        },
+        (error) => {
+          console.error(error); // Log the error
+          this.loading = false;
+          if (error === 'Authentication failed. Invalid email or password.') {
+            this.message = 'Login ou Senha são Inválidos.';
+          } else {
+            this.message = 'Login ou Senha são Inválidos.';
+          }
         }
-      });
+      );
     } else {
       this.loading = false;
     }
   }
+
 
 }
