@@ -85,6 +85,8 @@
           >
             Login
           </button>
+          <div *ngIf="message" class="error-message">{{ message }}</div>
+
 
           <div class="mt-2 btn-login text-center">
             <a routerLink="/autenticacao/cadastro">Cadastre-se</a>

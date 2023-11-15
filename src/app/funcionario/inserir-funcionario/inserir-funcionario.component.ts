@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class InserirFuncionarioComponent {
   @ViewChild('formFuncionario') formFuncionario!: NgForm;
-  funcionario!: Usuario ;
+  funcionario: any = { endereco: {
+    cep: null,
+
+  } };
 
   constructor(
     private funcionarioService: CrudFuncionarioService,
@@ -22,7 +25,11 @@ export class InserirFuncionarioComponent {
     this.funcionario = new Usuario ();
   }
   inserirFuncionario(): void {
+    if (!this.funcionario.endereco) {
+      this.funcionario.endereco = {};
+    }
     this.funcionario.perfil = "FUNC"
+    this.funcionario.endereco.cep = 1
     this.funcionarioService.inserirFuncionario(this.funcionario)
       .subscribe(
         response => {

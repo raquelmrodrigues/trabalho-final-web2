@@ -136,21 +136,22 @@
             [(ngModel)]="cliente.dataDeNasc" #dataDeNasc="ngModel" required>
         </div>
         <form #enderecoForm="ngForm">
-            <div class="form-group" [ngClass]="aplicaCssErro(cep)">
+            <div class="form-group" >
               <label>CEP</label>
               <input
                 type="text"
-                [(ngModel)]="cliente.cep"
+
+                [(ngModel)]="cliente?.endereco.cep"
                 ngModel
                 class="form-control"
                 id="cep"
                 name="cep"
                 placeholder="00000-000"
                 required
-                #cep="ngModel"
+                #cepInput="ngModel"
                 (blur)="consultaCEP($any($event.target).value, enderecoForm)"
                 />
-                <div *ngIf="!cep.valid && cep.touched"
+                <div *ngIf="!cepInput.valid && cepInput.touched"
                 class="alert alert-danger" role="alert">
                   CEP é Obrigatório.
                 </div>
@@ -160,7 +161,7 @@
                   <input
                     class="form-control"
                     name="rua"
-                    [(ngModel)]="cliente.rua"
+                    [(ngModel)]="cliente?.endereco.rua"
                     ngModel
                     type="text"
                     id="rua"
@@ -171,7 +172,7 @@
               <label>Bairro:</label>
                 <input
                   name="bairro"
-                  [(ngModel)]="cliente.bairro"
+                  [(ngModel)]="cliente?.endereco.bairro"
                   ngModel
                   class="form-control"
                   type="text"
@@ -182,7 +183,7 @@
               <label>Cidade:</label>
               <input
                 name="cidade"
-                [(ngModel)]="cliente.cidade"
+                [(ngModel)]="cliente?.endereco.cidade"
                 ngModel
                 class="form-control"
                 type="text"
@@ -195,7 +196,7 @@
               <label>Estado:</label>
                 <input
                   name="uf"
-                  [(ngModel)]="cliente.estado"
+                  [(ngModel)]="cliente?.endereco.estado"
                   ngModel
                   class="form-control"
                   type="text"
