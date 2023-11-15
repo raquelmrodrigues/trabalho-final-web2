@@ -11,10 +11,18 @@ import { CadastroService } from '../services/cadastro.service';
 })
 export class CadastroComponent implements OnInit {
   @ViewChild('formCadastro') formCadastro!: NgForm;
+
+
   cliente: any = { endereco: {
     cep: null,
+    rua: null,
+    bairro: null,
+    cidade: null,
+    estado: null
 
   } };
+
+
 
   constructor(
     private cadastroService: CadastroService,
@@ -23,6 +31,33 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.cliente = new Usuario ();
+  }
+  validarCPF(cpf:string): string{
+    cpf = cpf.replace(/\D/g, '');
+
+    if (cpf.length !== 11) {
+      console.log('CPF deve ter 11 dígitos.');
+    }
+
+    let sum = 0;
+    for (let i = 0; i < 9; i++) {
+      sum += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    let remainder = 11 - (sum % 11);
+    let digit1 = remainder >= 10 ? 0 : remainder;
+
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
+      sum += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    remainder = 11 - (sum % 11);
+    let digit2 = remainder >= 10 ? 0 : remainder;
+
+    if (!(digit1 === parseInt(cpf.charAt(9)) && digit2 === parseInt(cpf.charAt(10)))) {
+      console.log('CPF inválido.');
+    }
+    console.log('CPF válido.')
+    return 'CPF válido.';
   }
   cadastrarCliente(): void{
     this.cliente.perfil = "CLIENTE"
