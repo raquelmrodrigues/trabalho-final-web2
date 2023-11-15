@@ -3,6 +3,7 @@ import { StatusPedido } from 'src/app/shared/models/status-pedido';
 import { Pedido } from 'src/app/shared/models/pedido';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { DataComponent } from 'src/app/funcionario/data/data.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-pedidos-cliente',
@@ -16,7 +17,8 @@ export class ListarPedidosClienteComponent implements OnInit{
   selectedDateRange: Date[] = [];
   private dateRangeModal: NgbModalRef | null = null;
 
-  constructor(private modalService: NgbModal, private cdr: ChangeDetectorRef) {}
+  constructor(private modalService: NgbModal, private cdr: ChangeDetectorRef, private router: Router) {}
+
 
   ngOnInit(): void {
     this.pedidos = this.listarPedidos();
@@ -125,9 +127,6 @@ export class ListarPedidosClienteComponent implements OnInit{
     }
   }
 
-
-
-
   listarPedidos(): Pedido[] {
     return [
       new Pedido(123546123, new Date(), StatusPedido.PAGO),
@@ -160,6 +159,12 @@ export class ListarPedidosClienteComponent implements OnInit{
       new Pedido(1256733, new Date(2023, 2, 8, 9, 15, 55), StatusPedido.ABERTO),
       //Testes de pedidos.
     ];
+  }
+
+  consultaPorNumero() {
+    console.log("antes");
+    this.router.navigate(['/cliente/consultarPedido']);
+    console.log("depois");
   }
 
 }
