@@ -12,13 +12,14 @@ import { StatusPedido } from 'src/app/shared/models/status-pedido';
 export class OrcamentoClienteComponent implements OnInit{
   itens: ItemPedido[] = [];
   pedido: Pedido = new Pedido(7, new Date() , undefined, undefined,  0);
- 
+
   ngOnInit(): void{
-    this.pedido = this.PedidoExemplo();
+    /*this.pedido = this.PedidoExemplo();
     this.itens = this.listarItens();
-    }
 
+  */}
 
+/*
   listarItens(): ItemPedido [] {
     return[
     new ItemPedido(123546123, 1,new Manutencao (54, 'Calça', 15,3) ,5),
@@ -28,5 +29,5 @@ export class OrcamentoClienteComponent implements OnInit{
 
   PedidoExemplo(): Pedido {
     return new Pedido(123546123, new Date(2023, 0, 23, 10, 50, 13), StatusPedido.PAGO, this.listarItens(), 145);
-  }
+  }*/
 }

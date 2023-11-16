@@ -9,31 +9,31 @@
 	  <div class="container border-1 border-dark border mt-3">
             <h2 class="titulo-tela numPedido pb-1">Pedido {{pedido.id}}</h2>
             <p class="m-0 fw-semibold">Preço total: {{pedido.valorTotal | currency : 'BRL'}}</p>
-            <p class="m-0 fw-semibold">Prazo do serviço: {{pedido.date | date:'dd/MM/yyyy'}}</p>
+            <p class="m-0 fw-semibold">Prazo do serviço: {{pedido.datadopedido | date:'dd/MM/yyyy'}}</p>
             <h4 class="subTitulo mb-3">Roupas do Pedido:</h4>
-            <div class="overflow-y-scroll mx-5" style="max-height: 15rem;">                		
-				<table class="table tabela table-bordered border border-5 border-tabela">					
+            <div class="overflow-y-scroll mx-5" style="max-height: 15rem;">
+				<table class="table tabela table-bordered border border-5 border-tabela">
 					<tbody>
-					<ng-container *ngFor="let item of itens" >	
+					<ng-container *ngFor="let item of itens" >
 					<tr class="border-5 border-tabela">
 					  <th scope="row">{{item.quantidade}}</th>
 					  <td class="border-5 border-tabela">{{item.roupa?.peca}}</td>
 					  <td class="border-5 border-tabela">{{(item.roupa?.valorUn ?? 0) * (item.quantidade ?? 0) | currency : 'BRL'}}</td>
-					  
+
 					<!--<tr class="border-5 border-tabela">
 					  <th scope="row">6</th>
 					  <td class="border-5 border-tabela">Roupa</td>
 					  <td class="border-5 border-tabela">R$100</td>
-					</tr> -->	
+					</tr> -->
 				   </ng-container>
-				  </tbody>				  
+				  </tbody>
 				</table>
 				<p *ngIf="itens.length == 0" class="text-center">
 					Nenhum Pedido Encontrado
 				  </p>
         </div>
       </div>
-	  
+
 	  <div class="d-flex justify-content-evenly mt-4">
 		<button type="submit" class="btn btn-baixo col-2" onclick="alert('O seu Orçamento foi Aprovado.')" [routerLink]="['/cliente/listarPedidosCliente']">APROVAR ORÇAMENTO</button>
 		<button type="submit" class="btn btn-baixo col-2" onclick="alert('O Orçamento foi Reprovado.')" [routerLink]="['/cliente/listarPedidosCliente']">REPROVAR ORÇAMENTO</button>
@@ -41,4 +41,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
-</html> 
+</html>

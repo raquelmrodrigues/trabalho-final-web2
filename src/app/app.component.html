@@ -4,11 +4,11 @@
 <div  class="conteiner-fluid">
   <!-- Nav bar de cliente -->
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary p-0">
+  <nav aria-label *ngIf="usuarioLogado && usuarioLogado.perfil == 'CLIENTE' " class= "navbar navbar-expand-lg bg-body-tertiary p-0">
 
 
     <div class="container-fluid ms-5 p-0">
-      <a class="navbar-brand m-0 p-0"><img height="64" width="64" src="../assets/maquina.png"></a>
+      <a class="navbar-brand m-0 p-0"><img alt="" height="64" width="64" src="../assets/maquina.png"></a>
 
       <ul class="navbar-nav nav-underline">
         <li class="nav-item mx-5">
@@ -31,11 +31,11 @@
 
       </ul>
 
-      <form class="d-flex justify-content-end" role="search" style="background: #CF8DA7; border-top-left-radius: 20px; border-bottom-left-radius: 20px">
-        <img class="ms-3 p-2" height="64" width="64" src="../assets/amaciante.png">
+      <form aria-label class="d-flex justify-content-end" role="search" style="background: #CF8DA7; border-top-left-radius: 20px; border-bottom-left-radius: 20px">
+        <img alt="" class="ms-3 p-2" height="64" width="64" src="../assets/amaciante.png">
 
         <div class="input-group p-3 me-3 text-center">
-          <a class="fs-4 text-light">{{usuarioLogado?.nome}}</a>
+          <a class="fs-4 text-light">{{usuarioLogado.nome}}</a>
         </div>
       </form>
 
@@ -43,7 +43,7 @@
   </nav>
   <!-- Nav bar de funcionario -->
 
-  <nav *ngIf="usuarioLogado && usuarioLogado.perfil != 'CLIENTE' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
+  <nav aria-label *ngIf="usuarioLogado && usuarioLogado.perfil != 'CLIENTE' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
 
 
     <div class="container-fluid ms-5 p-0">
@@ -80,7 +80,7 @@
       <form class="d-flex justify-content-end" role="search" style="background: #91C2D8; border-top-left-radius: 20px; border-bottom-left-radius: 20px">
         <img class="ms-3 p-2" height="64" width="64" src="../assets/amaciante.png">
         <div class="input-group p-3 me-3 text-center">
-    <a class="fs-4 text-light">{{usuarioLogado?.nome}}</a>
+    <a class="fs-4 text-light">{{usuarioLogado.nome}}</a>
         </div>
       </form>
 
