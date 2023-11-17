@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Usuario } from 'src/app/shared/models/usuario.model';
 import { CrudFuncionarioService } from '../services/crud-funcionario.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-inserir-funcionario',
@@ -34,10 +34,9 @@ export class InserirFuncionarioComponent {
       .subscribe(
         response => {
           console.log('Funcionario inserido com sucesso', response);
-        },
-        error => {
-          console.error('Erro ao inserir funcionario:', error);
+          this.router.navigate(['/funcionario/listarFuncionario']);
         }
+
       );
   }
 

@@ -5,7 +5,7 @@
   <!-- Nav bar de cliente -->
 
 
-
+  <nav *ngIf="usuarioLogado && usuarioLogado.perfil == 'CLIENTE' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
     <div class="container-fluid ms-5 p-0">
       <a class="navbar-brand m-0 p-0"><img height="64" width="64" src="../assets/maquina.png"></a>
 

@@ -31,7 +31,7 @@
 
         <div class="form-group mb-3">
             <label for="senha">Senha:</label>
-            <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="funcionario.senha"
+            <input type="password"  class="form-control" id="senha" name="senha" [(ngModel)]="funcionario.senha"
                 #senha="ngModel" required>
             <div *ngIf="senha.errors && (senha.dirty || dataDeNasc.touched)" class="alert alert-danger">
                 <div [hidden]="!senha.errors['required']"> Insira uma senha válida</div>
