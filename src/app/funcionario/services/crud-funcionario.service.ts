@@ -51,29 +51,28 @@ export class CrudFuncionarioService {
 
 
   // CRUD DE MANUTENCAO
-  listarItem(): Manutencao[] {
-    const manutencaoPecas = localStorage[LS_CHAVE_2];
-    return manutencaoPecas ? JSON.parse(manutencaoPecas) : [];
+  listarManutencao(): Observable<Manutencao []> {
+    return this.http.get<Manutencao []>(`${this.backendURL}/roupas`);
   }
 
-  inserirItem(manutencao: Manutencao): void {
-    const manutencaoPecas = this.listarItem();
+  /*inserirItem(manutencao: Manutencao): void {
+   // const manutencaoPecas = this.listarItem();
 
     manutencao.id = new Date().getTime();
 
     manutencaoPecas.push(manutencao);
 
-    localStorage[LS_CHAVE_2] = JSON.stringify(manutencaoPecas);
+    //localStorage[LS_CHAVE_2] = JSON.stringify(manutencaoPecas);
   }
 
   buscarItemPorId(id:number): Manutencao | undefined {
-    const manutencaoPecas: Manutencao[] = this.listarItem();
+    //const manutencaoPecas: Manutencao[] = this.listarItem();
 
     return manutencaoPecas.find(manutencao => manutencao.id === id);
   }
 
   atualizarItem(manutencao: Manutencao): void {
-    const manutencaoPecas: Manutencao[] = this.listarItem();
+   // const manutencaoPecas: Manutencao[] = this.listarItem();
 
 
     manutencaoPecas.forEach( (obj, index, objs) => {
@@ -91,5 +90,5 @@ export class CrudFuncionarioService {
     manutencaoPecas = manutencaoPecas.filter(manutencao => manutencao.id !== id);
 
     localStorage[LS_CHAVE_2] = JSON.stringify(manutencaoPecas);
-  }
+  }*/
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CrudFuncionarioService } from '../services/crud-funcionario.service';
 import { Manutencao } from 'src/app/shared/models/manutencao.model';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -15,18 +16,25 @@ export class ListarManutencaoComponent{
   constructor(private manutencaoService : CrudFuncionarioService) {}
 
   ngOnInit(): void {  
-    this.manutencao = this.listarTodos();
-    console.log(this.manutencao);
-  }
+    this.listarManutencao().subscribe(
+      manutencao => {
+        this.manutencao = manutencao;
+      },
+      error => {
+        console.error('Error',error);
+      }
+    );
+    }
+  
 
-  listarTodos(): Manutencao[] {
-    return this.manutencaoService.listarItem();
+  listarManutencao(): Observable<Manutencao[]> {
+    return this.manutencaoService.listarManutencao();
     
   }
-
+/*
   remover($event: any, manutencao: Manutencao): void {
     $event.preventDefault();
       this.manutencaoService.removerItem(manutencao.id!);
       this.manutencao = this.listarTodos();
-  }
+  }*/
 }

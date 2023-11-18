@@ -16,8 +16,8 @@
             <tr *ngFor="let manutencao of manutencao" class="text-center">
                 
                 <td>{{manutencao.peca}} </td>
-                <td>{{manutencao.valorUn}} </td>
-                <td>{{manutencao.dtEntrega}}</td>
+                <td>{{manutencao.preco}} </td>
+                <td>{{manutencao.prazo}}</td>
                 <td class="text-center" style="width: 300px">
                     <a [routerLink]="['/funcionario/editarManutencao', manutencao.id]" href="#" title="Editar" alt="Editar" class="btn btn-editar me-1">
                         <i class="fa fa-edit" aria-hidden="true"></i> Editar
@@ -40,7 +40,7 @@
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                                (click)="remover($event, manutencao)">Confirmar</button>
+                                >Confirmar</button>
                                 </div>
                             </div>
                         </div>
