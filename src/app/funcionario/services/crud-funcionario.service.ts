@@ -48,47 +48,34 @@ export class CrudFuncionarioService {
 
 
 
-
-
   // CRUD DE MANUTENCAO
   listarManutencao(): Observable<Manutencao []> {
     return this.http.get<Manutencao []>(`${this.backendURL}/roupas`);
   }
 
-  /*inserirItem(manutencao: Manutencao): void {
-   // const manutencaoPecas = this.listarItem();
+  inserirManutencao(manutencao: Manutencao ): Observable<any> {
 
-    manutencao.id = new Date().getTime();
+    const url = `${this.backendURL}/roupas`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const manutencaoJSON = JSON.stringify(manutencao);
 
-    manutencaoPecas.push(manutencao);
-
-    //localStorage[LS_CHAVE_2] = JSON.stringify(manutencaoPecas);
+    return this.http.post(url, manutencaoJSON, { headers });
+  }
+  
+  buscarPorIdManutencao(id: number): Observable<Usuario >{
+    let manu = this.http.get<Usuario >(`${this.backendURL}/roupas/${id}`);
+    return manu;
   }
 
-  buscarItemPorId(id:number): Manutencao | undefined {
-    //const manutencaoPecas: Manutencao[] = this.listarItem();
-
-    return manutencaoPecas.find(manutencao => manutencao.id === id);
+  atualizarManutencao(manutencao: Usuario ): Observable<any> {
+    const url = `${this.backendURL}/roupas/${manutencao.id}`;
+    return this.http.put(url, manutencao);
   }
 
-  atualizarItem(manutencao: Manutencao): void {
-   // const manutencaoPecas: Manutencao[] = this.listarItem();
+  removerManutencao(manutencao: Usuario ): Observable<any>{
 
-
-    manutencaoPecas.forEach( (obj, index, objs) => {
-      if(manutencao.id === obj.id) {
-        objs[index] = manutencao;
-      }
-    });
-
-    localStorage[LS_CHAVE_2] = JSON.stringify(manutencaoPecas);
+    const url = `${this.backendURL}/roupas/${manutencao.id}`
+    return this.http.delete(url)
   }
 
-  removerItem(id:number): void {
-    let manutencaoPecas: Manutencao[] = this.listarItem();
-
-    manutencaoPecas = manutencaoPecas.filter(manutencao => manutencao.id !== id);
-
-    localStorage[LS_CHAVE_2] = JSON.stringify(manutencaoPecas);
-  }*/
 }

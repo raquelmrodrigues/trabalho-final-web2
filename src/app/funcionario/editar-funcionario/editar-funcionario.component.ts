@@ -24,7 +24,6 @@ export class EditarFuncionarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  console.log(this.id);
   this.funcionarioService.buscarPorIdFuncionario(this.id).subscribe((funcionario: Usuario ) => {
   this.funcionario = funcionario;
   })
