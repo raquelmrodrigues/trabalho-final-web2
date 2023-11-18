@@ -3,7 +3,9 @@ export class Manutencao {
         public id?: number,
         public peca?: string,
         public preco?: number,
-        public prazo?: number){
+        public prazo?: number
+        ){
 
         }
 }
+

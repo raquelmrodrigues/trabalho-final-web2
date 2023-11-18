@@ -29,7 +29,7 @@
         <ng-container *ngFor="let pedido of pedidos">
           <tr class="text-center align-middle">
             <td>#{{ pedido.id }}</td>
-            <td>{{pedido.date | date:'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{pedido.datadopedido | date:'dd/MM/yyyy HH:mm'}}</td>
             <td class="status" [style.background-color]="pedido.status?.color">
               {{ pedido.status?.Status }}
             </td>
@@ -42,9 +42,9 @@
                 <i class="fa-solid fa-truck" style="color: #151514;"></i> Recolher</a>
 
               <!-- Os divs depois dos <a> são os modal -->
-              <div 
+              <div
               *ngIf="pedido.status?.Status == 'Aberto'"
-              class="modal fade" id="modalRecolher" 
+              class="modal fade" id="modalRecolher"
               >
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -58,7 +58,7 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                      (click)="AlterarStatus(statusPedido.RECOLHIDO, pedido.id)">Confirmar</button>
+                      (click)="AlterarStatus(pedido)">Confirmar</button>
                     </div>
                   </div>
                 </div>
@@ -70,9 +70,9 @@
                 class="btn btn-xs btn-secondary"
                 ><i class="fa-solid fa-bath"></i> Lavagem</a
               >
-              <div 
+              <div
               *ngIf="pedido.status?.Status == 'Recolhido'"
-              class="modal fade" id="modalLavagem" 
+              class="modal fade" id="modalLavagem"
               >
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -86,7 +86,7 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                      (click)="AlterarStatus(statusPedido.AGUARDANDO, pedido.id)">Confirmar</button>
+                      (click)="AlterarStatus(pedido)">Confirmar</button>
                     </div>
                   </div>
                 </div>
@@ -98,9 +98,9 @@
                 class="btn btn-xs btn-success"
                 ><i class="fa-solid fa-check"></i> Finalizar</a
               >
-              <div 
+              <div
               *ngIf="pedido.status?.Status == 'Pago'"
-              class="modal fade" id="modalFinalizar" 
+              class="modal fade" id="modalFinalizar"
               >
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -114,7 +114,7 @@
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                       <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                      (click)="AlterarStatus(statusPedido.FINALIZADO, pedido.id)">Confirmar</button>
+                      (click)="AlterarStatus(pedido)">Confirmar</button>
                     </div>
                   </div>
                 </div>
@@ -127,5 +127,5 @@
     <p *ngIf="pedidos.length == 0" class="text-center">
       Nenhum Pedido Encontrado
     </p>
-  </div>  
+  </div>
 </body>

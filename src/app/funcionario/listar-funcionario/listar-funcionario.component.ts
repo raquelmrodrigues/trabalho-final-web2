@@ -21,9 +21,6 @@ ngOnInit(): void {
   this.listarFuncionarios().subscribe(
     funcionarios => {
       this.funcionarios = funcionarios;
-    },
-    error => {
-      console.error('Error:', error);
     }
   );
 }
