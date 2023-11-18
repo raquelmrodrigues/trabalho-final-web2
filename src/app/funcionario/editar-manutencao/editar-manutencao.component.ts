@@ -16,14 +16,14 @@ export class EditarManutencaoComponent implements OnInit {
   ngOnInit(): void {
     // snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
     // Operador + (antes do this) converte para número
-  let id = +this.route.snapshot.params['id'];
+  /*let id = +this.route.snapshot.params['id'];
     // Com o id, obtém a manutencao
   const res = this.manutencaoService.buscarItemPorId(id);
   if (res !== undefined){
     this.manutencao = res;
   } else {
     throw new Error ("Peça não encontrada: id = " + id);
-    }
+    }*/
   }
 
   constructor(
@@ -31,7 +31,7 @@ export class EditarManutencaoComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-    atualizar(): void {
+    /*atualizar(): void {
       // Verifica se o formulário é válido
       if (this.formManutencao.form.valid) {
       // Efetivamente atualiza a manutencao
@@ -39,5 +39,5 @@ export class EditarManutencaoComponent implements OnInit {
       // Redireciona para /manutencao/listar
       this.router.navigate(['/funcionario/listarManutencao']);
       }
-      }
+      }*/
 }

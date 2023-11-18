@@ -22,8 +22,6 @@ export class CadastroComponent implements OnInit {
 
   } };
 
-
-
   constructor(
     private cadastroService: CadastroService,
     private http: HttpClient
@@ -59,27 +57,54 @@ export class CadastroComponent implements OnInit {
     console.log('CPF válido.')
     return 'CPF válido.';
   }
-  cadastrarCliente(): void{
-    this.cliente.perfil = "CLIENTE"
-    console.log(JSON.stringify(this.cliente));
-    this.cadastroService.inserirCliente(this.cliente).subscribe(response => {
-      console.log('cliente inserido com sucesso', response);
-    },
-    error => {
-      console.log('erro!', error);
-    });
+
+  sucessoCadastro: boolean = false;
+  erroCadastro: boolean = false; 
+
+  cadastrarCliente(): void {
+    this.cliente.perfil = "CLIENTE";
+  
+    this.cadastroService.inserirCliente(this.cliente).subscribe(
+      (response) => {
+        console.log('cliente inserido com sucesso', response);
+        this.sucessoCadastro = true;
+        this.erroCadastro = false;
+        // Limpar campos do formulário após o sucesso
+        this.cliente = { endereco: {} };
+        this.formCadastro.resetForm();
+      },
+      (error) => {
+        console.log('erro!', error);
+        this.sucessoCadastro = false;
+        this.erroCadastro = true;
+      }
+    );
   }
+
+  verificarSenhasIguais(): boolean {
+    const senhasIguais = this.cliente.senha === this.cliente.confirmacao;
+    console.log('Senhas Iguais?', senhasIguais);
+    return senhasIguais;
+  }
+  
+  
+  
 
   verificaValidTouched(campo: { valid: any; touched: any }) {
     return !campo.valid && campo.touched;
   }
 
   aplicaCssErro(campo: any) {
+    const hasError = this.verificaValidTouched(campo) && !campo.valid;
+    console.log('Campo:', campo);
+    console.log('Tem erro?', hasError);
     return {
-      'has-error': this.verificaValidTouched(campo),
+      'has-error': hasError,
     };
   }
-
+  
+  
+  
   consultaCEP(cep: any, form: NgForm): void {
     console.log('Consulta CEP called with:', cep);
     cep = cep.replace(/\D/g, '');

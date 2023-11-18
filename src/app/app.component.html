@@ -3,10 +3,7 @@
 
 <div  class="conteiner-fluid">
   <!-- Nav bar de cliente -->
-
-  <nav aria-label *ngIf="usuarioLogado && usuarioLogado.perfil == 'CLIENTE' " class= "navbar navbar-expand-lg bg-body-tertiary p-0">
-
-
+ <nav *ngIf="usuarioLogado && usuarioLogado.perfil == 'CLIENTE' " class="navbar navbar-expand-lg bg-body-tertiary p-0">
     <div class="container-fluid ms-5 p-0">
       <a class="navbar-brand m-0 p-0"><img alt="" height="64" width="64" src="../assets/maquina.png"></a>
 
