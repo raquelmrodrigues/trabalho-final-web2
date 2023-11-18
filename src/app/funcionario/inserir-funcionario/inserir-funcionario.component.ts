@@ -24,6 +24,7 @@ export class InserirFuncionarioComponent {
   ngOnInit(): void {
     this.funcionario = new Usuario ();
   }
+  
   inserirFuncionario(): void {
     if (!this.funcionario.endereco) {
       this.funcionario.endereco = {};

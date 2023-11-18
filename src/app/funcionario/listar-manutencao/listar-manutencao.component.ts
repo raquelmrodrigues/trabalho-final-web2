@@ -28,13 +28,6 @@ export class ListarManutencaoComponent{
   
 
   listarManutencao(): Observable<Manutencao[]> {
-    return this.manutencaoService.listarManutencao();
-    
+    return this.manutencaoService.listarManutencao();    
   }
-/*
-  remover($event: any, manutencao: Manutencao): void {
-    $event.preventDefault();
-      this.manutencaoService.removerItem(manutencao.id!);
-      this.manutencao = this.listarTodos();
-  }*/
 }
