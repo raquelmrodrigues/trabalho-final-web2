@@ -23,15 +23,15 @@
 
                     </button>
                     </h2>
-                  <!--  <ng-container *ngFor="let item of pedido" >-->
+                  <ng-container *ngFor="let roupa of pedido.itens" >
                     <div [id]="'collapse'+i" class="accordion-collapse collapse">
                         <div class="accordion-body">
                             <tr>
-                                <td></td>
+                                <td>Peça: {{roupa.roupa?.peca}}, Quantidade: {{roupa.quantidade}}, ValorUnit: {{roupa.roupa?.preco}} </td>
                             </tr>
                         </div>
                     </div>
-                 <!-- </ng-container> -->
+                 </ng-container>
                 </div>
             </div>
         </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/autenticacao/services/login.service';
+import { PedidosService } from 'src/app/funcionario/services/pedidos.service';
+import { Usuario } from 'src/app/shared/models/usuario.model';
 
 @Component({
   selector: 'app-pedidos-cliente',
@@ -8,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 export class PedidosClienteComponent implements OnInit {
   currentDate: Date | undefined;
   totalQuantidade: number = 0;
-  
+
+  constructor(private pedidosService: PedidosService,
+              private loginService: LoginService
+              ) {
+
+  }
   ngOnInit() {
+    this.pedidosService.listarPedidosporID(this.usuarioLogado?.id);
     this.currentDate = new Date();
+  }
+
+  get usuarioLogado(): Usuario | null {
+    return this.loginService.usuarioLogado;
   }
 
   adicionarItem() {
@@ -18,6 +31,8 @@ export class PedidosClienteComponent implements OnInit {
     const valorSelecionado = selecionado.options[selecionado.selectedIndex].text;
     const tabela = (<HTMLTableElement>document.getElementById("tabela")).getElementsByTagName('tbody')[0];
     const linhas = tabela.getElementsByTagName('tr');
+
+
     let itemExistente = false;
 
     for (let i = 0; i < linhas.length; i++) {

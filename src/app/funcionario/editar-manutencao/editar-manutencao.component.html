@@ -11,26 +11,26 @@
                 <div *ngIf="peca.errors && (peca.dirty || peca.touched)" class="alert alert-danger">
                 <div [hidden]="!peca.errors?.['required']">Digite o nome da peça de roupa.</div>
                 </div>
-            </div>      
+            </div>
             <div class="form-group mb-3">
                 <label for="valorUn">Preço:</label>
                 <input type="text" class="form-control" id="valorUn" name="valorUn"
-                [(ngModel)]="manutencao.valorUn"
+                [(ngModel)]="manutencao.preco"
                 #valorUn="ngModel"
                 minlength="3" required>
                 <div *ngIf="valorUn.errors && (valorUn.dirty || valorUn.touched)" class="alert alert-danger">
                 <div [hidden]="!valorUn.errors?.['required']"> Digite o valor unitário da peça. </div>
                 <div [hidden]="!valorUn.errors?.['minlength']">O valor unitário deve conter valores válidos. </div>
                 </div>
-            </div>               
+            </div>
             <div class="form-group mb-3">
                 <label for="dtEntrega">Prazo de entrega:</label>
                 <input type="text" class="form-control" id="dtEntrega" name="dtEntrega"
-                [(ngModel)]="manutencao.dtEntrega"
+                [(ngModel)]="manutencao.prazo"
                 #dtEntrega="ngModel"
                 minlength="1" required>
                 <div *ngIf="dtEntrega.errors && (dtEntrega.dirty || dtEntrega.touched)" class="alert alert-danger">
-                <div [hidden]="!dtEntrega.errors?.['required']"> Digite o tempo para o prazo de entrega.</div>             
+                <div [hidden]="!dtEntrega.errors?.['required']"> Digite o tempo para o prazo de entrega.</div>
                 </div>
             </div>
             <div class="form-group mb-3 d-flex justify-content-center row">

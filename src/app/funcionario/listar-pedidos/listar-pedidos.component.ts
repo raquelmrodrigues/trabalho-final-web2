@@ -4,6 +4,7 @@ import { Pedido } from 'src/app/shared/models/pedido';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { DataComponent } from '../data/data.component';
 import { PedidosService } from '../services/pedidos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-pedidos',
@@ -11,22 +12,25 @@ import { PedidosService } from '../services/pedidos.service';
   styleUrls: ['./listar-pedidos.component.css'],
 })
 export class ListarPedidosComponent implements OnInit {
-  pedidos:Pedido[] = []
+  pedidos: Pedido[] = [];
   statusPedido = StatusPedido;
   selectedFilterOption: string = '';
   selectedDateRange: Date[] = [];
   private dateRangeModal: NgbModalRef | null = null;
 
-  constructor(private modalService: NgbModal, private cdr: ChangeDetectorRef, private pedidosService: PedidosService) {}
+  constructor(
+    private modalService: NgbModal,
+    private cdr: ChangeDetectorRef,
+    private pedidosService: PedidosService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.pedidosService.listarPedidos().subscribe(
-      pedidos => {
-        this.pedidos = pedidos;
-        this.pedidosService.setStatusPedido(pedidos);
-        console.log(pedidos);
-      }
-    )
+    this.pedidosService.listarPedidos().subscribe((pedidos) => {
+      this.pedidos = pedidos;
+      this.pedidosService.setStatusPedido(pedidos);
+      console.log(pedidos);
+    });
     this.pedidos.sort((a, b) => {
       const dateA = a.datadopedido ? new Date(a.datadopedido).getTime() : 0;
       const dateB = b.datadopedido ? new Date(b.datadopedido).getTime() : 0;
@@ -52,7 +56,9 @@ export class ListarPedidosComponent implements OnInit {
   filterPeriodo(dateRange: Date[]) {
     if (dateRange.length === 2) {
       this.pedidos = this.pedidos.filter((pedido) => {
-        const pedidoDate = pedido.datadopedido ? new Date(pedido.datadopedido) : null;
+        const pedidoDate = pedido.datadopedido
+          ? new Date(pedido.datadopedido)
+          : null;
         if (pedidoDate) {
           return pedidoDate >= dateRange[0] && pedidoDate <= dateRange[1];
         }
@@ -66,7 +72,9 @@ export class ListarPedidosComponent implements OnInit {
     if (option === 'Pedidos de Hoje') {
       this.pedidos = this.pedidos.filter((pedido) => {
         const hoje = new Date();
-        const dataPedido = pedido.datadopedido ? new Date(pedido.datadopedido) : null;
+        const dataPedido = pedido.datadopedido
+          ? new Date(pedido.datadopedido)
+          : null;
         return (
           dataPedido &&
           dataPedido.getDate() === hoje.getDate() &&
@@ -75,11 +83,9 @@ export class ListarPedidosComponent implements OnInit {
         );
       });
     } else if (option === 'Todos os Pedidos') {
-      this.pedidosService.listarPedidos().subscribe(
-        pedidos => {
-          this.pedidos = pedidos;
-        }
-      )
+      this.pedidosService.listarPedidos().subscribe((pedidos) => {
+        this.pedidos = pedidos;
+      });
       this.pedidos.sort((a, b) => {
         const dateA = a.datadopedido ? new Date(a.datadopedido).getTime() : 0;
         const dateB = b.datadopedido ? new Date(b.datadopedido).getTime() : 0;
@@ -87,11 +93,25 @@ export class ListarPedidosComponent implements OnInit {
       });
     }
   }
-  AlterarStatus(novoStatus: StatusPedido, numeroPedido: number) {
-    const pedidos = this.pedidos;
-    const pedido = pedidos.find((p) => p.id === numeroPedido);
+  AlterarStatus(pedido: Pedido) {
     if (pedido) {
-      pedido.status = novoStatus;
+      switch (pedido.statuspedido) {
+        case 1:
+          pedido.statuspedido = 4;
+          this.pedidosService.alterarPedidos(pedido).subscribe({});
+          break;
+        case 4:
+          pedido.statuspedido = 5;
+          this.pedidosService.alterarPedidos(pedido).subscribe({});
+          break;
+        case 6:
+          pedido.statuspedido = 7;
+          this.pedidosService.alterarPedidos(pedido).subscribe({
+          });
+          break;
+        }
     }
+    window.location.reload()
+      console.log("me mama")
   }
 }

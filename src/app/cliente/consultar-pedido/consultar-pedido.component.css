@@ -8,7 +8,7 @@ body {
 }
 
 .titulo-tela{
-    color:#857DC4; 
+    color:#857DC4;
     font-weight: bold;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 .pesquisa{
-    background-color: #CF8DA7;
+    background-color: #CF8DA7 !important;
 }
 
 .btn-baixo{
@@ -30,6 +30,9 @@ body {
 
 .tabela{
 	--bs-table-bg: #F6F1F1 !important;
+}
+.tabelaHead{
+	--bs-table-bg:  #CF8DA7 !important;
 }
 
 .border-tabela {

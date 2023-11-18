@@ -11,7 +11,7 @@ import { StatusPedido } from 'src/app/shared/models/status-pedido';
 })
 export class OrcamentoClienteComponent implements OnInit{
   itens: ItemPedido[] = [];
-  pedido: Pedido = new Pedido(7, new Date() , undefined, undefined,  0);
+  pedido: Pedido = new Pedido(0);
 
   ngOnInit(): void{
     /*this.pedido = this.PedidoExemplo();

@@ -7,17 +7,17 @@
                  <th>Valor Unitário</th>
                  <th>Prazo de Entrega</th>
                  <th class="text-center">
-                      <a [routerLink]="['/funcionario/inserirManutencao']" 
+                      <a [routerLink]="['/funcionario/inserirManutencao']"
                         href="#" title="Novo" alt="Novo" class="btn btn-novo">
                         <i class="fa fa-plus" aria-hidden="true"></i> Novo
                     </a>
                 </th>
             </tr>
             <tr *ngFor="let manutencao of manutencao" class="text-center">
-                
+
                 <td>{{manutencao.peca}} </td>
-                <td>{{manutencao.valorUn}} </td>
-                <td>{{manutencao.dtEntrega}}</td>
+                <td>{{manutencao.preco}} </td>
+                <td>{{manutencao.prazo}}</td>
                 <td class="text-center" style="width: 300px">
                     <a [routerLink]="['/funcionario/editarManutencao', manutencao.id]" href="#" title="Editar" alt="Editar" class="btn btn-editar me-1">
                         <i class="fa fa-edit" aria-hidden="true"></i> Editar
@@ -49,5 +49,5 @@
             </tr>
             </tbody>
         </table>
-    <p *ngIf="manutencao.length==0" class="text-center">Nenhuma Peça Cadastrada.</p>    
+    <p *ngIf="manutencao.length==0" class="text-center">Nenhuma Peça Cadastrada.</p>
 </body>

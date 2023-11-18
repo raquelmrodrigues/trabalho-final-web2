@@ -18,7 +18,7 @@
 					<tr class="border-5 border-tabela">
 					  <th scope="row">{{item.quantidade}}</th>
 					  <td class="border-5 border-tabela">{{item.roupa?.peca}}</td>
-					  <td class="border-5 border-tabela">{{(item.roupa?.valorUn ?? 0) * (item.quantidade ?? 0) | currency : 'BRL'}}</td>
+					  <td class="border-5 border-tabela">{{(item.roupa?.preco ?? 0) * (item.quantidade ?? 0) | currency : 'BRL'}}</td>
 
 					<!--<tr class="border-5 border-tabela">
 					  <th scope="row">6</th>
