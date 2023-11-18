@@ -112,7 +112,7 @@
                 <div *ngIf="!senha.valid && senha.touched"
               class="alert alert-danger" role="alert">
                 A senha é Obrigatória.
-              </div>
+              </div>            
           </div>
           <div class="form-group"
           [ngClass]="aplicaCssErro(confirmacao)">
@@ -131,6 +131,10 @@
               class="alert alert-danger" role="alert">
                 A Confirmação da senha é Obrigatória.
               </div>
+              <div *ngIf="!verificarSenhasIguais()" class="alert alert-danger" role="alert">
+                Senhas não coincidem.
+              </div>
+              
           </div>
           <div class="form-group mb-3">
             <label for="dataDeNasc">Data de nascimento:</label>
@@ -142,7 +146,6 @@
               <label>CEP</label>
               <input
                 type="text"
-
                 [(ngModel)]="cliente?.endereco.cep"
                 ngModel
                 class="form-control"
@@ -211,6 +214,12 @@
           [disabled]="!formCadastro.valid"
           (click)="cadastrarCliente()"> Cadastro
           </button>
+          <div *ngIf="sucessoCadastro" class="alert alert-success text-center mt-2">
+            Conta criada com sucesso!
+          </div>
+          <div *ngIf="erroCadastro" class="alert alert-danger text-center mt-2">
+            Ocorreu um erro ao cadastrar a conta. Por favor, tente novamente.
+          </div>
         </form>
         <div class="mt-2 btn-login text-center">
           <a routerLink="/autenticacao/login">Já é cadastrado? Login</a>
