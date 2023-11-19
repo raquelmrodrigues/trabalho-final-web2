@@ -12,6 +12,15 @@ export class PedidosService {
   constructor(
     private http: HttpClient
   ) { }
+
+  cadastrarPedido(pedido: Pedido): Observable<any>{
+    const url = `${this.backendURL}/pedidos`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const pedidoJSON = JSON.stringify(pedido);
+    console.log(pedidoJSON)
+
+    return this.http.post(url, pedidoJSON, { headers })
+  }
   listarPedidos(): Observable<Pedido []> {
     return this.http.get<Pedido []>(`${this.backendURL}/pedidos`);
   }

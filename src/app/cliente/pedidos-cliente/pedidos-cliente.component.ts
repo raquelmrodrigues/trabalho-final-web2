@@ -75,6 +75,25 @@ export class PedidosClienteComponent implements OnInit {
     return valorTotal;
   }
 
+  confirmarPedido(){
+  this.pedido.usuario = this.pedido.usuario ?? {};
+  this.pedido.usuario.id = this.usuarioLogado?.id;
+  this.pedido.datadopedido = this.currentDate;
+  this.pedido.statuspedido = 1;
+
+
+  console.log(this.pedido)
+  this.pedidosService.cadastrarPedido(this.pedido).subscribe(
+    response => {
+      console.log('socorro', response)
+    }
+  )
+
+
+   // [routerLink]="['/cliente/orcamentoCliente']"
+
+  }
+
 
 
 
