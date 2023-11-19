@@ -25,12 +25,6 @@ export class ListarPedidosClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarPedidos();
-
-    this.pedidos.sort((a, b) => {
-      const dateA = a.datadopedido ? new Date(a.datadopedido).getTime() : 0;
-      const dateB = b.datadopedido ? new Date(b.datadopedido).getTime() : 0;
-      return dateA - dateB;
-    });
   }
 
   get usuarioLogado(): Usuario | null {
@@ -65,6 +59,7 @@ export class ListarPedidosClienteComponent implements OnInit {
       .subscribe((pedidos) => {
         this.pedidos = pedidos;
         this.pedidoService.setStatusPedido(pedidos);
+        this.pedidoService.ordenarPorDatadescrescente(pedidos)
       });
     return this.pedidos;
   }

@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/shared/models/usuario.model';
 import { Manutencao } from '../../shared/models/manutencao.model';
 import { ItemPedido } from 'src/app/shared/models/item-pedido';
 import { Pedido } from 'src/app/shared/models/pedido';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidos-cliente',
@@ -22,7 +23,8 @@ export class PedidosClienteComponent implements OnInit {
 
   constructor(private pedidosService: PedidosService,
               private loginService: LoginService,
-              private roupasService: CrudFuncionarioService
+              private roupasService: CrudFuncionarioService,
+              private router: Router
               ) {
 
   }
@@ -86,18 +88,17 @@ export class PedidosClienteComponent implements OnInit {
   this.pedidosService.cadastrarPedido(this.pedido).subscribe(
     response => {
       console.log('socorro', response)
+
+  this.router.navigate(['/cliente/orcamentoCliente'], { queryParams: { pedidoId: response.id } });
     }
   )
 
-
-   // [routerLink]="['/cliente/orcamentoCliente']"
-
   }
-  
+
   incrementarQuantidade(item: any) {
     item.quantidade++;
   }
-  
+
   decrementarQuantidade(item: any) {
     if (this.pedido && this.pedido.itens) {
       if (item.quantidade > 1) {
@@ -107,7 +108,7 @@ export class PedidosClienteComponent implements OnInit {
       }
     }
   }
-  
+
   removerItem(item: any) {
     if (this.pedido && this.pedido.itens) {
       const index = this.pedido.itens.indexOf(item);
