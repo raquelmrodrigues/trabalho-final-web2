@@ -13,6 +13,7 @@ export class Usuario {
     public telefone?: string,
     public endereco?: Endereco,
     public dataDeNasc?: Date,
+    public confirmacao?: string
 
   ){}
 }

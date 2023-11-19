@@ -32,6 +32,29 @@ body {
     --bs-gradient: none;
 }
 
+.btn-remove {
+    color: white !important;
+    background-color: #CF8DA7 !important;
+    border: #91C2D8 !important;
+}
+
+.btn-outline-remove {
+    --bs-btn-color: #CF8DA7;
+    --bs-btn-border-color: #CF8DA7;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #CF8DA7;
+    --bs-btn-hover-border-color: #CF8DA7;
+    --bs-btn-focus-shadow-rgb: 108,117,125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #CF8DA7;
+    --bs-btn-active-border-color: #CF8DA7;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #CF8DA7;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #CF8DA7;
+    --bs-gradient: none;
+}
+
 .titulo-tela{
     color:#857DC4; 
     font-weight: bold;

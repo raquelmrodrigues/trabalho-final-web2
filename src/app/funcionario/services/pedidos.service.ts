@@ -12,6 +12,7 @@ export class PedidosService {
   constructor(
     private http: HttpClient
   ) { }
+
   ordenarPorDatacrescente(pedidos: Pedido[]){
     pedidos.sort((a, b) => {
       console.log(pedidos)

@@ -12,32 +12,32 @@ import { Manutencao } from 'src/app/shared/models/manutencao.model';
 export class EditarManutencaoComponent implements OnInit {
   @ViewChild("formManutencao") formManutencao! : NgForm;
   manutencao!: Manutencao;
+  private id = this.route.snapshot.params['id'];
   
-  ngOnInit(): void {
-    // snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
-    // Operador + (antes do this) converte para número
-  /*let id = +this.route.snapshot.params['id'];
-    // Com o id, obtém a manutencao
-  const res = this.manutencaoService.buscarItemPorId(id);
-  if (res !== undefined){
-    this.manutencao = res;
-  } else {
-    throw new Error ("Peça não encontrada: id = " + id);
-    }*/
-  }
-
+  
   constructor(
     private manutencaoService: CrudFuncionarioService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
-    /*atualizar(): void {
-      // Verifica se o formulário é válido
-      if (this.formManutencao.form.valid) {
-      // Efetivamente atualiza a manutencao
-      this.manutencaoService.atualizarItem(this.manutencao);
-      // Redireciona para /manutencao/listar
-      this.router.navigate(['/funcionario/listarManutencao']);
-      }
-      }*/
+  ngOnInit(): void {
+  this.manutencaoService.buscarPorIdManutencao(this.id).subscribe((manutencao: Manutencao ) => {
+  this.manutencao = manutencao;
+  })
+  }
+
+  atualizar(): void {
+    if (this.formManutencao.form.valid && this.manutencao) {
+      this.manutencaoService.atualizarManutencao(this.manutencao).subscribe({
+        next: (res: any) => {
+          this.router.navigate(['/funcionario/listarManutencao']);
+        },
+        error: (error: any) => {
+          console.error("Erro ao atualizar a peça de roupa:", error);
+        }
+      });
+    }
+  }
+
 }

@@ -112,7 +112,7 @@
                 <div *ngIf="!senha.valid && senha.touched"
               class="alert alert-danger" role="alert">
                 A senha é Obrigatória.
-              </div>            
+              </div>
           </div>
           <div class="form-group"
           [ngClass]="aplicaCssErro(confirmacao)">
@@ -121,7 +121,7 @@
                 type="password"
                 id="confirmacao"
                 name="confirmacao"
-                ngModel
+                [(ngModel)]="cliente.confirmacao"
                 class="form-control"
                 placeholder="Ex: senha123"
                 required
@@ -134,7 +134,7 @@
               <div *ngIf="!verificarSenhasIguais()" class="alert alert-danger" role="alert">
                 Senhas não coincidem.
               </div>
-              
+
           </div>
           <div class="form-group mb-3">
             <label for="dataDeNasc">Data de nascimento:</label>

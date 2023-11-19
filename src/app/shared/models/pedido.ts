@@ -4,7 +4,7 @@ import { Usuario } from "./usuario.model";
 export class Pedido {
     constructor(
 
-        public id: number,
+        public id?: number,
         public datadopedido?: Date,
         public statuspedido?: number,
         public usuario?: Usuario,

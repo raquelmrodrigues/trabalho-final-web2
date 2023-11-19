@@ -37,7 +37,8 @@
 
         <div class="form-group mb-3 d-flex justify-content-center row">
             <button type="button" class="btn-salvar btn me-1 col-3"
-            (click)="inserirFuncionario()">
+            (click)="inserirFuncionario()"
+            [disabled]="!formFuncionario.form.valid">
                 <i class="fa fa-save" aria-hidden="true"></i> Salvar
             </button>
             <a class="btn-voltar btn col-3" [routerLink]="['/funcionario/listarFuncionario']" >

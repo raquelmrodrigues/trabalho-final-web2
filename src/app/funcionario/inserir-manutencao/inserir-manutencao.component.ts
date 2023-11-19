@@ -22,15 +22,23 @@ peca: any;
   }
 
   inserirManutencao(): void {
+    console.log('Dados a serem enviados:', this.manutencao);
     this.manutencaoService.inserirManutencao(this.manutencao)
       .subscribe(
         response => {
-          console.log('Roupa inserida com sucesso', response);
+          console.log('Peça de roupa inserida com sucesso', response);
           this.router.navigate(['/funcionario/listarManutencao']);
+        },
+        error => {
+          console.error('Erro ao inserir manutenção:', error);
+  
+          if (error.status === 400) {
+            console.log('Detalhes do erro:', error.error);
+          }
         }
 
       );
   }
-
+  
 
 }

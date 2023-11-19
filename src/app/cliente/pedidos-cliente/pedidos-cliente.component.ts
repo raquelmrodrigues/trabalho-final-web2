@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/autenticacao/services/login.service';
+import { CrudFuncionarioService } from 'src/app/funcionario/services/crud-funcionario.service';
 import { PedidosService } from 'src/app/funcionario/services/pedidos.service';
 import { Usuario } from 'src/app/shared/models/usuario.model';
+import { Manutencao } from '../../shared/models/manutencao.model';
+import { ItemPedido } from 'src/app/shared/models/item-pedido';
+import { Pedido } from 'src/app/shared/models/pedido';
 
 @Component({
   selector: 'app-pedidos-cliente',
@@ -9,16 +13,25 @@ import { Usuario } from 'src/app/shared/models/usuario.model';
   styleUrls: ['./pedidos-cliente.component.css']
 })
 export class PedidosClienteComponent implements OnInit {
+  itensPedido: ItemPedido = new ItemPedido
+  pedido: Pedido = new Pedido
+
+  manutencao: Manutencao[] = []
   currentDate: Date | undefined;
   totalQuantidade: number = 0;
 
   constructor(private pedidosService: PedidosService,
-              private loginService: LoginService
+              private loginService: LoginService,
+              private roupasService: CrudFuncionarioService
               ) {
 
   }
   ngOnInit() {
-    this.pedidosService.listarPedidosporID(this.usuarioLogado?.id);
+    this.roupasService.listarManutencao().subscribe(
+      manutencao => {
+        this.manutencao = manutencao;
+      }
+    )
     this.currentDate = new Date();
   }
 
@@ -27,47 +40,82 @@ export class PedidosClienteComponent implements OnInit {
   }
 
   adicionarItem() {
-    const selecionado = (<HTMLSelectElement>document.getElementById("selecionarOpcao"));
+    const selecionado = <HTMLSelectElement>document.getElementById("selecionarOpcao");
     const valorSelecionado = selecionado.options[selecionado.selectedIndex].text;
-    const tabela = (<HTMLTableElement>document.getElementById("tabela")).getElementsByTagName('tbody')[0];
-    const linhas = tabela.getElementsByTagName('tr');
+    const selectedManutencao = this.manutencao.find(manutencao => manutencao.peca === valorSelecionado);
+    this.itensPedido.roupa = selectedManutencao
 
-
-    let itemExistente = false;
-
-    for (let i = 0; i < linhas.length; i++) {
-      const celulas = linhas[i].getElementsByTagName('td');
-      if (celulas.length > 0 && celulas[0].innerHTML === valorSelecionado) {
-        const quantidade = parseInt(celulas[1].innerHTML) + 1;
-        celulas[1].innerHTML = quantidade.toString();
-        itemExistente = true;
-        break;
-      }
+    if (!this.pedido.itens) {
+      this.pedido.itens = [];
     }
+    const existingItem = this.pedido.itens.find(item => item.roupa === selectedManutencao);
 
-    if (!itemExistente) {
-      const novaLinha = tabela.insertRow(tabela.rows.length);
-      const celulaItem = novaLinha.insertCell(0);
-      const celulaQuantidade = novaLinha.insertCell(1);
-      celulaItem.innerHTML = valorSelecionado;
-      celulaQuantidade.innerHTML = '1';
+    if (existingItem ) {
+      existingItem.quantidade= (existingItem.quantidade || 0) + 1;
+    } else {
+      this.itensPedido.quantidade = 1
+      const newItemPedido: ItemPedido = { ...this.itensPedido };
+      this.pedido.itens.push(newItemPedido);
     }
-    this.calcularSomaTotal();
   }
 
-  calcularSomaTotal() {
-    const tabela = (<HTMLTableElement>document.getElementById("tabela")).getElementsByTagName('tbody')[0];
-    const linhas = tabela.getElementsByTagName('tr');
-    let soma = 0;
+  somarTotal() {
+    const pedido = this.pedido;
+    let valorTotal = 0;
+    let precoItem = 0
 
-    for (let i = 0; i < linhas.length; i++) {
-      const celulas = linhas[i].getElementsByTagName('td');
-      if (celulas.length > 1) {
-        const quantidade = parseInt(celulas[1].innerHTML);
-        soma += quantidade;
+    if (pedido && pedido.itens) {
+      for (let item of pedido.itens) {
+        if (item.roupa && typeof item.roupa.preco === 'number' && item.quantidade) {
+          precoItem = item.roupa.preco * item.quantidade;
+          valorTotal += precoItem;
+        }
       }
     }
-
-    this.totalQuantidade = soma;
+    return valorTotal;
   }
+
+  confirmarPedido(){
+  this.pedido.usuario = this.pedido.usuario ?? {};
+  this.pedido.usuario.id = this.usuarioLogado?.id;
+  this.pedido.datadopedido = this.currentDate;
+  this.pedido.statuspedido = 1;
+
+
+  console.log(this.pedido)
+  this.pedidosService.cadastrarPedido(this.pedido).subscribe(
+    response => {
+      console.log('socorro', response)
+    }
+  )
+
+
+   // [routerLink]="['/cliente/orcamentoCliente']"
+
+  }
+  
+  incrementarQuantidade(item: any) {
+    item.quantidade++;
+  }
+  
+  decrementarQuantidade(item: any) {
+    if (this.pedido && this.pedido.itens) {
+      if (item.quantidade > 1) {
+        item.quantidade--;
+      } else {
+        this.removerItem(item);
+      }
+    }
+  }
+  
+  removerItem(item: any) {
+    if (this.pedido && this.pedido.itens) {
+      const index = this.pedido.itens.indexOf(item);
+      if (index !== -1) {
+        this.pedido.itens.splice(index, 1);
+      }
+    }
+  }
+
+
 }

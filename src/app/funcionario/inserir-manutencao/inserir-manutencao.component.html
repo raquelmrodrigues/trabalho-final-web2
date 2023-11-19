@@ -13,7 +13,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="preco">Preço: </label>
-                <input type="text" class="form-control" id="preco" name="preco"
+                <input type="number" class="form-control" id="preco" name="preco"
                 [(ngModel)]="manutencao.preco"
                 #preco="ngModel"
                 minlength="3" required>
@@ -34,8 +34,8 @@
             </div>
             <div class="form-group mb-3 d-flex justify-content-center row">
                 <button type="button" class="btn btn-remover col-3 me-1"
-                    (click)="inserirManutencao()"
-                    [disabled]="!formManutencao.form.valid">
+                (click)="inserirManutencao()"
+                [disabled]="!formManutencao.form.valid">
                     <i class="fa fa-save" aria-hidden="true"></i> Salvar
                 </button>
                 <a class="btn btn-editar col-3"

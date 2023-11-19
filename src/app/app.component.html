@@ -56,11 +56,11 @@
 
         </li>
         <li class="nav-item mx-5">
-          <a routerLink="/funcionario/listarManutencao" class="nav-link" [class.active]="componenteAtivo === 'listarManutencao'">Manter Peças</a>
+          <a routerLink="/funcionario/listarManutencao" class="nav-link" [class.active]="componenteAtivo === 'listarManutencao'">Manutenção de roupas</a>
 
         </li>
         <li *ngIf="usuarioLogado?.perfil==='ADMIN' || usuarioLogado?.perfil==='GERENTE'" class="nav-item mx-5">
-          <a routerLink="/funcionario/listarFuncionario" class="nav-link" [class.active]="componenteAtivo === 'listarFuncionario'">Manter Funcionários</a>
+          <a routerLink="/funcionario/listarFuncionario" class="nav-link" [class.active]="componenteAtivo === 'listarFuncionario'">Manutenção de funcionários</a>
 
         </li>
         <li class="nav-item mx-5">

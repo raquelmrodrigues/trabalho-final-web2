@@ -59,17 +59,16 @@ export class CadastroComponent implements OnInit {
   }
 
   sucessoCadastro: boolean = false;
-  erroCadastro: boolean = false; 
+  erroCadastro: boolean = false;
 
   cadastrarCliente(): void {
     this.cliente.perfil = "CLIENTE";
-  
+
     this.cadastroService.inserirCliente(this.cliente).subscribe(
       (response) => {
         console.log('cliente inserido com sucesso', response);
         this.sucessoCadastro = true;
         this.erroCadastro = false;
-        // Limpar campos do formulário após o sucesso
         this.cliente = { endereco: {} };
         this.formCadastro.resetForm();
       },
@@ -82,13 +81,13 @@ export class CadastroComponent implements OnInit {
   }
 
   verificarSenhasIguais(): boolean {
+    console.log(this.cliente.senha, this.cliente.confirmacao)
     const senhasIguais = this.cliente.senha === this.cliente.confirmacao;
-    console.log('Senhas Iguais?', senhasIguais);
     return senhasIguais;
   }
-  
-  
-  
+
+
+
 
   verificaValidTouched(campo: { valid: any; touched: any }) {
     return !campo.valid && campo.touched;
@@ -102,9 +101,9 @@ export class CadastroComponent implements OnInit {
       'has-error': hasError,
     };
   }
-  
-  
-  
+
+
+
   consultaCEP(cep: any, form: NgForm): void {
     console.log('Consulta CEP called with:', cep);
     cep = cep.replace(/\D/g, '');
