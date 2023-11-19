@@ -15,7 +15,7 @@ export class ListarManutencaoComponent{
 
   constructor(private manutencaoService : CrudFuncionarioService) {}
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.listarManutencao().subscribe(
       manutencao => {
         this.manutencao = manutencao;
@@ -25,16 +25,10 @@ export class ListarManutencaoComponent{
       }
     );
     }
-  
+
 
   listarManutencao(): Observable<Manutencao[]> {
     return this.manutencaoService.listarManutencao();
-    
+
   }
-/*
-  remover($event: any, manutencao: Manutencao): void {
-    $event.preventDefault();
-      this.manutencaoService.removerItem(manutencao.id!);
-      this.manutencao = this.listarTodos();
-  }*/
 }
