@@ -15,6 +15,12 @@ body {
     border: #91C2D8 !important; 
 }
 
+.trash {
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
 .btn-outline-giu {
     --bs-btn-color: #857DC4;
     --bs-btn-border-color: #857DC4;
