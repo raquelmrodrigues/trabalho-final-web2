@@ -29,6 +29,5 @@ export class ListarManutencaoComponent{
 
   listarManutencao(): Observable<Manutencao[]> {
     return this.manutencaoService.listarManutencao();
-
   }
 }
