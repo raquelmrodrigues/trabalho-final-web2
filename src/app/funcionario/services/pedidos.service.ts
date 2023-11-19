@@ -12,6 +12,56 @@ export class PedidosService {
   constructor(
     private http: HttpClient
   ) { }
+  ordenarPorDatacrescente(pedidos: Pedido[]){
+    pedidos.sort((a, b) => {
+      console.log(pedidos)
+      if (a.datadopedido instanceof Date && b.datadopedido instanceof Date) {
+        const timeA = a.datadopedido.getTime();
+        const timeB = b.datadopedido.getTime();
+        if (timeA < timeB) {
+          return -1;
+        } else if (timeA > timeB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else if (!a.datadopedido && !b.datadopedido) {
+        return 0;
+      } else {
+        return a.datadopedido ? -1 : 1;
+      }
+    });
+
+  }
+  ordenarPorDatadescrescente(pedidos: Pedido[]){
+    pedidos.sort((a, b) => {
+      console.log(pedidos)
+      if (a.datadopedido instanceof Date && b.datadopedido instanceof Date) {
+        const timeA = a.datadopedido.getTime();
+        const timeB = b.datadopedido.getTime();
+        if (timeA > timeB) {
+          return -1;
+        } else if (timeA < timeB) {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else if (!a.datadopedido && !b.datadopedido) {
+        return 0;
+      } else {
+        return a.datadopedido ? -1 : 1;
+      }
+    });
+
+  }
+  cadastrarPedido(pedido: Pedido): Observable<any>{
+    const url = `${this.backendURL}/pedidos`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const pedidoJSON = JSON.stringify(pedido);
+    console.log(pedidoJSON)
+
+    return this.http.post(url, pedidoJSON, { headers })
+  }
   listarPedidos(): Observable<Pedido []> {
     return this.http.get<Pedido []>(`${this.backendURL}/pedidos`);
   }

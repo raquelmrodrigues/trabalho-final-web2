@@ -21,11 +21,16 @@ peca: any;
       this.manutencao = new Manutencao();
   }
 
-  /*inserir(): void {
-    if (this.formManutencao.form.valid) {
-    this.manutencaoService.inserirItem(this.manutencao);
-    this.router.navigate( ["/funcionario/listarManutencao"] );
-    }
-    }*/
+  inserirManutencao(): void {
+    this.manutencaoService.inserirManutencao(this.manutencao)
+      .subscribe(
+        response => {
+          console.log('Roupa inserida com sucesso', response);
+          this.router.navigate(['/funcionario/listarManutencao']);
+        }
+
+      );
+  }
+
 
 }

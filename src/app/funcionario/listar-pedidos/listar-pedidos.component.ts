@@ -112,6 +112,5 @@ export class ListarPedidosComponent implements OnInit {
         }
     }
     window.location.reload()
-      console.log("me mama")
   }
 }
