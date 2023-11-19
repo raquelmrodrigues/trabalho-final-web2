@@ -32,6 +32,7 @@ export class ConsultarPedidoComponent {
       this.pedido = pedido;
       this.pedidoService.setSomaDePrazos(pedido);
       this.pedidoService.setSomaDePrecos(pedido);
+      this.pedidoService.setStatusPedido([pedido]); 
       console.log(pedido.statuspedido)
     });
   }

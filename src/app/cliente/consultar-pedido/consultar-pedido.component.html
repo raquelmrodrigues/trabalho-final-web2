@@ -48,6 +48,7 @@
         <h3 class="numPedido py-1">Pedido #{{ pedido.id }}</h3>
           <p class="m-0 fw-semibold">Preço total: R${{ pedido.valorTotal }}<p>
           <p class="m-0 fw-semibold">Prazo do serviço: {{ pedido.prazoServico }} Dias</p>
+          <p class="m-0 fw-semibold">Status do pedido:<span [style.color]="pedido.status?.color"> {{ pedido.status?.Status }}</span></p>
         <h4 class="subTitulo mb-3">Roupas do Pedido:</h4>
 
       <div class="overflow-y-scroll mx-5" style="max-height: 15rem;">
@@ -95,7 +96,7 @@
       </div>
     </div>
 
-		<a *ngIf="pedido" data-bs-toggle="modal" data-bs-target="#modalPagar" class="btn btn-baixo col-2">Pagar pedido</a>
+		<a *ngIf="pedido && (pedido.statuspedido === 5)" data-bs-toggle="modal" data-bs-target="#modalPagar" class="btn btn-baixo col-2">Pagar pedido</a>
     <div class="modal fade" id="modalPagar">
       <div class="modal-dialog">
         <div class="modal-content">
