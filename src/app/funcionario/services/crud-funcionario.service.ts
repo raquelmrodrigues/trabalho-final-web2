@@ -62,20 +62,14 @@ export class CrudFuncionarioService {
     return this.http.post(url, manutencaoJSON, { headers });
   }
   
-  buscarPorIdManutencao(id: number): Observable<Usuario >{
-    let manu = this.http.get<Usuario >(`${this.backendURL}/roupas/${id}`);
+  buscarPorIdManutencao(id: number): Observable<Manutencao >{
+    let manu = this.http.get<Manutencao >(`${this.backendURL}/roupas/${id}`);
     return manu;
   }
 
-  atualizarManutencao(manutencao: Usuario ): Observable<any> {
+  atualizarManutencao(manutencao: Manutencao ): Observable<any> {
     const url = `${this.backendURL}/roupas/${manutencao.id}`;
     return this.http.put(url, manutencao);
-  }
-
-  removerManutencao(manutencao: Usuario ): Observable<any>{
-
-    const url = `${this.backendURL}/roupas/${manutencao.id}`
-    return this.http.delete(url)
   }
 
 }

@@ -13,13 +13,24 @@
         <div class="row pedido justify-content-evenly">
           <table  class="table table-bordered table-sm w-50" id="tabela">
             <thead>
-              <th class="w-75">Roupa</th>
+              <th class="w-50">Roupa</th>
+              <th class="w-25">Preço unitário</th>
               <th class="w-25">Quantidade</th>
             </thead>
             <tbody>
               <tr *ngFor="let item of pedido.itens">
                 <td>{{ item.roupa?.peca }}</td>
-                <td>{{ item.quantidade }}</td>
+                <td> {{item.roupa?.preco}} </td>
+                <td>
+                  <button class="btn btn-giu" (click)="incrementarQuantidade(item)">+</button>
+                      {{ item.quantidade }}   
+                  <button class="btn btn-giu" (click)="decrementarQuantidade(item)">-</button>
+                </td>
+                <td>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" (click)="removerItem(item)">
+                    <path d="M1.5 4.5a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1h-12a.5.5 0 0 1-.5-.5zM5.28 12l.98-6h3.92l.98 6H5.28zM1 2.5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v.184a.5.5 0 0 1-1 0V2.5a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v.184a.5.5 0 0 1-1 0V2.5z"/>
+                  </svg>
+                </td>
               </tr>
             </tbody>
           </table>

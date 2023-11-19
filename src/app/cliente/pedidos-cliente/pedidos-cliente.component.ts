@@ -93,10 +93,29 @@ export class PedidosClienteComponent implements OnInit {
    // [routerLink]="['/cliente/orcamentoCliente']"
 
   }
-
-
-
-
+  
+  incrementarQuantidade(item: any) {
+    item.quantidade++;
+  }
+  
+  decrementarQuantidade(item: any) {
+    if (this.pedido && this.pedido.itens) {
+      if (item.quantidade > 1) {
+        item.quantidade--;
+      } else {
+        this.removerItem(item);
+      }
+    }
+  }
+  
+  removerItem(item: any) {
+    if (this.pedido && this.pedido.itens) {
+      const index = this.pedido.itens.indexOf(item);
+      if (index !== -1) {
+        this.pedido.itens.splice(index, 1);
+      }
+    }
+  }
 
 
 }
