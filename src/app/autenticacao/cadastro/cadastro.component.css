@@ -16,6 +16,11 @@ input {
     margin-bottom: 5% !important;
 }
 
+.inf {
+    color: #CF8DA7;
+    font-size: large;
+    font-weight: bold;
+}
 /*.ng-invalid.ng-touched:not(form) {
     border: 1px solid red;
 } */
