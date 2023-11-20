@@ -9,7 +9,7 @@
 
       <ul class="navbar-nav nav-underline">
         <li class="nav-item mx-5">
-          <a routerLink="/cliente/inicialCliente" class="nav-link" [class.active]="componenteAtivo === 'inicialCliente'">Inicio</a>
+          <a routerLink="/cliente/inicialCliente" class="nav-link" [class.active]="componenteAtivo === 'inicialCliente'">Início</a>
         </li>
         <li class="nav-item mx-5">
           <a routerLink="/cliente/pedidosCliente" class="nav-link" [class.active]="componenteAtivo === 'pedidosCliente'">Pedidos Online</a>
@@ -48,19 +48,19 @@
 
       <ul class="navbar-nav nav-underline">
         <li class="nav-item mx-5">
-          <a routerLink="/funcionario/inicialFuncionario" class="nav-link" [class.active]="componenteAtivo === 'inicialFuncionario'">Inicio</a>
+          <a routerLink="/funcionario/inicialFuncionario" class="nav-link" [class.active]="componenteAtivo === 'inicialFuncionario'">Início</a>
 
         </li>
         <li class="nav-item mx-5">
-          <a routerLink="/funcionario/listarPedidos" class="nav-link" [class.active]="componenteAtivo === 'listarPedidos'">Visualizar pedidos</a>
+          <a routerLink="/funcionario/listarPedidos" class="nav-link" [class.active]="componenteAtivo === 'listarPedidos'">Pedidos</a>
 
         </li>
         <li class="nav-item mx-5">
-          <a routerLink="/funcionario/listarManutencao" class="nav-link" [class.active]="componenteAtivo === 'listarManutencao'">Manutenção de roupas</a>
+          <a routerLink="/funcionario/listarManutencao" class="nav-link" [class.active]="componenteAtivo === 'listarManutencao'">Roupas</a>
 
         </li>
         <li *ngIf="usuarioLogado?.perfil==='ADMIN' || usuarioLogado?.perfil==='GERENTE'" class="nav-item mx-5">
-          <a routerLink="/funcionario/listarFuncionario" class="nav-link" [class.active]="componenteAtivo === 'listarFuncionario'">Manutenção de funcionários</a>
+          <a routerLink="/funcionario/listarFuncionario" class="nav-link" [class.active]="componenteAtivo === 'listarFuncionario'">Funcionários</a>
 
         </li>
         <li class="nav-item mx-5">

@@ -2,32 +2,41 @@
   <h1 class="titulo-tela my-5">Relatorio de receitas</h1>
 </div>
 
-<div class="row mx-5 px-5 justify-content-center">
-  <table id="conteudo-para-pdf" class="table table-bordered">
-    <thead class="table-giu">
-      <tr>
-        <th>Data do pedido</th>
-        <th>Cliente</th>
-        <th>Valor</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>21/12/2020</td>
-        <td>Jao</td>
-        <td>R$13.789,21</td>
-        
-      </tr>
-      <tr>
-        <td>01/11/2009</td>
-        <td>Kelvin</td>
-        <td>R$2,93</td>
-      </tr>
-      <tr>
-        <td>13/09/2023</td>
-        <td>Arquebispo</td>
-        <td>R$19,78</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row mx-5 px-5 justify-content-center">    
+  <table id="conteudo-para-pdf" class="table table-bordered table-hover mx-auto" style="width: 70vw;">
+      <tbody>
+        <tr class="text-center">
+          <th class="a">Data</th>
+          <th class="a">Número</th>
+          <th class="a">Cliente</th>
+          <th class="a">Valor</th>
+          <th class="a">
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-giu dropdown-toggle"
+                type="button"
+                id="filtroDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Filtro <i class="fas fa-filter"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="filtroDropdown">
+                <li><a class="dropdown-item" (click)="filterPedidos('Pedidos de Hoje')" >Pedidos de Hoje</a></li>
+                <li><a class="dropdown-item" (click)="openDateRangePickerModal()">Período de Data</a></li>
+                <li><a class="dropdown-item" (click)="filterPedidos('Todos os Pedidos')">Todos os Pedidos</a></li>
+              </ul>
+            </div>
+          </th>
+        </tr>
+        <ng-container *ngFor="let pedido of pedidos">
+          <tr class="text-center align-middle">
+            <td>{{pedido.datadopedido | date:'dd/MM/yyyy HH:mm'}}</td>
+            <td>#{{ pedido.id }}</td>
+            <td>{{pedido.usuario?.nome}}</td>
+            <td>{{ somaPedido(pedido) | currency:'BRL' }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
 </div>
