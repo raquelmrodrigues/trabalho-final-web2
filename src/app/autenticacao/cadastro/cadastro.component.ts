@@ -24,12 +24,13 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private cadastroService: CadastroService,
-    private http: HttpClient
+    private http: HttpClient,
   ) {}
 
   ngOnInit(): void {
     this.cliente = new Usuario ();
   }
+
   validarCPF(cpf:string): string{
     cpf = cpf.replace(/\D/g, '');
 
@@ -86,9 +87,6 @@ export class CadastroComponent implements OnInit {
     return senhasIguais;
   }
 
-
-
-
   verificaValidTouched(campo: { valid: any; touched: any }) {
     return !campo.valid && campo.touched;
   }
@@ -101,8 +99,6 @@ export class CadastroComponent implements OnInit {
       'has-error': hasError,
     };
   }
-
-
 
   consultaCEP(cep: any, form: NgForm): void {
     console.log('Consulta CEP called with:', cep);
