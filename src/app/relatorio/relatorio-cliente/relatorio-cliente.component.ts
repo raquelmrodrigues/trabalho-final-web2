@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RelatorioService } from '../services/relatorio.service';
+import { Usuario } from 'src/app/shared/models/usuario.model';
 
 @Component({
   selector: 'app-relatorio-cliente',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./relatorio-cliente.component.css']
 })
 export class RelatorioClienteComponent {
+  clientes: Usuario [] = []
+  constructor(private relatorioService: RelatorioService){
+
+  }
+
+  ngOnInit(): void{
+    this.relatorioService.getClientes().subscribe(
+      clientes => {
+        this.clientes = clientes;
+        console.log(clientes)
+      }
+    )
+  }
 
 }

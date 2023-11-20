@@ -47,7 +47,7 @@
       <div class="my-3" id="dados-pedido">
         <h3 class="numPedido py-1">Pedido #{{ pedido.id }}</h3>
           <p class="m-0 fw-semibold">Preço total: R${{ pedido.valorTotal }}<p>
-          <p class="m-0 fw-semibold">Prazo do serviço: {{ pedido.prazoServico }} Dias</p>
+          <p class="m-0 fw-semibold">Prazo do serviço: {{ calculaMaiorPrazo() }} Dias </p>
           <p class="m-0 fw-semibold">Status do pedido:<span [style.color]="pedido.status?.color"> {{ pedido.status?.Status }}</span></p>
         <h4 class="subTitulo mb-3">Roupas do Pedido:</h4>
 

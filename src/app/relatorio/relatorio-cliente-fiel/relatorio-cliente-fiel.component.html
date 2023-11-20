@@ -7,26 +7,27 @@
     <thead class="table-giu">
       <tr>
         <th>Nome</th>
-        <th>Data ultimo pedido</th>
-        <th>Total dos pedidos</th>
+        <th>Quantidade de Pedidos</th>
+        <th>Data do Último Pedido</th>
+        <th>Total dos Pedidos</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Jao</td>
-        <td>21/12/2020</td>
-        <td>R$13.789,21</td>
-      </tr>
-      <tr>
-        <td>Kelvin</td>
-        <td>01/11/2009</td>
-        <td>R$2,93</td>
-      </tr>
-      <tr>
-        <td>Arquebispo</td>
-        <td>13/09/2023</td>
-        <td>R$19,78</td>
+      <tr *ngFor="let cliente of clientesMap | keyvalue">
+
+        <!-- Assuming 'clientesMap' contains objects of type 'ClientePedido' -->
+        <ng-container *ngIf="cliente.value && cliente.value.nome && cliente.value.quantidade !== undefined && cliente.value.data && cliente.value.valorTotal !== undefined">
+
+          <!-- Display data for CLIENTE profiles -->
+            <td>{{ cliente.value.nome }}</td>
+            <td>{{ cliente.value.quantidade }}</td>
+            <td>{{ cliente.value.data | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ cliente.value.valorTotal | number: '2.2-2' }}</td>
+          </ng-container>
+
+
       </tr>
     </tbody>
   </table>
 </div>
+

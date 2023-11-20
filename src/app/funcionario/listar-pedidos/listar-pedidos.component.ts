@@ -26,15 +26,18 @@ export class ListarPedidosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.listarPedidos()
+  }
+  listarPedidos(){
     this.pedidosService.listarPedidos().subscribe((pedidos) => {
       this.pedidos = pedidos;
       this.pedidosService.setStatusPedido(pedidos);
       console.log(pedidos);
-    });
-    this.pedidos.sort((a, b) => {
-      const dateA = a.datadopedido ? new Date(a.datadopedido).getTime() : 0;
-      const dateB = b.datadopedido ? new Date(b.datadopedido).getTime() : 0;
-      return dateA - dateB;
+      this.pedidos.sort((a, b) => {
+        const dateA = a.datadopedido ? new Date(a.datadopedido).getTime() : 0;
+        const dateB = b.datadopedido ? new Date(b.datadopedido).getTime() : 0;
+        return dateA - dateB;
+      });
     });
   }
   openDateRangePickerModal() {
@@ -83,16 +86,10 @@ export class ListarPedidosComponent implements OnInit {
         );
       });
     } else if (option === 'Todos os Pedidos') {
-      this.pedidosService.listarPedidos().subscribe((pedidos) => {
-        this.pedidos = pedidos;
-      });
-      this.pedidos.sort((a, b) => {
-        const dateA = a.datadopedido ? new Date(a.datadopedido).getTime() : 0;
-        const dateB = b.datadopedido ? new Date(b.datadopedido).getTime() : 0;
-        return dateA - dateB;
-      });
+      this.listarPedidos();
+      };
     }
-  }
+
   AlterarStatus(pedido: Pedido) {
     if (pedido) {
       switch (pedido.statuspedido) {

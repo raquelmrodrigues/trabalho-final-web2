@@ -32,7 +32,7 @@ export class ConsultarPedidoComponent {
       this.pedido = pedido;
       this.pedidoService.setSomaDePrazos(pedido);
       this.pedidoService.setSomaDePrecos(pedido);
-      this.pedidoService.setStatusPedido([pedido]); 
+      this.pedidoService.setStatusPedido([pedido]);
       console.log(pedido.statuspedido)
     });
   }
@@ -81,5 +81,18 @@ export class ConsultarPedidoComponent {
     }
     },
     );
+  }
+  calculaMaiorPrazo(): number {
+    var itens = this.pedido.itens;
+    if (!itens || itens.length === 0) return 0;
+    var roupaMaiorPrazo = itens[0].roupa?.prazo;
+
+    for (let i = 1; i < itens.length; i++) {
+      var prazoAtual = itens[i]?.roupa?.prazo;
+      if (prazoAtual !== undefined && (roupaMaiorPrazo === undefined || prazoAtual > roupaMaiorPrazo))
+      roupaMaiorPrazo = prazoAtual;
+    }
+
+    return roupaMaiorPrazo ? roupaMaiorPrazo : 0;
   }
 }
