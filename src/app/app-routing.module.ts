@@ -48,27 +48,39 @@ const routes: Routes = [
     component: InicialFuncionarioComponent,
     canActivate: [AuthGuard],
     data: {
-    role: 'ADMIN,GERENTE,FUNC'
+    role: 'ADMIN,FUNC'
     }
   },
   {
     path: 'funcionario/confirmacaoRecolhimento',
-    component: ConfirmarRecolhimentoComponent
+    component: ConfirmarRecolhimentoComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'funcionario/listarPedidos',
-    component: ListarPedidosComponent
+    component: ListarPedidosComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'funcionario/novoFuncionario',
-    component: InserirFuncionarioComponent
+    component: InserirFuncionarioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN'
+    }
   },
   {
     path: 'funcionario/listarFuncionario',
     component: ListarFuncionarioComponent,
     canActivate: [AuthGuard],
     data: {
-    role: 'ADMIN,GERENTE'
+    role: 'ADMIN'
     }
   },
   {
@@ -77,62 +89,114 @@ const routes: Routes = [
     component: EditarFuncionarioComponent,
     canActivate: [AuthGuard],
     data: {
-    role: 'ADMIN,GERENTE'
+    role: 'ADMIN'
     }
 
   },
   {
     path: 'funcionario/listarManutencao',
-    component: ListarManutencaoComponent
+    component: ListarManutencaoComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'funcionario/editarManutencao',
-    component: EditarManutencaoComponent
+    component: EditarManutencaoComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'funcionario/editarManutencao/:id',
-    component: EditarManutencaoComponent
+    component: EditarManutencaoComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'funcionario/inserirManutencao',
-    component: InserirManutencaoComponent
+    component: InserirManutencaoComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
 
   },
   {
     path: 'cliente/inicialCliente',
-    component: InicialClienteComponent
+    component: InicialClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'CLIENTE'
+    }
   },
   {
     path: 'cliente/consultarPedido',
-    component: ConsultarPedidoComponent
+    component: ConsultarPedidoComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'CLIENTE'
+    }
   },
   {
     path: 'cliente/listarPedidosCliente',
-    component: ListarPedidosClienteComponent
+    component: ListarPedidosClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'CLIENTE'
+    }
   },
   {
     path: 'cliente/orcamentoCliente',
-    component: OrcamentoClienteComponent
+    component: OrcamentoClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'CLIENTE'
+    }
   },
   {
     path: 'cliente/pedidosCliente',
-    component: PedidosClienteComponent
+    component: PedidosClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'CLIENTE'
+    }
   },
   {
     path: 'relatorio/selecionarRelatorio',
-    component: SelecionarRelatorioComponent
+    component: SelecionarRelatorioComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'relatorio/relatorioCliente',
-    component: RelatorioClienteComponent
+    component: RelatorioClienteComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'relatorio/relatorioReceita',
-    component: RelatorioReceitaComponent
+    component: RelatorioReceitaComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
   {
     path: 'relatorio/relatorioFiel',
-    component: RelatorioClienteFielComponent
+    component: RelatorioClienteFielComponent,
+    canActivate: [AuthGuard],
+    data: {
+    role: 'ADMIN,FUNC'
+    }
   },
 
 ];
