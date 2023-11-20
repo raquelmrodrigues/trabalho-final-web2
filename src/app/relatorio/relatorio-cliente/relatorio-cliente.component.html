@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h1 class="titulo-tela my-5">Relatorio de clietes</h1>
+  <h1 class="titulo-tela my-5">Relatorio de clientes</h1>
 </div>
 
 <div class="row mx-5 px-5 justify-content-center">
@@ -7,25 +7,27 @@
     <thead class="table-giu">
       <tr>
         <th>Nome</th>
-        <th>Data ultimo pedido</th>
-        <th>Total dos pedidos</th>
+        <th>CPF</th>
+        <th>Email</th>
+        <th>Data de Nascimento</th>
+        <th>CEP</th>
+        <th>Rua</th>
+        <th>Bairro</th>
+        <th>Telefone</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Jao</td>
-        <td>21/12/2020</td>
-        <td>R$13.789,21</td>
-      </tr>
-      <tr>
-        <td>Kelvin</td>
-        <td>01/11/2009</td>
-        <td>R$2,93</td>
-      </tr>
-      <tr>
-        <td>Arquebispo</td>
-        <td>13/09/2023</td>
-        <td>R$19,78</td>
+      <tr *ngFor="let cliente of clientes; let i = index; " class="text-center">
+        <ng-container *ngIf="cliente.perfil === 'CLIENTE'">
+          <td>{{cliente.nome}}</td>
+          <td>{{cliente.cpf}}</td>
+          <td>{{cliente.email}}</td>
+          <td>{{cliente.dataDeNasc | date: 'dd/MM/YYY'}}</td>
+          <td>{{cliente.endereco?.cep}}</td>
+          <td>{{cliente.endereco?.rua}}</td>
+          <td>{{cliente.endereco?.bairro}}</td>
+          <td>{{cliente.telefone}}</td>
+        </ng-container>
       </tr>
     </tbody>
   </table>
