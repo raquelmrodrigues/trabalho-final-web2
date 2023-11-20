@@ -20,7 +20,7 @@
             <tbody>
               <tr *ngFor="let item of pedido.itens">
                 <td>{{ item.roupa?.peca }}</td>
-                <td> {{item.roupa?.preco}} </td>
+                <td> {{item.roupa?.preco | currency:'BRL':'symbol':'1.2-2'}} </td>
                 <td>
                   <button class="btn btn-giu item text-center align-middle m-1" (click)="decrementarQuantidade(item)">-</button>
                       {{ item.quantidade }}

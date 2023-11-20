@@ -172,7 +172,7 @@
                   CEP é Obrigatório.
                 </div>
             </div>
-            <div class="form-label col-md-4">
+            <div class="form-label col-md-4" [ngClass]="aplicaCssErro(rua)">
               <label>Rua:</label>
                   <input
                     class="form-control"
@@ -181,10 +181,16 @@
                     ngModel
                     type="text"
                     id="rua"
-                    placeholder="Ex: Rua XV de Novembro"
+                    #rua="ngModel"
+                    placeholder="Ex: Rua XV de Novembro" 
+                    required
                     />
+                    <div *ngIf="!rua.valid && rua.touched"
+                    class="alert alert-danger" role="alert">
+                      Rua é Obrigatório.
+                    </div>
             </div>
-            <div class="form-label col-md-4">
+            <div class="form-label col-md-4" [ngClass]="aplicaCssErro(bairro)">
               <label>Bairro:</label>
                 <input
                   name="bairro"
@@ -193,9 +199,14 @@
                   class="form-control"
                   type="text"
                   id="bairro"
+                  #bairro="ngModel"
                   placeholder="Ex: Boqueirão" />
+                  <div *ngIf="!bairro.valid && bairro.touched"
+                    class="alert alert-danger" role="alert">
+                      Bairro é Obrigatório.
+                  </div>
             </div>
-            <div class="form-label col-md-5">
+            <div class="form-label col-md-5" [ngClass]="aplicaCssErro(cidade)">
               <label>Cidade:</label>
               <input
                 name="cidade"
@@ -204,10 +215,15 @@
                 class="form-control"
                 type="text"
                 id="cidade"
+                #cidade="ngModel"
                 placeholder="Ex: Curitiba"
                 />
+                <div *ngIf="!cidade.valid && cidade.touched"
+                    class="alert alert-danger" role="alert">
+                      Cidade é Obrigatório.
+                  </div>
             </div>
-            <div class="form-label col-md-5">
+            <div class="form-label col-md-5" [ngClass]="aplicaCssErro(estado)">
               <label>Estado:</label>
                 <input
                   name="uf"
@@ -216,8 +232,13 @@
                   class="form-control"
                   type="text"
                   id="uf"
+                  #estado="ngModel"
                   placeholder="Ex: PR"
                   />
+                  <div *ngIf="!estado.valid && estado.touched"
+                    class="alert alert-danger" role="alert">
+                      Estado é Obrigatório.
+                  </div>
             </div>
             </form>
           <button type="submit" class="btn btn-cadastro d-grid col-4"
