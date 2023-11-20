@@ -30,11 +30,10 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
     this.cliente = new Usuario ();
   }
-  validarCPF(cpf:string): string{
+  validarCPF(cpf: string): boolean {
     cpf = cpf.replace(/\D/g, '');
-
     if (cpf.length !== 11) {
-      console.log('CPF deve ter 11 dígitos.');
+      throw new Error('CPF deve ter 11 dígitos.');
     }
 
     let sum = 0;
@@ -52,11 +51,11 @@ export class CadastroComponent implements OnInit {
     let digit2 = remainder >= 10 ? 0 : remainder;
 
     if (!(digit1 === parseInt(cpf.charAt(9)) && digit2 === parseInt(cpf.charAt(10)))) {
-      console.log('CPF inválido.');
+      throw new Error('CPF inválido.');
     }
-    console.log('CPF válido.')
-    return 'CPF válido.';
+    return true;
   }
+
 
   sucessoCadastro: boolean = false;
   erroCadastro: boolean = false;
@@ -81,7 +80,6 @@ export class CadastroComponent implements OnInit {
   }
 
   verificarSenhasIguais(): boolean {
-    console.log(this.cliente.senha, this.cliente.confirmacao)
     const senhasIguais = this.cliente.senha === this.cliente.confirmacao;
     return senhasIguais;
   }
@@ -93,10 +91,17 @@ export class CadastroComponent implements OnInit {
     return !campo.valid && campo.touched;
   }
 
+  aplicaCssErrocpf(cpf: string) {
+    try {
+      this.validarCPF(cpf);
+      return 'is-valid';
+    } catch (error) {
+      return 'is-invalid';
+    }
+  }
+
   aplicaCssErro(campo: any) {
     const hasError = this.verificaValidTouched(campo) && !campo.valid;
-    console.log('Campo:', campo);
-    console.log('Tem erro?', hasError);
     return {
       'has-error': hasError,
     };

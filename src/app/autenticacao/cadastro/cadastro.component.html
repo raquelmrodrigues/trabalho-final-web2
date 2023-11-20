@@ -48,7 +48,7 @@
               Nome é Obrigatório e não deve conter caracteres especiais.
               </div>
           </div>
-          <div class="form-group col-md-4" [ngClass]="aplicaCssErro(cpf)">
+          <div class="form-group col-md-4" [ngClass]="aplicaCssErrocpf(cliente.cpf)">
             <label>CPF</label>
             <input
               name="cpf"
@@ -60,13 +60,15 @@
               required
               (blur)="validarCPF($any($event.target).value)"
               #cpf="ngModel"
-              />
-              <div *ngIf="!cpf.valid && cpf.touched"
-              class="alert alert-danger" role="alert">
-                CPF é Obrigatório.
-              </div>
-
+            />
+            <div *ngIf="!cpf.valid && cpf.touched" class="alert alert-danger" role="alert">
+              CPF é Obrigatório.
+            </div>
+            <div *ngIf="aplicaCssErrocpf(cliente.cpf) === 'is-invalid'" class="alert alert-danger" role="alert">
+              CPF inválido.
+            </div>
           </div>
+
           <div class="form-group col-md-6" [ngClass]="aplicaCssErro(email)">
             <label>Email</label>
             <input
