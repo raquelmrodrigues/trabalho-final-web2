@@ -4,6 +4,7 @@ import { Pedido } from 'src/app/shared/models/pedido';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { PedidosService } from 'src/app/funcionario/services/pedidos.service';
 import { Router } from '@angular/router';
+import { RelatorioService } from '../services/relatorio.service';
 
 @Component({
   selector: 'app-relatorio-receita',
@@ -20,7 +21,8 @@ export class RelatorioReceitaComponent {
     private modalService: NgbModal,
     private cdr: ChangeDetectorRef,
     private pedidosService: PedidosService,
-    private router: Router
+    private router: Router,
+    private relatorio : RelatorioService
   ) {}
 
   ngOnInit():void{
@@ -30,6 +32,10 @@ export class RelatorioReceitaComponent {
     }
     
     )
+  }
+
+  gerarRelatorio(){
+    this.relatorio.generateReceitasPDF()
   }
 
   somaPedido(pedido: Pedido){
