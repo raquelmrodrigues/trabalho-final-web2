@@ -105,6 +105,7 @@ export class PedidosService {
     })
     pedido.valorTotal = total;
   }
+  
   setStatusPedido(pedidos: Pedido[]) {
     pedidos.forEach(pedidos => {
       const statusId = pedidos.statuspedido;
